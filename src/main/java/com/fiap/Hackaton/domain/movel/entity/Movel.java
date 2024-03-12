@@ -5,6 +5,8 @@ public class Movel {
     private Long id;
     private String nome;
 
+    public Movel(){}
+
     public Movel(Long id, String nome) {
         this.id = id;
         this.nome = nome;

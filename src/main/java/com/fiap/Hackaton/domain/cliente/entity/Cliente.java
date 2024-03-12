@@ -3,7 +3,6 @@ package com.fiap.Hackaton.domain.cliente.entity;
 import java.time.LocalDate;
 
 public class Cliente {
-
     private Long id;
     private String paisOrigem;
     private String cpf;

@@ -46,4 +46,9 @@ public class ClienteDatabaseGateway implements ClienteGateway {
         ClienteEntity clienteEntity = new ClienteEntity(cliente);
          repository.delete(clienteEntity);
     }
+
+    @Override
+    public Optional<Cliente> buscarPorCpf(String cpf){
+        return Optional.empty();
+    }
 }

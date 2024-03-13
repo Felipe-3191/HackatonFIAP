@@ -110,7 +110,21 @@ public class MvcConfig {
         ServicoGateway servicoGateway = new ServicoDatabaseGateway(repository);
         return new BuscarServicoUseCase(servicoGateway);
     }
-
+    @Bean
+    public BuscarTodosServicosUseCase buscarTodosServicosUseCase (ServicoRepository repository) {
+        ServicoGateway servicoGateway = new ServicoDatabaseGateway(repository);
+        return new BuscarTodosServicosUseCase(servicoGateway);
+    }
+    @Bean
+    public CriarServicoUseCase criarServicoUseCase (ServicoRepository repository) {
+        ServicoGateway servicoGateway = new ServicoDatabaseGateway(repository);
+        return new CriarServicoUseCase(servicoGateway);
+    }
+    @Bean
+    public DeletarServicoUseCase deletarServicoUseCase (ServicoRepository repository) {
+        ServicoGateway servicoGateway = new ServicoDatabaseGateway(repository);
+        return new DeletarServicoUseCase(servicoGateway);
+    }
     @Bean
     public AdicionarPredioUseCase adicionarPredioUseCase (HotelRepository repository, CriarPredioUseCase criarPredioUseCase) {
         HotelGateway hotelGateway = new HotelDatabaseGateway(repository);

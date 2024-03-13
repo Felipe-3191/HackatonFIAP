@@ -16,6 +16,11 @@ public class Servico {
         this.valor = valor;
     }
 
+    public Servico(String nome, BigDecimal valor) {
+        this.nome = nome;
+        this.valor = valor;
+    }
+
     public Long getId() {
         return id;
     }
@@ -26,5 +31,13 @@ public class Servico {
 
     public BigDecimal getValor() {
         return valor;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setValor(BigDecimal valor) {
+        this.valor = valor;
     }
 }

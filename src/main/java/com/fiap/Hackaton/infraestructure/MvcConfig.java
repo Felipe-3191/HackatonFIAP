@@ -2,12 +2,16 @@ package com.fiap.Hackaton.infraestructure;
 
 import com.fiap.Hackaton.domain.cliente.gateway.ClienteGateway;
 import com.fiap.Hackaton.domain.hotel.gateway.HotelGateway;
+import com.fiap.Hackaton.domain.hotel.servico.gateway.ServicoGateway;
 import com.fiap.Hackaton.infraestructure.cliente.gateway.ClienteDatabaseGateway;
 import com.fiap.Hackaton.infraestructure.cliente.repository.ClienteRepository;
 import com.fiap.Hackaton.infraestructure.hotel.gateway.HotelDatabaseGateway;
 import com.fiap.Hackaton.infraestructure.hotel.repository.HotelRepository;
+import com.fiap.Hackaton.infraestructure.hotel.servico.gateway.ServicoDatabaseGateway;
+import com.fiap.Hackaton.infraestructure.hotel.servico.repository.ServicoRepository;
 import com.fiap.Hackaton.usecase.cliente.*;
 import com.fiap.Hackaton.usecase.hotel.*;
+import com.fiap.Hackaton.usecase.servico.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -82,7 +86,7 @@ public class MvcConfig {
     @Bean
     public BuscarHotelPorNomeUseCase buscarHotelPorNomeUseCase (HotelRepository repository) {
         HotelGateway hotelGateway = new HotelDatabaseGateway(repository);
-        return new BuscarHotelPorNomeUseCase(git shotelGateway);
+        return new BuscarHotelPorNomeUseCase(hotelGateway);
     }
 
     @Bean
@@ -91,5 +95,33 @@ public class MvcConfig {
         return new DeletarHotelUseCase(hotelGateway);
     }
 
+    @Bean
+    public AtualizarServicoUseCase atualizarServicoUseCase (ServicoRepository repository) {
+        ServicoGateway servicoGateway = new ServicoDatabaseGateway(repository);
+        return new AtualizarServicoUseCase(servicoGateway);
+    }
 
+    @Bean
+    public BuscarServicoUseCase buscarServicoUseCase (ServicoRepository repository) {
+        ServicoGateway servicoGateway = new ServicoDatabaseGateway(repository);
+        return new BuscarServicoUseCase(servicoGateway);
+    }
+
+    @Bean
+    public BuscarTodosServicosUseCase buscarTodosServicosUseCase (ServicoRepository repository) {
+        ServicoGateway servicoGateway = new ServicoDatabaseGateway(repository);
+        return new BuscarTodosServicosUseCase(servicoGateway);
+    }
+
+    @Bean
+    public CriarServicoUseCase criarServicoUseCase (ServicoRepository repository) {
+        ServicoGateway servicoGateway = new ServicoDatabaseGateway(repository);
+        return new CriarServicoUseCase(servicoGateway);
+    }
+
+    @Bean
+    public DeletarServicoUseCase deletarServicoUseCase (ServicoRepository repository) {
+        ServicoGateway servicoGateway = new ServicoDatabaseGateway(repository);
+        return new DeletarServicoUseCase(servicoGateway);
+    }
 }

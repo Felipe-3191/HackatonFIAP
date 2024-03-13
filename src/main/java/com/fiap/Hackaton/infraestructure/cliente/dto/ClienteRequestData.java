@@ -1,5 +1,6 @@
 package com.fiap.Hackaton.infraestructure.cliente.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fiap.Hackaton.usecase.cliente.dto.IClienteRequestData;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -16,8 +17,9 @@ public record ClienteRequestData(
         String passaporte,
         @NotBlank(message = "Nome é obrigatório")
         String nome,
-        @Past(message = "Data de nascimento deve ser uma data no passado no formato dd/MM/yyyy")
-        @DateTimeFormat(pattern = "dd/MM/yyyy")
+        @Past(message = "Data de nascimento deve ser uma data no passado no formato yyyy-MM-dd")
+        @DateTimeFormat(pattern = "yyyy-MM-dd")
+        @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
         LocalDate dataNascimento,
         @NotBlank(message = "Endereço do país de origem é obrigatório")
         String enderecoPaisOrigem,

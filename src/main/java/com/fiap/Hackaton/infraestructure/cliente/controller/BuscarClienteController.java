@@ -1,6 +1,7 @@
 package com.fiap.Hackaton.infraestructure.cliente.controller;
 
 import com.fiap.Hackaton.domain.cliente.entity.Cliente;
+import com.fiap.Hackaton.infraestructure.cliente.dto.ClientePublicData;
 import com.fiap.Hackaton.usecase.cliente.BuscarClientePorNomeUseCase;
 import com.fiap.Hackaton.usecase.cliente.BuscarClienteUseCase;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -19,8 +20,8 @@ public class BuscarClienteController {
     }
 
     @GetMapping("/clientes/{id}")
-    public ResponseEntity<Cliente> buscarCliente(@PathVariable Long id) {
+    public ResponseEntity<ClientePublicData> buscarCliente(@PathVariable Long id) {
         Cliente cliente = buscarClienteUseCase.execute(id);
-        return ResponseEntity.ok(cliente);
+        return ResponseEntity.ok(new ClientePublicData(cliente));
     }
 }

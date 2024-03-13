@@ -2,13 +2,22 @@ package com.fiap.Hackaton.infraestructure.config.exception;
 
 import com.fiap.Hackaton.domain.cliente.gateway.ClienteGateway;
 import com.fiap.Hackaton.infraestructure.cliente.gateway.ClienteDatabaseGateway;
+import com.fiap.Hackaton.infraestructure.cliente.gateway.EnvioEmailGateway;
 import com.fiap.Hackaton.infraestructure.cliente.repository.ClienteRepository;
 import com.fiap.Hackaton.usecase.cliente.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.mail.javamail.JavaMailSender;
 
 @Configuration
 public class MvcConfig {
+
+
+
+    @Autowired
+    private JavaMailSender javaMailSender;
+
     @Bean
     public AtualizarClienteUseCase atualizarClienteUseCase(ClienteRepository repository){
         ClienteGateway clienteGateway = new ClienteDatabaseGateway(repository);
@@ -43,5 +52,15 @@ public class MvcConfig {
     public DeletarClienteUseCase deletarClienteUseCase(ClienteRepository repository){
         ClienteGateway clienteGateway = new ClienteDatabaseGateway(repository);
         return new DeletarClienteUseCase(clienteGateway);
+    }
+
+    @Bean
+    public EnvioEmailGateway envioEmailGateway() {
+        return new EnvioEmailGateway(javaMailSender);
+    }
+
+    @Bean
+    public EnvioEmailUseCase envioEmailUseCase(EnvioEmailGateway envioEmailGateway) {
+        return new EnvioEmailUseCase(envioEmailGateway);
     }
 }

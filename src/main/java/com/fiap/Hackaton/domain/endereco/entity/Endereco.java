@@ -19,6 +19,13 @@ public class Endereco {
         this.estado = estado;
     }
 
+    public Endereco(String estado, String logradouro, String cep, String cidade) {
+        this.logradouro = logradouro;
+        this.cep = cep;
+        this.cidade = cidade;
+        this.estado = estado;
+    }
+
     public Long getId() {
         return id;
     }

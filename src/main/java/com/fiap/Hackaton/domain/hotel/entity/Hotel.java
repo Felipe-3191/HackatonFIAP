@@ -21,6 +21,18 @@ public class Hotel {
 
     public Hotel() {}
 
+    public Hotel(Long id, String nome, Endereco endereco, List<Predio> predios,
+                 List<Amenidade> amenidades, List<Servico> servicosDisponiveis,
+                 List<Item> itensDiponiveis) {
+        this.id = id;
+        this.nome = nome;
+        this.endereco = endereco;
+        this.predios = predios;
+        this.amenidades = amenidades;
+        this.servicosDisponiveis = servicosDisponiveis;
+        this.itensDiponiveis = itensDiponiveis;
+    }
+
     public Hotel(Long id, String nome, Endereco endereco) {
         this.id = id;
         this.nome = nome;
@@ -30,6 +42,18 @@ public class Hotel {
         this.servicosDisponiveis = new ArrayList<>();
         this.itensDiponiveis = new ArrayList<>();
     }
+
+
+    public Hotel(String nome, Endereco endereco) {
+        this.nome = nome;
+        this.endereco = endereco;
+        this.predios = new ArrayList<>();
+        this.amenidades = new ArrayList<>();
+        this.servicosDisponiveis = new ArrayList<>();
+        this.itensDiponiveis = new ArrayList<>();
+    }
+
+
 
     public Long getId() {
         return id;
@@ -53,6 +77,15 @@ public class Hotel {
 
     public List<Servico> getServicosDisponiveis() {
         return servicosDisponiveis;
+    }
+
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
 
     public List<Item> getItensDiponiveis() {

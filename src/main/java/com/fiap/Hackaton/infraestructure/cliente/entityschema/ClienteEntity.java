@@ -29,7 +29,7 @@ public class ClienteEntity {
 
 
     public ClienteEntity(Cliente cliente){
-
+        this.id = cliente.getId();
         this.paisOrigem = cliente.getPaisOrigem();
         this.cpf = cliente.getCpf();
         this.passaporte = cliente.getPassaporte();
@@ -41,7 +41,7 @@ public class ClienteEntity {
     }
 
     public Cliente toCliente() {
-        Cliente cliente = new Cliente(
+        Cliente cliente = new Cliente(this.getId(),
                 this.getPaisOrigem(), this.getCpf(),this.getPassaporte(),
                 this.getNome(), this.getDataNascimento(),this.getEnderecoPaisOrigem(),this.getTelefone(),this.getEmail()
         );

@@ -22,12 +22,6 @@ public class MvcConfig {
     }
 
     @Bean
-    public BuscarClientePorNomeUseCase buscarClientePorNomeUseCase(ClienteRepository repository){
-        ClienteGateway clienteGateway = new ClienteDatabaseGateway(repository);
-        return new BuscarClientePorNomeUseCase(clienteGateway);
-    }
-
-    @Bean
     public BuscarClienteUseCase buscarClienteUseCase(ClienteRepository repository){
         ClienteGateway clienteGateway = new ClienteDatabaseGateway(repository);
         return new BuscarClienteUseCase(clienteGateway);

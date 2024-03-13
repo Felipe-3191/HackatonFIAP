@@ -1,6 +1,7 @@
 package com.fiap.Hackaton.usecase.cliente;
 
 import com.fiap.Hackaton.domain.cliente.entity.Cliente;
+import com.fiap.Hackaton.domain.cliente.exception.CpfJaCadastradoException;
 import com.fiap.Hackaton.domain.cliente.exception.CpfObrigatorioException;
 import com.fiap.Hackaton.domain.cliente.exception.PassaporteObrigatorioException;
 import com.fiap.Hackaton.domain.cliente.gateway.ClienteGateway;
@@ -25,6 +26,10 @@ public class CriarClienteUseCase {
         if(!eBrasileiro(dados.paisOrigem()) && passaporteNaoInformado(dados.passaporte()))
             throw new PassaporteObrigatorioException();
 
+        if(dados.cpf() != null && cpfCadastrado(dados.cpf())){
+            throw new CpfJaCadastradoException();
+        }
+
         Cliente cliente = new Cliente(
                 dados.paisOrigem(), dados.cpf(), dados.passaporte(),
                 dados.nome(), dados.dataNascimento(),
@@ -32,5 +37,9 @@ public class CriarClienteUseCase {
 
         return this.clienteGateway.criar(cliente);
 
+    }
+
+    private boolean cpfCadastrado(String cpf){
+        return this.clienteGateway.buscarPorCpf(cpf).isPresent();
     }
 }

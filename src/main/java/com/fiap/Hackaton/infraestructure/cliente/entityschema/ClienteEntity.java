@@ -1,15 +1,13 @@
 package com.fiap.Hackaton.infraestructure.cliente.entityschema;
 
 import com.fiap.Hackaton.domain.cliente.entity.Cliente;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
+@Table(name = "cliente")
 public class ClienteEntity {
 
 

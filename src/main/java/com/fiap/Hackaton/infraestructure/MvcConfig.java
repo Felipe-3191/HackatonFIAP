@@ -7,7 +7,7 @@ import com.fiap.Hackaton.infraestructure.cliente.repository.ClienteRepository;
 import com.fiap.Hackaton.infraestructure.hotel.gateway.HotelDatabaseGateway;
 import com.fiap.Hackaton.infraestructure.hotel.repository.HotelRepository;
 import com.fiap.Hackaton.usecase.cliente.*;
-import com.fiap.Hackaton.usecase.hotel.CriarHotelUseCase;
+import com.fiap.Hackaton.usecase.hotel.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -53,6 +53,42 @@ public class MvcConfig {
     public CriarHotelUseCase criarHotelUseCase(HotelRepository repository) {
         HotelGateway hotelGateway = new HotelDatabaseGateway(repository);
         return new CriarHotelUseCase(hotelGateway);
+    }
+
+    @Bean
+    public AtualizarHotelUseCase atualizarHotelUseCase(HotelRepository repository) {
+        HotelGateway hotelGateway = new HotelDatabaseGateway(repository);
+        return new AtualizarHotelUseCase(hotelGateway);
+    }
+
+    @Bean
+    public BuscarTodosHoteisUseCase buscarTodosHoteisUseCase (HotelRepository repository) {
+        HotelGateway hotelGateway = new HotelDatabaseGateway(repository);
+        return new BuscarTodosHoteisUseCase(hotelGateway);
+    }
+
+    @Bean
+    public BuscarHotelPorCEPUseCase buscarHotelPorCEPUseCase (HotelRepository repository) {
+        HotelGateway hotelGateway = new HotelDatabaseGateway(repository);
+        return new BuscarHotelPorCEPUseCase(hotelGateway);
+    }
+
+    @Bean
+    public BuscarHotelPorLogradouroUseCase buscarHotelPorLogradouroUseCase (HotelRepository repository) {
+        HotelGateway hotelGateway = new HotelDatabaseGateway(repository);
+        return new BuscarHotelPorLogradouroUseCase(hotelGateway);
+    }
+
+    @Bean
+    public BuscarHotelPorNomeUseCase buscarHotelPorNomeUseCase (HotelRepository repository) {
+        HotelGateway hotelGateway = new HotelDatabaseGateway(repository);
+        return new BuscarHotelPorNomeUseCase(git shotelGateway);
+    }
+
+    @Bean
+    public DeletarHotelUseCase deletarHotelUseCase (HotelRepository repository) {
+        HotelGateway hotelGateway = new HotelDatabaseGateway(repository);
+        return new DeletarHotelUseCase(hotelGateway);
     }
 
 

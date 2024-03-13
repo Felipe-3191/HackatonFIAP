@@ -1,12 +1,10 @@
 package com.fiap.Hackaton.infraestructure.endereco.entityschema;
 
 import com.fiap.Hackaton.domain.endereco.entity.Endereco;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "endereco")
 public class EnderecoEntity {
 
 

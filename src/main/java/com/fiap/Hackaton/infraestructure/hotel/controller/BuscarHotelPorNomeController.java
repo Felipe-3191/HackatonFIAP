@@ -1,0 +1,32 @@
+package com.fiap.Hackaton.infraestructure.hotel.controller;
+
+import com.fiap.Hackaton.infraestructure.hotel.dto.HotelPublicData;
+import com.fiap.Hackaton.usecase.hotel.BuscarHotelPorNomeUseCase;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+@Tag(name = "Hotel", description = "Hotel API")
+@Controller
+public class BuscarHotelPorNomeController {
+
+    private final BuscarHotelPorNomeUseCase buscarHotelPorNomeUseCase;
+
+    public BuscarHotelPorNomeController(BuscarHotelPorNomeUseCase buscarHotelPorNomeUseCase) {
+        this.buscarHotelPorNomeUseCase = buscarHotelPorNomeUseCase;
+    }
+
+    @GetMapping("/hotel/nome/{nome}")
+    @Operation(summary = "Buscar todos os hoteis por nome")
+    public ResponseEntity<List<HotelPublicData>> buscarTodosOsHoteisPorNome(@PathVariable String nome){
+        List<HotelPublicData> response = this.buscarHotelPorNomeUseCase.executar(nome).stream().map(HotelPublicData::new).collect(Collectors.toList());
+        return ResponseEntity.ok(response);
+    }
+
+}

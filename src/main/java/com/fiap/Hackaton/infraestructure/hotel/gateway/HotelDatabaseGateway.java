@@ -30,6 +30,12 @@ public class HotelDatabaseGateway implements HotelGateway {
     }
 
     @Override
+    public Hotel adicionarPredio(Hotel hotel) {
+        HotelEntity entity = new HotelEntity(hotel);
+        return this.repository.save(entity).toEntityWithPredios();
+    }
+
+    @Override
     public List<Hotel> listar() {
         return this.repository.findAll().stream().map(HotelEntity::toEntity).collect(Collectors.toList());
     }

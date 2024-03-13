@@ -43,6 +43,15 @@ public class Hotel {
         this.itensDiponiveis = new ArrayList<>();
     }
 
+    public Hotel(Long id, String nome, Endereco endereco, List<Predio> predios) {
+        this.id = id;
+        this.nome = nome;
+        this.endereco = endereco;
+        this.predios = predios;
+        this.amenidades = new ArrayList<>();
+        this.servicosDisponiveis = new ArrayList<>();
+        this.itensDiponiveis = new ArrayList<>();
+    }
 
     public Hotel(String nome, Endereco endereco) {
         this.nome = nome;
@@ -90,5 +99,9 @@ public class Hotel {
 
     public List<Item> getItensDiponiveis() {
         return itensDiponiveis;
+    }
+
+    public void addPredio(Predio predio) {
+        this.predios.add(predio);
     }
 }

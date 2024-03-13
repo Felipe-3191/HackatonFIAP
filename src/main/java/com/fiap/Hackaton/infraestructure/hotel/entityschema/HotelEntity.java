@@ -4,8 +4,14 @@ package com.fiap.Hackaton.infraestructure.hotel.entityschema;
 
 
 import com.fiap.Hackaton.domain.hotel.entity.Hotel;
+import com.fiap.Hackaton.domain.predio.entity.Predio;
 import com.fiap.Hackaton.infraestructure.endereco.entityschema.EnderecoEntity;
+import com.fiap.Hackaton.infraestructure.predio.entityschema.PredioEntity;
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "hotel")
@@ -22,6 +28,8 @@ public class HotelEntity {
     @JoinColumn(name = "endereco_id", referencedColumnName = "id")
     private EnderecoEntity endereco;
 
+    @OneToMany(mappedBy = "hotel")
+    private List<PredioEntity> predios = new ArrayList<>();
 
     public HotelEntity(){}
 
@@ -42,6 +50,17 @@ public class HotelEntity {
 
     }
 
+    public Hotel toEntityWithPredios(){
+
+        return new Hotel(
+                this.getId(),
+                this.nome,
+                this.endereco.toEntity(),
+                this.predios.stream().map(PredioEntity::toEntity).collect(Collectors.toList())
+        );
+
+
+    }
 
     public Long getId() {
         return id;

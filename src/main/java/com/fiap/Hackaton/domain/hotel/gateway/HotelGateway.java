@@ -12,6 +12,8 @@ public interface HotelGateway {
 
     Hotel atualizar (Hotel hotel);
 
+    Hotel adicionarPredio(Hotel hotel);
+
     List<Hotel> listar ();
 
     Optional<Hotel> buscarPorId(Long id);
@@ -20,6 +22,8 @@ public interface HotelGateway {
     Optional<List<Hotel>> buscarPorLogradouro (String endereco);
 
     Optional<List<Hotel>> buscarPorCep (String cep);
+
+
 
 
     void deletar(Hotel hotel);

@@ -27,8 +27,23 @@ public class ClienteDatabaseGateway implements ClienteGateway {
 
     @Override
     public Cliente atualizar(Cliente cliente) {
-        ClienteEntity clienteEntity = new ClienteEntity(cliente);
-        return repository.save(clienteEntity).toCliente();
+        if (cliente.getId() == null) {
+            throw new IllegalArgumentException("Cliente ID não pode ser nulo ao atualizar");
+        }
+        Optional<ClienteEntity> optionalClienteEntity = repository.findById(cliente.getId());
+        if (optionalClienteEntity.isEmpty()) {
+            throw new IllegalArgumentException("Cliente com ID " + cliente.getId() + " não encontrado");
+        }
+        ClienteEntity encontrado = optionalClienteEntity.get();
+        encontrado.setNome(cliente.getNome());
+        encontrado.setCpf(cliente.getCpf());
+        encontrado.setEmail(cliente.getEmail());
+        encontrado.setDataNascimento(cliente.getDataNascimento());
+        encontrado.setPassaporte(cliente.getPassaporte());
+        encontrado.setPaisOrigem(cliente.getPaisOrigem());
+        encontrado.setTelefone(cliente.getTelefone());
+        encontrado.setEnderecoPaisOrigem(cliente.getEnderecoPaisOrigem());
+        return repository.save(encontrado).toCliente();
     }
 
     @Override
@@ -44,11 +59,6 @@ public class ClienteDatabaseGateway implements ClienteGateway {
     @Override
     public Optional<Cliente> buscarPorCpf(String cpf){
         return repository.findByCpf(cpf).map(ClienteEntity::toCliente);
-    }
-
-    @Override
-    public Optional<Cliente> buscarPorNome(String nome){
-        return repository.findByNome(nome).map(ClienteEntity::toCliente);
     }
 
     @Override

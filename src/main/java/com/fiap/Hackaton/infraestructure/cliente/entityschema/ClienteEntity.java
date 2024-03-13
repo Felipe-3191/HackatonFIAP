@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 @Entity
 public class ClienteEntity {
@@ -29,7 +30,7 @@ public class ClienteEntity {
 
 
     public ClienteEntity(Cliente cliente){
-
+        this.id = cliente.getId();
         this.paisOrigem = cliente.getPaisOrigem();
         this.cpf = cliente.getCpf();
         this.passaporte = cliente.getPassaporte();
@@ -41,7 +42,7 @@ public class ClienteEntity {
     }
 
     public Cliente toCliente() {
-        Cliente cliente = new Cliente(
+        Cliente cliente = new Cliente(this.getId(),
                 this.getPaisOrigem(), this.getCpf(),this.getPassaporte(),
                 this.getNome(), this.getDataNascimento(),this.getEnderecoPaisOrigem(),this.getTelefone(),this.getEmail()
         );
@@ -137,5 +138,15 @@ public class ClienteEntity {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ClienteEntity that = (ClienteEntity) o;
+        return Objects.equals(id, that.id) &&
+                Objects.equals(nome, that.nome) &&
+                Objects.equals(cpf, that.cpf);
     }
 }

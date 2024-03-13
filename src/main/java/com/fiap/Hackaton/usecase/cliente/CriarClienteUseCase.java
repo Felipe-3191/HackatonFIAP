@@ -1,8 +1,11 @@
 package com.fiap.Hackaton.usecase.cliente;
 
 import com.fiap.Hackaton.domain.cliente.entity.Cliente;
+import com.fiap.Hackaton.domain.cliente.exception.CpfObrigatorioException;
 import com.fiap.Hackaton.domain.cliente.gateway.ClienteGateway;
 import com.fiap.Hackaton.usecase.cliente.dto.IClienteRequestData;
+
+import static com.fiap.Hackaton.usecase.cliente.utils.ClienteUtils.*;
 
 public class CriarClienteUseCase {
 
@@ -13,7 +16,14 @@ public class CriarClienteUseCase {
         this.clienteGateway = clienteGateway;
     }
 
-    public Cliente executar (IClienteRequestData dados){
+    public Cliente executar (IClienteRequestData dados) {
+
+        if(eBrasileiro(dados.paisOrigem()) && cpfNaoInformado(dados.cpf()))
+            throw new CpfObrigatorioException();
+
+        if(!eBrasileiro(dados.paisOrigem()) && passaporteNaoInformado(dados.passaporte()))
+            throw new CpfObrigatorioException();
+
         Cliente cliente = new Cliente(
                 dados.paisOrigem(), dados.cpf(), dados.passaporte(),
                 dados.nome(), dados.dataNascimento(),

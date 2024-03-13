@@ -4,6 +4,7 @@ import com.fiap.Hackaton.domain.cliente.entity.Cliente;
 import com.fiap.Hackaton.infraestructure.cliente.dto.ClientePublicData;
 import com.fiap.Hackaton.usecase.cliente.BuscarClientePorNomeUseCase;
 import com.fiap.Hackaton.usecase.cliente.BuscarClienteUseCase;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +21,7 @@ public class BuscarClienteController {
     }
 
     @GetMapping("/clientes/{id}")
+    @Operation(summary = "Buscar cliente por id")
     public ResponseEntity<ClientePublicData> buscarCliente(@PathVariable Long id) {
         Cliente cliente = buscarClienteUseCase.execute(id);
         return ResponseEntity.ok(new ClientePublicData(cliente));

@@ -1,4 +1,4 @@
-package com.fiap.Hackaton.infraestructure.config.exception;
+package com.fiap.Hackaton.infraestructure;
 
 import com.fiap.Hackaton.domain.cliente.gateway.ClienteGateway;
 import com.fiap.Hackaton.infraestructure.cliente.gateway.ClienteDatabaseGateway;
@@ -31,6 +31,12 @@ public class MvcConfig {
     public BuscarClienteUseCase buscarClienteUseCase(ClienteRepository repository){
         ClienteGateway clienteGateway = new ClienteDatabaseGateway(repository);
         return new BuscarClienteUseCase(clienteGateway);
+    }
+
+    @Bean
+    public BuscarTodosClientesUseCase buscarTodosClientesUseCase(ClienteRepository repository){
+        ClienteGateway clienteGateway = new ClienteDatabaseGateway(repository);
+        return new BuscarTodosClientesUseCase(clienteGateway);
     }
 
     @Bean

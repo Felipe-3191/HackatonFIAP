@@ -1,6 +1,7 @@
 package com.fiap.Hackaton.infraestructure.cliente.controller;
 
 import com.fiap.Hackaton.usecase.cliente.DeletarClienteUseCase;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,6 +19,7 @@ public class DeletarClienteController {
     }
 
     @DeleteMapping("/clientes/{id}")
+    @Operation(summary = "Deletar cliente")
     public ResponseEntity<Void> deletarCliente(@PathVariable Long id) {
         deletarClienteUseCase.execute(id);
         return ResponseEntity.noContent().build();

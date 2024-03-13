@@ -15,6 +15,8 @@ public interface ClienteGateway {
 
     Optional<Cliente> buscarPorId(Long id);
 
-    void deletar(Cliente cliente);
     Optional<Cliente> buscarPorCpf(String cpf);
+    Optional<Cliente> buscarPorNome(String nome);
+    void deletar(Cliente cliente);
+
 }

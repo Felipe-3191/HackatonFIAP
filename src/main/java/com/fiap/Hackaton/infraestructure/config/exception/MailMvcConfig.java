@@ -11,14 +11,14 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.mail.javamail.JavaMailSender;
 
 @Configuration
-public class MvcConfig {
+public class MailMvcConfig {
 
 
 
     @Autowired
     private JavaMailSender javaMailSender;
 
-    @Bean
+    /*@Bean
     public AtualizarClienteUseCase atualizarClienteUseCase(ClienteRepository repository){
         ClienteGateway clienteGateway = new ClienteDatabaseGateway(repository);
         return new AtualizarClienteUseCase(clienteGateway);
@@ -30,7 +30,7 @@ public class MvcConfig {
         return new BuscarClientePorCpfUseCase(clienteGateway);
     }
 
-    @Bean
+   /* @Bean
     public BuscarClientePorNomeUseCase buscarClientePorNomeUseCase(ClienteRepository repository){
         ClienteGateway clienteGateway = new ClienteDatabaseGateway(repository);
         return new BuscarClientePorNomeUseCase(clienteGateway);
@@ -53,6 +53,8 @@ public class MvcConfig {
         ClienteGateway clienteGateway = new ClienteDatabaseGateway(repository);
         return new DeletarClienteUseCase(clienteGateway);
     }
+
+*/
 
     @Bean
     public EnvioEmailGateway envioEmailGateway() {

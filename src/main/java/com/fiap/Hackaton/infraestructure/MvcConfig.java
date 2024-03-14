@@ -11,7 +11,7 @@ import com.fiap.Hackaton.infraestructure.predio.gateway.PredioDatabaseGateway;
 import com.fiap.Hackaton.infraestructure.predio.repository.PredioRepository;
 import com.fiap.Hackaton.usecase.cliente.*;
 import com.fiap.Hackaton.usecase.hotel.*;
-import com.fiap.Hackaton.usecase.predio.*;
+import com.fiap.Hackaton.usecase.predio.CriarPredioUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -145,10 +145,36 @@ public class MvcConfig {
         PredioGateway predioGateway = new PredioDatabaseGateway(repository);
         return new CriarPredioUseCase(predioGateway);
     }
-
-    @Bean
+    
+@Bean
     public DeletarPredioUseCase deletarPredioUseCase (PredioRepository repository){
         PredioGateway predioGateway = new PredioDatabaseGateway(repository);
         return new DeletarPredioUseCase(predioGateway);
+    }
+
+    @Bean
+    public AtualizarItemUseCase atualizarItemUseCase (ItemRepository repository) {
+        ItemGateway itemGateway = new ItemDatabaseGateway(repository);
+        return new AtualizarItemUseCase(itemGateway);
+    }
+    @Bean
+    public BuscarItemUseCase buscarItemUseCase (ItemRepository repository) {
+        ItemGateway itemGateway = new ItemDatabaseGateway(repository);
+        return new BuscarItemUseCase(itemGateway);
+    }
+    @Bean
+    public BuscarTodosItensUseCase buscarTodosItensUseCase (ItemRepository repository) {
+        ItemGateway itemGateway = new ItemDatabaseGateway(repository);
+        return new BuscarTodosItensUseCase(itemGateway);
+    }
+    @Bean
+    public CriarItemUseCase criarItemUseCase (ItemRepository repository) {
+        ItemGateway itemGateway = new ItemDatabaseGateway(repository);
+        return new CriarItemUseCase(itemGateway);
+    }
+    @Bean
+    public DeletarItemUseCase deletarItemUseCase (ItemRepository repository) {
+        ItemGateway itemGateway = new ItemDatabaseGateway(repository);
+        return new DeletarItemUseCase(itemGateway);
     }
 }

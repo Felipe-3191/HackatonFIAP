@@ -11,7 +11,7 @@ import com.fiap.Hackaton.infraestructure.predio.gateway.PredioDatabaseGateway;
 import com.fiap.Hackaton.infraestructure.predio.repository.PredioRepository;
 import com.fiap.Hackaton.usecase.cliente.*;
 import com.fiap.Hackaton.usecase.hotel.*;
-import com.fiap.Hackaton.usecase.predio.CriarPredioUseCase;
+import com.fiap.Hackaton.usecase.predio.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -103,10 +103,52 @@ public class MvcConfig {
         return new AdicionarPredioUseCase(hotelGateway, criarPredioUseCase);
     }
 
+    @Bean
+    public RemoverPredioUseCase removerPredioUseCase (HotelRepository repository, DeletarPredioUseCase deletarPredioUseCase) {
+        HotelGateway hotelGateway = new HotelDatabaseGateway(repository);
+
+        return new RemoverPredioUseCase(hotelGateway, deletarPredioUseCase);
+    }
+
+    @Bean
+    public BuscarTodosPrediosUseCase buscarTodosPrediosUseCase (PredioRepository repository) {
+        PredioGateway predioGateway = new PredioDatabaseGateway(repository);
+
+        return new BuscarTodosPrediosUseCase(predioGateway);
+    }
+
+    @Bean
+    public BuscarPredioUseCase buscarPredioUseCase (PredioRepository repository) {
+        PredioGateway predioGateway = new PredioDatabaseGateway(repository);
+
+        return new BuscarPredioUseCase(predioGateway);
+    }
+
+
+    @Bean
+    public BuscarPredioPorNomeUseCase buscarPredioPorNomeUseCase (PredioRepository repository) {
+        PredioGateway predioGateway = new PredioDatabaseGateway(repository);
+
+        return new BuscarPredioPorNomeUseCase(predioGateway);
+    }
+
+
+    @Bean
+    public AtualizarPredioUseCase atualizarPredioUseCase (PredioRepository repository) {
+        PredioGateway predioGateway = new PredioDatabaseGateway(repository);
+
+        return new AtualizarPredioUseCase(predioGateway);
+    }
 
     @Bean
     public CriarPredioUseCase criarPredioUseCase (PredioRepository repository) {
         PredioGateway predioGateway = new PredioDatabaseGateway(repository);
         return new CriarPredioUseCase(predioGateway);
+    }
+
+    @Bean
+    public DeletarPredioUseCase deletarPredioUseCase (PredioRepository repository){
+        PredioGateway predioGateway = new PredioDatabaseGateway(repository);
+        return new DeletarPredioUseCase(predioGateway);
     }
 }

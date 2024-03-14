@@ -17,7 +17,9 @@ public class TipoQuartoEntity {
 
     private String nomeTipo;
     private Integer capacidadeTotal;
-    private Integer quantidadeCamas;
+    private String quantidadeCamas;
+    private String banheiro;
+
 
     @ManyToMany
     @JoinTable(
@@ -30,10 +32,10 @@ public class TipoQuartoEntity {
     @JoinColumn(name = "tipo_quarto_id")
     private List<QuartoEntity> quartoEntities;
 
-    public TipoQuartoEntity(){
+    public TipoQuartoEntity() {
     }
 
-    public TipoQuartoEntity(Long id, String nomeTipo, Integer capacidadeTotal, Integer quantidadeCamas){
+    public TipoQuartoEntity(Long id, String nomeTipo, Integer capacidadeTotal, String quantidadeCamas, String banheiro) {
         this.id = id;
         this.nomeTipo = nomeTipo;
         this.capacidadeTotal = capacidadeTotal;
@@ -42,12 +44,13 @@ public class TipoQuartoEntity {
 
     public TipoQuartoEntity(TipoQuarto tipoQuarto) {
         this.id = tipoQuarto.getId();
-        this.nomeTipo = tipoQuarto.getNomeTipo();;
+        this.nomeTipo = tipoQuarto.getNomeTipo();
+        ;
         this.capacidadeTotal = tipoQuarto.getCapacidadeTotal();
         this.quantidadeCamas = tipoQuarto.getQuantidadeCamas();
     }
 
-    public static List<TipoQuarto> toTipoQuartoList(List<TipoQuartoEntity> listTipoQuartoEntity){
+    public static List<TipoQuarto> toTipoQuartoList(List<TipoQuartoEntity> listTipoQuartoEntity) {
         return listTipoQuartoEntity.stream().map(TipoQuartoEntity::toEntity).toList();
     }
 
@@ -56,7 +59,8 @@ public class TipoQuartoEntity {
                 this.id,
                 this.nomeTipo,
                 this.capacidadeTotal,
-                this.quantidadeCamas
+                this.quantidadeCamas,
+                this.banheiro
         );
     }
 
@@ -66,39 +70,49 @@ public class TipoQuartoEntity {
                 this.nomeTipo,
                 this.capacidadeTotal,
                 this.quantidadeCamas,
+                this.banheiro,
                 this.movelEntities.stream().map(MovelEntity::toEntity).toList()
         );
     }
 
-    public Long getId(){
+    public Long getId() {
         return id;
     }
 
-    public void setId(Long id){
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getNomeTipo(){
+    public String getNomeTipo() {
         return nomeTipo;
     }
 
-    public void setNomeTipo(String nomeTipo){
+    public void setNomeTipo(String nomeTipo) {
         this.nomeTipo = nomeTipo;
     }
 
-    public Integer getCapacidadeTotal(){
+    public Integer getCapacidadeTotal() {
         return capacidadeTotal;
     }
 
-    public void setCapacidadeTotal(Integer capacidadeTotal){
+    public void setCapacidadeTotal(Integer capacidadeTotal) {
         this.capacidadeTotal = capacidadeTotal;
     }
 
-    public Integer getQuantidadeCamas(){
+    public String getQuantidadeCamas() {
         return quantidadeCamas;
     }
 
-    public void setQuantidadeCamas(Integer quantidadeCamas){
+    public void setQuantidadeCamas(String quantidadeCamas) {
         this.quantidadeCamas = quantidadeCamas;
     }
+
+    public String getBanheiro() {
+        return banheiro;
+    }
+
+    public void setBanheiro(String banheiro) {
+        this.banheiro = banheiro;
+    }
+
 }

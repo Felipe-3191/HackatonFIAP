@@ -8,23 +8,26 @@ public class TipoQuarto {
     private Long id;
     private String nomeTipo;
     private Integer capacidadeTotal;
-    private Integer quantidadeCamas;
+    private String quantidadeCamas;
+    private String banheiro;
 
     private List<Movel> moveis;
 
     public TipoQuarto(){}
 
-    public TipoQuarto(Long id, String nomeTipo, Integer capacidadeTotal, Integer quantidadeCamas) {
+    public TipoQuarto(Long id, String nomeTipo, Integer capacidadeTotal, String quantidadeCamas, String banheiro) {
         this.id = id;
         this.nomeTipo = nomeTipo;
         this.capacidadeTotal = capacidadeTotal;
         this.quantidadeCamas = quantidadeCamas;
+        this.banheiro = banheiro;
     }
-    public TipoQuarto(Long id, String nomeTipo, Integer capacidadeTotal, Integer quantidadeCamas, List<Movel> moveis) {
+    public TipoQuarto(Long id, String nomeTipo, Integer capacidadeTotal, String quantidadeCamas, String banheiro, List<Movel> moveis) {
         this.id = id;
         this.nomeTipo = nomeTipo;
         this.capacidadeTotal = capacidadeTotal;
         this.quantidadeCamas = quantidadeCamas;
+        this.banheiro = banheiro;
         this.moveis = moveis;
     }
 
@@ -40,7 +43,7 @@ public class TipoQuarto {
         return capacidadeTotal;
     }
 
-    public Integer getQuantidadeCamas() {
+    public String getQuantidadeCamas() {
         return quantidadeCamas;
     }
 
@@ -56,7 +59,7 @@ public class TipoQuarto {
         this.capacidadeTotal = capacidadeTotal;
     }
 
-    public void setQuantidadeCamas(Integer quantidadeCamas){
+    public void setQuantidadeCamas(String quantidadeCamas){
         this.quantidadeCamas = quantidadeCamas;
     }
 

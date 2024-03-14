@@ -10,6 +10,7 @@ public record HotelPublicData(
          Endereco endereco
 
 
+
 ) {
     public HotelPublicData(Hotel hotel) {
 

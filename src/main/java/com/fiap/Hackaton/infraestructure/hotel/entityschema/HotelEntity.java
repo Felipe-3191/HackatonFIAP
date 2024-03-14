@@ -3,14 +3,18 @@ package com.fiap.Hackaton.infraestructure.hotel.entityschema;
 
 
 
+import com.fiap.Hackaton.domain.amenidade.entity.Amenidade;
 import com.fiap.Hackaton.domain.hotel.entity.Hotel;
-import com.fiap.Hackaton.domain.predio.entity.Predio;
+
+import com.fiap.Hackaton.infraestructure.amenidade.entityschema.AmenidadeEntity;
 import com.fiap.Hackaton.infraestructure.endereco.entityschema.EnderecoEntity;
 import com.fiap.Hackaton.infraestructure.predio.entityschema.PredioEntity;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Entity
@@ -31,6 +35,15 @@ public class HotelEntity {
     @OneToMany(mappedBy = "hotel")
     private List<PredioEntity> predios = new ArrayList<>();
 
+
+    @ManyToMany
+    @JoinTable(name = "hotel_amenidades",
+    joinColumns = @JoinColumn(name = "hotel_id"),
+    inverseJoinColumns = @JoinColumn(name = "amenidade_id"))
+    private Set<AmenidadeEntity> amenidades = new HashSet<>();
+
+
+
     public HotelEntity(){}
 
     public HotelEntity(Hotel hotel){
@@ -50,6 +63,21 @@ public class HotelEntity {
 
     }
 
+    public Hotel toCompleteEntity() {
+        return new Hotel(
+                this.getId(),
+                this.nome,
+                this.endereco.toEntity(),
+                this.predios.stream().map(PredioEntity::toEntity).collect(Collectors.toList()),
+                this.amenidades.stream().map(AmenidadeEntity::toEntity).collect(Collectors.toList()),
+                null,
+                null
+
+
+        );
+    }
+
+
     public Hotel toEntityWithPredios(){
 
         return new Hotel(
@@ -58,8 +86,6 @@ public class HotelEntity {
                 this.endereco.toEntity(),
                 this.predios.stream().map(PredioEntity::toEntity).collect(Collectors.toList())
         );
-
-
     }
 
     public Long getId() {
@@ -84,5 +110,21 @@ public class HotelEntity {
 
     public void setEndereco(EnderecoEntity endereco) {
         this.endereco = endereco;
+    }
+
+    public List<PredioEntity> getPredios() {
+        return predios;
+    }
+
+    public void setPredios(List<PredioEntity> predios) {
+        this.predios = predios;
+    }
+
+    public Set<AmenidadeEntity> getAmenidades() {
+        return amenidades;
+    }
+
+    public void setAmenidades(Set<AmenidadeEntity> amenidades) {
+        this.amenidades = amenidades;
     }
 }

@@ -42,12 +42,12 @@ public class HotelDatabaseGateway implements HotelGateway {
 
     @Override
     public Optional<Hotel> buscarPorId(Long id) {
-        return this.repository.findById(id).map(HotelEntity::toEntity);
+        return this.repository.findById(id).map(HotelEntity::toCompleteEntity);
     }
 
     @Override
     public Optional<List<Hotel>> buscarPorNome(String nome) {
-        return this.repository.findByNome(nome).map(l -> l.stream().map(HotelEntity::toEntity).collect(Collectors.toList()));
+        return this.repository.findByNome(nome).map(l -> l.stream().map(HotelEntity::toCompleteEntity).collect(Collectors.toList()));
     }
 
     @Override

@@ -28,7 +28,7 @@ public class PredioDatabaseGateway implements PredioGateway {
     @Override
     public Predio atualizar(Predio predio) {
         PredioEntity predioEntity = new PredioEntity(predio);
-        return repository.save(predioEntity).toEntity();
+        return repository.save(predioEntity).toSimpleEntity();
     }
 
     @Override

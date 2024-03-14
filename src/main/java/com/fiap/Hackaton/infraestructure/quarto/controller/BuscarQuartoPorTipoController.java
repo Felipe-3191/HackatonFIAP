@@ -3,6 +3,7 @@ package com.fiap.Hackaton.infraestructure.quarto.controller;
 import com.fiap.Hackaton.domain.quarto.entity.Quarto;
 import com.fiap.Hackaton.domain.quarto.tipoquarto.entity.TipoQuarto;
 import com.fiap.Hackaton.infraestructure.quarto.dto.QuartoPublicData;
+import com.fiap.Hackaton.infraestructure.quarto.dto.QuartoSearchResponseData;
 import com.fiap.Hackaton.usecase.quarto.usecases.BuscarQuartoPorIdUseCase;
 import com.fiap.Hackaton.usecase.quarto.usecases.BuscarQuartoPorTipoUseCase;
 import io.swagger.v3.oas.annotations.Operation;
@@ -27,10 +28,10 @@ public class BuscarQuartoPorTipoController {
 
     @GetMapping("/quartos/tipo/{tipo}")
     @Operation(summary = "Buscar quarto por tipo de quarto")
-    public ResponseEntity<List<QuartoPublicData>> buscarQuarto(@PathVariable TipoQuarto tipoQuarto) {
+    public ResponseEntity<List<QuartoSearchResponseData>> buscarQuarto(@PathVariable TipoQuarto tipoQuarto) {
         List<Quarto> quartos = buscarQuartoPorTipoUseCase.execute(tipoQuarto);
-        List<QuartoPublicData> quartosPublicData = quartos.stream()
-                .map(quarto -> new QuartoPublicData(quarto))
+        List<QuartoSearchResponseData> quartosPublicData = quartos.stream()
+                .map(quarto -> new QuartoSearchResponseData(quarto))
                 .collect(Collectors.toList());
         return ResponseEntity.ok(quartosPublicData);
     }

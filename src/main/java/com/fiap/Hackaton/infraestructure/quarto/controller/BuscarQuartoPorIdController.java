@@ -2,6 +2,7 @@ package com.fiap.Hackaton.infraestructure.quarto.controller;
 
 import com.fiap.Hackaton.domain.quarto.entity.Quarto;
 import com.fiap.Hackaton.infraestructure.quarto.dto.QuartoPublicData;
+import com.fiap.Hackaton.infraestructure.quarto.dto.QuartoSearchResponseData;
 import com.fiap.Hackaton.usecase.quarto.usecases.BuscarQuartoPorIdUseCase;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -22,8 +23,8 @@ public class BuscarQuartoPorIdController {
 
     @GetMapping("/quartos/{id}")
     @Operation(summary = "Buscar quarto por id")
-    public ResponseEntity<QuartoPublicData> buscarQuarto(@PathVariable Long id) {
+    public ResponseEntity<QuartoSearchResponseData> buscarQuarto(@PathVariable Long id) {
         Quarto quarto = buscarQuartoPorIdUseCase.execute(id);
-        return ResponseEntity.ok(new QuartoPublicData(quarto));
+        return ResponseEntity.ok(new QuartoSearchResponseData(quarto));
     }
 }

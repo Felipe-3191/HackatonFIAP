@@ -2,6 +2,7 @@ package com.fiap.Hackaton.infraestructure.quarto.controller;
 
 import com.fiap.Hackaton.domain.quarto.entity.Quarto;
 import com.fiap.Hackaton.infraestructure.quarto.dto.QuartoPublicData;
+import com.fiap.Hackaton.infraestructure.quarto.dto.QuartoSearchResponseData;
 import com.fiap.Hackaton.usecase.quarto.usecases.BuscarQuartoPorQuantidadeDeHospedesUseCase;
 import com.fiap.Hackaton.usecase.quarto.usecases.BuscarTodosQuartosUseCase;
 import io.swagger.v3.oas.annotations.Operation;
@@ -26,10 +27,10 @@ public class BuscarTodosQuartosController {
 
     @GetMapping("/quartos")
     @Operation(summary = "Buscar todos quartos")
-    public ResponseEntity<List<QuartoPublicData>> buscarQuartos() {
+    public ResponseEntity<List<QuartoSearchResponseData>> buscarQuartos() {
         List<Quarto> quartos = buscarTodosQuartosUseCase.execute();
-        List<QuartoPublicData> quartosPublicData = quartos.stream()
-                .map(quarto -> new QuartoPublicData(quarto))
+        List<QuartoSearchResponseData> quartosPublicData = quartos.stream()
+                .map(quarto -> new QuartoSearchResponseData(quarto))
                 .collect(Collectors.toList());
         return ResponseEntity.ok(quartosPublicData);
     }

@@ -4,7 +4,10 @@ package com.fiap.Hackaton.infraestructure.predio.entityschema;
 
 import com.fiap.Hackaton.domain.predio.entity.Predio;
 import com.fiap.Hackaton.infraestructure.hotel.entityschema.HotelEntity;
+import com.fiap.Hackaton.infraestructure.quarto.entitySchema.QuartoEntity;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 
 @Entity
@@ -19,6 +22,9 @@ public class PredioEntity {
     @JoinColumn(name = "hotel_id")
     private HotelEntity hotel;
 
+    @OneToMany
+    @JoinColumn(name = "predio_id")
+    private List<QuartoEntity> quartoEntities;
 
     public PredioEntity(){}
 

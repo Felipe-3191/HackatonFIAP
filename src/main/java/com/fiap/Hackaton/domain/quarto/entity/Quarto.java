@@ -1,17 +1,14 @@
 package com.fiap.Hackaton.domain.quarto.entity;
 
-import com.fiap.Hackaton.domain.movel.entity.Movel;
 import com.fiap.Hackaton.domain.predio.entity.Predio;
 import com.fiap.Hackaton.domain.quarto.tipoquarto.entity.TipoQuarto;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Quarto {
 
     private Long id;
-    private Long idPredio;
+    private Predio predio;
     private Long idHotel;
     private BigDecimal valorDiaria;
     private Status status;
@@ -20,9 +17,9 @@ public class Quarto {
 
     public Quarto(){}
 
-    public Quarto(Long id, Long idPredio, Long idHotel, BigDecimal valorDiaria, Status status, TipoQuarto tipoQuarto){
+    public Quarto(Long id, Predio predio, Long idHotel, BigDecimal valorDiaria, Status status, TipoQuarto tipoQuarto){
         this.id = id;
-        this.idPredio = idPredio;
+        this.predio = predio;
         this.idHotel = idHotel;
         this.valorDiaria = valorDiaria;
         this.status = status;
@@ -37,12 +34,12 @@ public class Quarto {
         this.id = id;
     }
 
-    public Long getIdPredio(){
-        return idPredio;
+    public Predio getPredio(){
+        return predio;
     }
 
-    public void setIdPredio(Long idPredio){
-        this.idPredio = idPredio;
+    public void setPredio(Predio predio){
+        this.predio = predio;
     }
 
     public Long getIdHotel(){

@@ -33,7 +33,7 @@ public interface HotelGateway {
     void deletar(Hotel hotel);
 
 
+    Hotel removerServico(Hotel hotel);
 
-
-
+    Hotel removerItem(Hotel hotel);
 }

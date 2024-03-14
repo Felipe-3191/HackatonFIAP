@@ -3,6 +3,7 @@ package com.fiap.Hackaton.infraestructure.hotel.gateway;
 import com.fiap.Hackaton.domain.hotel.entity.Hotel;
 import com.fiap.Hackaton.domain.hotel.gateway.HotelGateway;
 import com.fiap.Hackaton.infraestructure.hotel.entityschema.HotelEntity;
+import com.fiap.Hackaton.infraestructure.hotel.item.entityschema.ItemEntity;
 import com.fiap.Hackaton.infraestructure.hotel.repository.HotelRepository;
 import com.fiap.Hackaton.infraestructure.hotel.servico.entityschema.ServicoEntity;
 import com.fiap.Hackaton.infraestructure.predio.entityschema.PredioEntity;
@@ -47,7 +48,9 @@ public class HotelDatabaseGateway implements HotelGateway {
 
     @Override
     public Hotel adicionarItem(Hotel hotel) {
-        return null;
+        HotelEntity entity = new HotelEntity(hotel);
+        entity.setItens(hotel.getItensDiponiveis().stream().map(ItemEntity::new).collect(Collectors.toSet()));
+        return this.repository.save(entity).toEntityWithItens();
     }
 
     @Override
@@ -80,5 +83,19 @@ public class HotelDatabaseGateway implements HotelGateway {
     public void deletar(Hotel hotel) {
         HotelEntity entity = new HotelEntity(hotel);
         this.repository.delete(entity);
+    }
+
+    @Override
+    public Hotel removerServico(Hotel hotel) {
+        HotelEntity entity = new HotelEntity(hotel);
+        entity.setServicos(hotel.getServicosDisponiveis().stream().map(ServicoEntity::new).collect(Collectors.toSet()));
+        return this.repository.save(entity).toEntityWithServicos();
+    }
+
+    @Override
+    public Hotel removerItem(Hotel hotel) {
+        HotelEntity entity = new HotelEntity(hotel);
+        entity.setItens(hotel.getItensDiponiveis().stream().map(ItemEntity::new).collect(Collectors.toSet()));
+        return this.repository.save(entity).toEntityWithItens();
     }
 }

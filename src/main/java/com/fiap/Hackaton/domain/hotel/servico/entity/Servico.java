@@ -1,6 +1,7 @@
 package com.fiap.Hackaton.domain.hotel.servico.entity;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public class Servico {
 
@@ -39,5 +40,23 @@ public class Servico {
 
     public void setValor(BigDecimal valor) {
         this.valor = valor;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Servico servico = (Servico) o;
+
+        if (!Objects.equals(id, servico.id)) return false;
+        return Objects.equals(nome, servico.nome);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (nome != null ? nome.hashCode() : 0);
+        return result;
     }
 }

@@ -110,7 +110,14 @@ public class Hotel {
         this.servicosDisponiveis.add(servico);
     }
 
+    public void removerServico(Servico servico){
+        this.servicosDisponiveis.remove(servico);
+    }
     public void addItem(Item item){
         this.itensDiponiveis.add(item);
+    }
+
+    public void removerItem(Item item) {
+        this.itensDiponiveis.remove(item);
     }
 }

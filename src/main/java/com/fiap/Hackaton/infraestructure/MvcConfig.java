@@ -133,6 +133,27 @@ public class MvcConfig {
     }
 
     @Bean
+    public RemoverServicoUseCase removerServicoUseCase (HotelRepository repository, BuscarServicoUseCase buscarServicoUseCase) {
+        HotelGateway hotelGateway = new HotelDatabaseGateway(repository);
+
+        return new RemoverServicoUseCase(hotelGateway, buscarServicoUseCase);
+    }
+
+    @Bean
+    public AdicionarItemUseCase adicionarItemUseCase (HotelRepository repository, BuscarItemUseCase buscarItemUseCase) {
+        HotelGateway hotelGateway = new HotelDatabaseGateway(repository);
+
+        return new AdicionarItemUseCase(hotelGateway, buscarItemUseCase);
+    }
+
+
+    @Bean
+    public RemoverItemUseCase removerItemUseCase (HotelRepository repository, BuscarItemUseCase buscarItemUseCase) {
+        HotelGateway hotelGateway = new HotelDatabaseGateway(repository);
+        return new RemoverItemUseCase(hotelGateway, buscarItemUseCase);
+    }
+
+    @Bean
     public RemoverPredioUseCase removerPredioUseCase (HotelRepository repository, DeletarPredioUseCase deletarPredioUseCase) {
         HotelGateway hotelGateway = new HotelDatabaseGateway(repository);
 
@@ -152,6 +173,7 @@ public class MvcConfig {
 
         return new BuscarPredioUseCase(predioGateway);
     }
+
 
 
     @Bean

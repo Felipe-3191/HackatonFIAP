@@ -2,11 +2,14 @@ package com.fiap.Hackaton.infraestructure;
 
 import com.fiap.Hackaton.domain.cliente.gateway.ClienteGateway;
 import com.fiap.Hackaton.domain.hotel.gateway.HotelGateway;
+import com.fiap.Hackaton.domain.hotel.item.gateway.ItemGateway;
 import com.fiap.Hackaton.domain.hotel.servico.gateway.ServicoGateway;
 import com.fiap.Hackaton.domain.predio.gateway.PredioGateway;
 import com.fiap.Hackaton.infraestructure.cliente.gateway.ClienteDatabaseGateway;
 import com.fiap.Hackaton.infraestructure.cliente.repository.ClienteRepository;
 import com.fiap.Hackaton.infraestructure.hotel.gateway.HotelDatabaseGateway;
+import com.fiap.Hackaton.infraestructure.hotel.item.gateway.ItemDatabaseGateway;
+import com.fiap.Hackaton.infraestructure.hotel.item.repository.ItemRepository;
 import com.fiap.Hackaton.infraestructure.hotel.repository.HotelRepository;
 import com.fiap.Hackaton.infraestructure.hotel.servico.gateway.ServicoDatabaseGateway;
 import com.fiap.Hackaton.infraestructure.hotel.servico.repository.ServicoRepository;
@@ -14,6 +17,7 @@ import com.fiap.Hackaton.infraestructure.predio.gateway.PredioDatabaseGateway;
 import com.fiap.Hackaton.infraestructure.predio.repository.PredioRepository;
 import com.fiap.Hackaton.usecase.cliente.*;
 import com.fiap.Hackaton.usecase.hotel.*;
+import com.fiap.Hackaton.usecase.item.*;
 import com.fiap.Hackaton.usecase.servico.*;
 import com.fiap.Hackaton.usecase.predio.CriarPredioUseCase;
 import org.springframework.context.annotation.Bean;
@@ -131,11 +135,34 @@ public class MvcConfig {
 
         return new AdicionarPredioUseCase(hotelGateway, criarPredioUseCase);
     }
-
-
     @Bean
     public CriarPredioUseCase criarPredioUseCase (PredioRepository repository) {
         PredioGateway predioGateway = new PredioDatabaseGateway(repository);
         return new CriarPredioUseCase(predioGateway);
+    }
+    @Bean
+    public AtualizarItemUseCase atualizarItemUseCase (ItemRepository repository) {
+        ItemGateway itemGateway = new ItemDatabaseGateway(repository);
+        return new AtualizarItemUseCase(itemGateway);
+    }
+    @Bean
+    public BuscarItemUseCase buscarItemUseCase (ItemRepository repository) {
+        ItemGateway itemGateway = new ItemDatabaseGateway(repository);
+        return new BuscarItemUseCase(itemGateway);
+    }
+    @Bean
+    public BuscarTodosItensUseCase buscarTodosItensUseCase (ItemRepository repository) {
+        ItemGateway itemGateway = new ItemDatabaseGateway(repository);
+        return new BuscarTodosItensUseCase(itemGateway);
+    }
+    @Bean
+    public CriarItemUseCase criarItemUseCase (ItemRepository repository) {
+        ItemGateway itemGateway = new ItemDatabaseGateway(repository);
+        return new CriarItemUseCase(itemGateway);
+    }
+    @Bean
+    public DeletarItemUseCase deletarItemUseCase (ItemRepository repository) {
+        ItemGateway itemGateway = new ItemDatabaseGateway(repository);
+        return new DeletarItemUseCase(itemGateway);
     }
 }

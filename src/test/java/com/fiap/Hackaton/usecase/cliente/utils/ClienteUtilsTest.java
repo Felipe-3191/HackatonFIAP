@@ -1,0 +1,28 @@
+package com.fiap.Hackaton.usecase.cliente.utils;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+class ClienteUtilsTest {
+
+    @Test
+    void testPassaporteNaoInformado() {
+        assertTrue(ClienteUtils.passaporteNaoInformado(null));
+        assertTrue(ClienteUtils.passaporteNaoInformado(""));
+        assertFalse(ClienteUtils.passaporteNaoInformado("123456789"));
+    }
+
+    @Test
+    void testCpfNaoInformado() {
+        assertTrue(ClienteUtils.cpfNaoInformado(null));
+        assertTrue(ClienteUtils.cpfNaoInformado(""));
+        assertFalse(ClienteUtils.cpfNaoInformado("12345678901"));
+    }
+
+    @Test
+    void testEBrasileiro() {
+        assertTrue(ClienteUtils.eBrasileiro("br"));
+        assertTrue(ClienteUtils.eBrasileiro("brasil"));
+        assertFalse(ClienteUtils.eBrasileiro("usa"));
+    }
+}

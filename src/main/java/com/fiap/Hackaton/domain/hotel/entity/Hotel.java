@@ -14,10 +14,10 @@ public class Hotel {
     private Long id;
     private String nome;
     private Endereco endereco;
-    private List<Predio> predios;
-    private List<Amenidade> amenidades;
+    private List<Predio> predios = new ArrayList<>();
+    private List<Amenidade> amenidades = new ArrayList<>();
     private List<Servico> servicosDisponiveis;
-    private List<Item> itensDiponiveis;
+    private List<Item> itensDiponiveis = new ArrayList<>();
 
     public Hotel() {}
 

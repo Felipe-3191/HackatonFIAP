@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-@Tag(name = "Cliente", description = "Cliente API")
+@Tag(name = "Cliente", description = "Gestão de Cliente API")
 @RestController
 public class CriarClienteController {
 

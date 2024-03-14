@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Tag(name = "Cliente", description = "Cliente API")
+@Tag(name = "Cliente", description = "Gestão de Cliente API")
 @RestController
 public class BuscarTodosClientesController {
 

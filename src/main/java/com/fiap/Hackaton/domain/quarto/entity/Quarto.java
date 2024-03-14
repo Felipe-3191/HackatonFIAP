@@ -17,6 +17,13 @@ public class Quarto {
 
     public Quarto(){}
 
+    public Quarto(Predio predio, TipoQuarto tipoQuarto, Status status, BigDecimal valorDiaria){
+        this.predio = predio;
+        this.tipoQuarto = tipoQuarto;
+        this.status = status;
+        this.valorDiaria = valorDiaria;
+    }
+
     public Quarto(Long id, Predio predio, Long idHotel, BigDecimal valorDiaria, Status status, TipoQuarto tipoQuarto){
         this.id = id;
         this.predio = predio;

@@ -47,6 +47,10 @@ public class TipoQuartoEntity {
         this.quantidadeCamas = tipoQuarto.getQuantidadeCamas();
     }
 
+    public static List<TipoQuarto> toTipoQuartoList(List<TipoQuartoEntity> listTipoQuartoEntity){
+        return listTipoQuartoEntity.stream().map(TipoQuartoEntity::toEntity).toList();
+    }
+
     public TipoQuarto toEntity() {
         return new TipoQuarto(
                 this.id,

@@ -1,7 +1,10 @@
 package com.fiap.Hackaton.usecase.item;
 
 import com.fiap.Hackaton.domain.hotel.item.entity.Item;
+import com.fiap.Hackaton.domain.hotel.item.exception.ItemNaoEncontradoException;
 import com.fiap.Hackaton.domain.hotel.item.gateway.ItemGateway;
+
+import java.util.Optional;
 
 public class BuscarItemUseCase {
 
@@ -12,6 +15,11 @@ public class BuscarItemUseCase {
     }
 
     public Item execute(Long id) {
-        return this.itemGateway.buscarPorId(id).orElseThrow();
+        Optional<Item> item = this.itemGateway.buscarPorId(id);
+        if(item.isEmpty()) {
+            throw new ItemNaoEncontradoException();
+        }
+
+        return item.get();
     }
 }

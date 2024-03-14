@@ -1,7 +1,10 @@
 package com.fiap.Hackaton.usecase.servico;
 
 import com.fiap.Hackaton.domain.hotel.servico.entity.Servico;
+import com.fiap.Hackaton.domain.hotel.servico.exception.ServicoNaoEncontradoException;
 import com.fiap.Hackaton.domain.hotel.servico.gateway.ServicoGateway;
+
+import java.util.Optional;
 
 public class BuscarServicoUseCase {
 
@@ -12,6 +15,10 @@ public class BuscarServicoUseCase {
     }
 
     public Servico execute(Long id) {
-        return this.servicoGateway.buscarPorId(id).orElseThrow();
+        Optional<Servico> servico = this.servicoGateway.buscarPorId(id);
+        if(servico.isEmpty())  {
+            throw new ServicoNaoEncontradoException();
+        }
+        return servico.get();
     }
 }

@@ -15,6 +15,12 @@ public class TipoQuartoDatabaseGateway implements TipoQuartoGateway {
         this.repository = repository;
     }
 
+
+    @Override
+    public TipoQuarto buscarPorId(Long id){
+        return repository.findById(id).orElseThrow().toEntity();
+    }
+
     @Override
     public List<TipoQuarto> buscaTiposQuartoPorCapacidadeTotal(Long capacidadeTotal){
         List<TipoQuartoEntity> listTipoQuartoEntity = repository.findByCapacidadeTotalLessThanEqual(capacidadeTotal);

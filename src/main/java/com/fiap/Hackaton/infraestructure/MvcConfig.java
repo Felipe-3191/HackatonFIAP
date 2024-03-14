@@ -259,9 +259,11 @@ public class MvcConfig {
     }
 
     @Bean
-    public AtualizarQuartoUseCase atualizarQuartoUseCase(QuartoRepository repository){
+    public AtualizarQuartoUseCase atualizarQuartoUseCase(QuartoRepository repository, TipoQuartoRepository tipoQuartoRepository, PredioRepository predioRepository){
         QuartoGateway quartoGateway = new QuartoDatabaseGateway(repository);
-        return new AtualizarQuartoUseCase(quartoGateway);
+        TipoQuartoGateway tipoQuartoGateway = new TipoQuartoDatabaseGateway(tipoQuartoRepository);
+        PredioGateway predioGateway = new PredioDatabaseGateway(predioRepository);
+        return new AtualizarQuartoUseCase(quartoGateway, predioGateway, tipoQuartoGateway);
     }
 
     @Bean
@@ -290,9 +292,13 @@ public class MvcConfig {
     }
 
     @Bean
-    public CriarQuartoUseCase criarQuartoUseCase(QuartoRepository repository){
+    public CriarQuartoUseCase criarQuartoUseCase(QuartoRepository repository,
+                                                 TipoQuartoRepository tipoQuartoRepository,
+                                                PredioRepository predioRepository){
         QuartoGateway quartoGateway = new QuartoDatabaseGateway(repository);
-        return new CriarQuartoUseCase(quartoGateway);
+        TipoQuartoGateway tipoQuartoGateway = new TipoQuartoDatabaseGateway(tipoQuartoRepository);
+        PredioGateway predioGateway = new PredioDatabaseGateway(predioRepository);
+        return new CriarQuartoUseCase(quartoGateway, predioGateway, tipoQuartoGateway);
     }
 
     @Bean

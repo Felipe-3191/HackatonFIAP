@@ -11,10 +11,10 @@ import java.math.BigDecimal;
 public record QuartoRequestData (
 
     @NotBlank(message = "Predio é obrigatório")
-    Predio predio,
+   Long idPredio,
     @NotBlank(message = "Tipo Quarto é obrigatório")
-    TipoQuarto tipoQuarto,
-    Status status,
+    Long idTipoQuarto,
+    String status,
     @NotBlank(message = "Valor da diaria é obrigatório")
     BigDecimal valorDiaria
 

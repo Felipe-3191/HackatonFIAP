@@ -7,8 +7,8 @@ import com.fiap.Hackaton.domain.quarto.tipoquarto.entity.TipoQuarto;
 import java.math.BigDecimal;
 
 public interface IQuartoRequestData {
-    Predio predio();
-    TipoQuarto tipoQuarto();
-    Status status();
+    Long idPredio();
+    Long idTipoQuarto();
+    String status();
     BigDecimal valorDiaria();
 }

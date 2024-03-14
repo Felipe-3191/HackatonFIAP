@@ -23,7 +23,7 @@ public class TipoQuartoDatabaseGateway implements TipoQuartoGateway {
 
     @Override
     public List<TipoQuarto> buscaTiposQuartoPorCapacidadeTotal(Long capacidadeTotal){
-        List<TipoQuartoEntity> listTipoQuartoEntity = repository.findByCapacidadeTotalLessThanEqual(capacidadeTotal);
+        List<TipoQuartoEntity> listTipoQuartoEntity = repository.findByCapacidadeTotalGreaterThanEqual(capacidadeTotal);
         return TipoQuartoEntity.toTipoQuartoList(listTipoQuartoEntity);
     }
 }

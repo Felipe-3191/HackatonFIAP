@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface TipoQuartoRepository extends JpaRepository<TipoQuartoEntity, Long> {
-    List<TipoQuartoEntity> findByCapacidadeTotalLessThanEqual(Long capacidadeTotal);
+    List<TipoQuartoEntity> findByCapacidadeTotalGreaterThanEqual(Long capacidadeTotal);
 }

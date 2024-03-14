@@ -48,6 +48,15 @@ public class PredioEntity {
         Predio predio = new Predio(
                 this.id,
                 this.nome,
+                this.hotel.toEntity()
+        );
+        return predio;
+    }
+
+    public Predio toEntityWithQuartos() {
+        Predio predio = new Predio(
+                this.id,
+                this.nome,
                 this.hotel.toEntity(),
                 this.quartoEntities.stream().map(QuartoEntity::toSimpleEntity).collect(Collectors.toList())
         );

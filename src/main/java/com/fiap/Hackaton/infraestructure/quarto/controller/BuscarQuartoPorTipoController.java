@@ -26,10 +26,10 @@ public class BuscarQuartoPorTipoController {
         this.buscarQuartoPorTipoUseCase = buscarQuartoPorTipoUseCase;
     }
 
-    @GetMapping("/quartos/tipo/{tipo}")
+    @GetMapping("/quartos/tipo/{idTipoQuarto}")
     @Operation(summary = "Buscar quarto por tipo de quarto")
-    public ResponseEntity<List<QuartoSearchResponseData>> buscarQuarto(@PathVariable TipoQuarto tipoQuarto) {
-        List<Quarto> quartos = buscarQuartoPorTipoUseCase.execute(tipoQuarto);
+    public ResponseEntity<List<QuartoSearchResponseData>> buscarQuartoPorTipo(@PathVariable Long idTipoQuarto) {
+        List<Quarto> quartos = buscarQuartoPorTipoUseCase.execute(idTipoQuarto);
         List<QuartoSearchResponseData> quartosPublicData = quartos.stream()
                 .map(quarto -> new QuartoSearchResponseData(quarto))
                 .collect(Collectors.toList());

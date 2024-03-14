@@ -8,6 +8,5 @@ import java.util.List;
 import java.util.Optional;
 
 public interface QuartoRepository extends JpaRepository<QuartoEntity, Long> {
-    //List<QuartoEntity> findByQtdHospedes(Long qtdHospedes);
     List<QuartoEntity> findByTipoQuarto(TipoQuartoEntity tipoQuarto);
 }

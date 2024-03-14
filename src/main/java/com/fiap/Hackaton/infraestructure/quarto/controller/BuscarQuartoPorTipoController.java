@@ -25,7 +25,7 @@ public class BuscarQuartoPorTipoController {
         this.buscarQuartoPorTipoUseCase = buscarQuartoPorTipoUseCase;
     }
 
-    @GetMapping("/quartos/{tipo}")
+    @GetMapping("/quartos/tipo/{tipo}")
     @Operation(summary = "Buscar quarto por tipo de quarto")
     public ResponseEntity<List<QuartoPublicData>> buscarQuarto(@PathVariable TipoQuarto tipoQuarto) {
         List<Quarto> quartos = buscarQuartoPorTipoUseCase.execute(tipoQuarto);

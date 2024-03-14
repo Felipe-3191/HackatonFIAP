@@ -33,6 +33,16 @@ public class Quarto {
         this.tipoQuarto = tipoQuarto;
     }
 
+    public Quarto(Long id, Long idHotel, BigDecimal valorDiaria, Status status, TipoQuarto tipoQuarto) {
+        this.id = id;
+        this.idHotel = idHotel;
+        this.valorDiaria = valorDiaria;
+        this.status = status;
+        this.tipoQuarto = tipoQuarto;
+
+
+    }
+
     public Long getId(){
         return id;
     }

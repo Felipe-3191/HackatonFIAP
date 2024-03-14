@@ -7,5 +7,5 @@ import java.util.List;
 public interface IPredioRequestData {
 
     String nome();
-    List<Quarto> quartos();
+
 }

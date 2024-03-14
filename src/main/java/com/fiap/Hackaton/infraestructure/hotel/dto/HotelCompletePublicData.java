@@ -6,14 +6,17 @@ import com.fiap.Hackaton.domain.hotel.entity.Hotel;
 import com.fiap.Hackaton.domain.hotel.item.entity.Item;
 import com.fiap.Hackaton.domain.hotel.servico.entity.Servico;
 import com.fiap.Hackaton.domain.predio.entity.Predio;
+import com.fiap.Hackaton.infraestructure.predio.dto.PredioPublicData;
+import com.fiap.Hackaton.infraestructure.predio.dto.PredioPublicMinimalData;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public record HotelCompletePublicData(
         Long id,
         String nome,
         Endereco endereco,
-        List<Predio> predios,
+        List<PredioPublicMinimalData> predios,
         List<Amenidade> amenidades,
         List<Servico> servicosDisponiveis,
         List<Item> itensDiponiveis
@@ -27,7 +30,7 @@ public record HotelCompletePublicData(
                 hotel.getId(),
                 hotel.getNome(),
                 hotel.getEndereco(),
-                hotel.getPredios(),
+                hotel.getPredios().stream().map(PredioPublicMinimalData::new).collect(Collectors.toList()),
                 hotel.getAmenidades(),
                 hotel.getServicosDisponiveis(),
                 hotel.getItensDiponiveis()

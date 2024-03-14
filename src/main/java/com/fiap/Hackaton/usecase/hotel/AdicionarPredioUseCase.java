@@ -20,9 +20,7 @@ public class AdicionarPredioUseCase {
 
         Predio predio = new Predio(
                 dados.nome(),
-                hotel,
-                dados.quartos()
-
+                hotel
         );
 
         Predio predioSalvo = this.criarPredioUseCase.executar(predio);

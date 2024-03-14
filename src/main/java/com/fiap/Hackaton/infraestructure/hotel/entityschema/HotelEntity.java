@@ -84,7 +84,7 @@ public class HotelEntity {
                 this.getId(),
                 this.nome,
                 this.endereco.toEntity(),
-                this.predios.stream().map(PredioEntity::toEntity).collect(Collectors.toList())
+                this.predios.stream().map(PredioEntity::toSimpleEntity).collect(Collectors.toList())
         );
     }
 

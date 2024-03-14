@@ -22,7 +22,7 @@ public class BuscarQuartoPorQuantidadeDeHospedesController {
         this.buscarQuartoPorQuantidadeDeHospedesUseCase = buscarQuartoPorQuantidadeDeHospedesUseCase;
     }
 
-    @GetMapping("/quartos/{quantidadeHospedes}")
+    @GetMapping("/quartos/quantidadeHospedes/{quantidadeHospedes}")
     @Operation(summary = "Buscar quarto por quantidade de hóspedes")
     public ResponseEntity<List<QuartoPublicData>> buscarQuarto(@PathVariable Long quantidadeHospedes) {
         List<Quarto> quartos = buscarQuartoPorQuantidadeDeHospedesUseCase.execute(quantidadeHospedes);

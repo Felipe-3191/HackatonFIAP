@@ -22,7 +22,7 @@ public class PredioDatabaseGateway implements PredioGateway {
     public Predio criar(Predio predio) {
         PredioEntity predioEntity = new PredioEntity(predio);
 
-        return repository.save(predioEntity).toEntity();
+        return repository.save(predioEntity).toSimpleEntity();
     }
 
     @Override

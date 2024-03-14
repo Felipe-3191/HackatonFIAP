@@ -66,6 +66,17 @@ public class QuartoEntity {
         );
     }
 
+
+    public Quarto toSimpleEntity(){
+        return new Quarto(
+                this.id,
+                this.idHotel,
+                this.valorDiaria,
+                this.status,
+                this.tipoQuarto.toEntity()
+        );
+    }
+
     public Long getId(){
         return id;
     }

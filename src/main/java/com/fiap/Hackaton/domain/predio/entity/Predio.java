@@ -35,10 +35,24 @@ public class Predio {
         this.nome = nome;
 
     }
+
     public Predio(String nome, Hotel hotel, List<Quarto> quartos) {
+        this.id = id;
         this.hotel = hotel;
         this.nome = nome;
         this.quartos = quartos;
+    }
+
+    public Predio(Long id, String nome, Hotel hotel, List<Quarto> quartos) {
+        this.id = id;
+        this.hotel = hotel;
+        this.nome = nome;
+        this.quartos = quartos;
+    }
+
+    public Predio(String nome, Hotel hotel) {
+        this.nome = nome;
+        this.hotel = hotel;
     }
 
     public Long getId() {

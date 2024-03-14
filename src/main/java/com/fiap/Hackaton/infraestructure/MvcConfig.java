@@ -87,6 +87,13 @@ public class MvcConfig {
     }
 
     @Bean
+    public BuscarHotelPorIdUseCase buscarHotelPorIdUseCase (HotelRepository repository) {
+        HotelGateway hotelGateway = new HotelDatabaseGateway(repository);
+        return new BuscarHotelPorIdUseCase(hotelGateway);
+    }
+
+
+    @Bean
     public BuscarHotelPorCEPUseCase buscarHotelPorCEPUseCase (HotelRepository repository) {
         HotelGateway hotelGateway = new HotelDatabaseGateway(repository);
         return new BuscarHotelPorCEPUseCase(hotelGateway);

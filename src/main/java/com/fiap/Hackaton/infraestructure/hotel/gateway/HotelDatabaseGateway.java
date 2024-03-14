@@ -4,6 +4,7 @@ import com.fiap.Hackaton.domain.hotel.entity.Hotel;
 import com.fiap.Hackaton.domain.hotel.gateway.HotelGateway;
 import com.fiap.Hackaton.infraestructure.hotel.entityschema.HotelEntity;
 import com.fiap.Hackaton.infraestructure.hotel.repository.HotelRepository;
+import com.fiap.Hackaton.infraestructure.predio.entityschema.PredioEntity;
 
 import java.util.List;
 import java.util.Optional;
@@ -32,6 +33,7 @@ public class HotelDatabaseGateway implements HotelGateway {
     @Override
     public Hotel adicionarPredio(Hotel hotel) {
         HotelEntity entity = new HotelEntity(hotel);
+        entity.setPredios(hotel.getPredios().stream().map(PredioEntity::new).collect(Collectors.toList()));
         return this.repository.save(entity).toEntityWithPredios();
     }
 
@@ -53,12 +55,12 @@ public class HotelDatabaseGateway implements HotelGateway {
     @Override
     public Optional<List<Hotel>> buscarPorLogradouro(String endereco) {
 
-        return this.repository.findByEnderecoLogradouro(endereco).map(l -> l.stream().map(HotelEntity::toEntity).collect(Collectors.toList()));
+        return this.repository.findByEnderecoLogradouro(endereco).map(l -> l.stream().map(HotelEntity::toCompleteEntity).collect(Collectors.toList()));
     }
 
     @Override
     public Optional<List<Hotel>> buscarPorCep(String cep) {
-        return this.repository.findByEnderecoCep(cep).map(l -> l.stream().map(HotelEntity::toEntity).collect(Collectors.toList()));
+        return this.repository.findByEnderecoCep(cep).map(l -> l.stream().map(HotelEntity::toCompleteEntity).collect(Collectors.toList()));
     }
 
     @Override

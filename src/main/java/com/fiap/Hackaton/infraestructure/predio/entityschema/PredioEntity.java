@@ -8,6 +8,7 @@ import com.fiap.Hackaton.infraestructure.quarto.entitySchema.QuartoEntity;
 import jakarta.persistence.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Entity
@@ -22,7 +23,7 @@ public class PredioEntity {
     @JoinColumn(name = "hotel_id")
     private HotelEntity hotel;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "predio_id")
     private List<QuartoEntity> quartoEntities;
 
@@ -34,12 +35,21 @@ public class PredioEntity {
         this.hotel = new HotelEntity(predio.getHotel());
     }
 
+    public Predio toSimpleEntity() {
+        Predio predio = new Predio(
+                this.id,
+                this.nome,
+                this.hotel.toEntity()
+        );
+        return predio;
+    }
 
     public Predio toEntity() {
         Predio predio = new Predio(
                 this.id,
                 this.nome,
-                this.hotel.toEntity()
+                this.hotel.toEntity(),
+                this.quartoEntities.stream().map(QuartoEntity::toSimpleEntity).collect(Collectors.toList())
         );
         return predio;
     }

@@ -33,18 +33,18 @@ public class PredioDatabaseGateway implements PredioGateway {
 
     @Override
     public List<Predio> listar() {
-        return this.repository.findAll().stream().map(PredioEntity::toEntity).collect(Collectors.toList());
+        return this.repository.findAll().stream().map(PredioEntity::toEntityWithoutHotel).collect(Collectors.toList());
     }
 
     @Override
     public Optional<Predio> buscarPorId(Long id) {
-        return this.repository.findById(id).map(PredioEntity::toEntity);
+        return this.repository.findById(id).map(PredioEntity::toEntityWithoutHotel);
     }
 
     @Override
     public Optional<List<Predio>> buscarPorNome(String nome) {
         return this.repository.findByNome(nome).map(
-                predioEntities -> predioEntities.stream().map(PredioEntity::toEntity).collect(Collectors.toList())
+                predioEntities -> predioEntities.stream().map(PredioEntity::toEntityWithoutHotel).collect(Collectors.toList())
         );
     }
 

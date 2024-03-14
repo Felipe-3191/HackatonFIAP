@@ -65,7 +65,7 @@ public class ServicoEntity {
                 Objects.equals(valor, that.valor);
     }
 
-    public Servico toServico() {
+    public Servico toEntity() {
         return new Servico(this.getId(), this.getNome(), this.getValor());
     }
 }

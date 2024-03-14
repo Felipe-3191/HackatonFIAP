@@ -8,6 +8,8 @@ import com.fiap.Hackaton.domain.hotel.entity.Hotel;
 
 import com.fiap.Hackaton.infraestructure.amenidade.entityschema.AmenidadeEntity;
 import com.fiap.Hackaton.infraestructure.endereco.entityschema.EnderecoEntity;
+import com.fiap.Hackaton.infraestructure.hotel.item.entityschema.ItemEntity;
+import com.fiap.Hackaton.infraestructure.hotel.servico.entityschema.ServicoEntity;
 import com.fiap.Hackaton.infraestructure.predio.entityschema.PredioEntity;
 import jakarta.persistence.*;
 
@@ -42,8 +44,17 @@ public class HotelEntity {
     inverseJoinColumns = @JoinColumn(name = "amenidade_id"))
     private Set<AmenidadeEntity> amenidades = new HashSet<>();
 
+    @ManyToMany
+    @JoinTable(name = "hotel_itens",
+            joinColumns = @JoinColumn(name = "hotel_id"),
+            inverseJoinColumns = @JoinColumn(name = "item_id"))
+    private Set<ItemEntity> itens = new HashSet<>();
 
-
+    @ManyToMany
+    @JoinTable(name = "hotel_servicos",
+            joinColumns = @JoinColumn(name = "hotel_id"),
+            inverseJoinColumns = @JoinColumn(name = "servico_id"))
+    private Set<ServicoEntity> servicos = new HashSet<>();
     public HotelEntity(){}
 
     public HotelEntity(Hotel hotel){
@@ -70,10 +81,8 @@ public class HotelEntity {
                 this.endereco.toEntity(),
                 this.predios.stream().map(PredioEntity::toEntity).collect(Collectors.toList()),
                 this.amenidades.stream().map(AmenidadeEntity::toEntity).collect(Collectors.toList()),
-                null,
-                null
-
-
+                this.servicos.stream().map(ServicoEntity::toEntity).collect(Collectors.toList()),
+                this.itens.stream().map(ItemEntity::toEntity).collect(Collectors.toList())
         );
     }
 

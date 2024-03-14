@@ -20,7 +20,7 @@ public class ServicoDatabaseGateway implements ServicoGateway {
     @Override
     public Servico criar(Servico servico) {
         ServicoEntity servicoEntity = new ServicoEntity(servico);
-        return repository.save(servicoEntity).toServico();
+        return repository.save(servicoEntity).toEntity();
     }
 
     @Override
@@ -35,12 +35,12 @@ public class ServicoDatabaseGateway implements ServicoGateway {
         ServicoEntity encontrado = optionalServicoEntity.get();
         encontrado.setNome(servico.getNome());
         encontrado.setValor(servico.getValor());
-        return repository.save(encontrado).toServico();
+        return repository.save(encontrado).toEntity();
     }
 
     @Override
     public List<Servico> listar() {
-        return repository.findAll().stream().map(ServicoEntity::toServico).collect(Collectors.toList());
+        return repository.findAll().stream().map(ServicoEntity::toEntity).collect(Collectors.toList());
     }
 
     @Override
@@ -50,7 +50,7 @@ public class ServicoDatabaseGateway implements ServicoGateway {
             return Optional.empty();
         }
 
-        return Optional.of(optionalServicoEntity.get().toServico());
+        return Optional.of(optionalServicoEntity.get().toEntity());
     }
 
     @Override

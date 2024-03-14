@@ -65,7 +65,7 @@ public class ItemEntity {
                 Objects.equals(valor, that.valor);
     }
 
-    public Item toItem() {
+    public Item toEntity() {
         return new Item(this.getId(), this.getNome(), this.getValor());
     }
 }

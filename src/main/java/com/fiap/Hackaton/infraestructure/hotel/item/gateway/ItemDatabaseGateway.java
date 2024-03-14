@@ -20,7 +20,7 @@ public class ItemDatabaseGateway implements ItemGateway {
     @Override
     public Item criar(Item item) {
         ItemEntity itemEntity = new ItemEntity(item);
-        return repository.save(itemEntity).toItem();
+        return repository.save(itemEntity).toEntity();
     }
 
     @Override
@@ -35,12 +35,12 @@ public class ItemDatabaseGateway implements ItemGateway {
         ItemEntity encontrado = optionalItemEntity.get();
         encontrado.setNome(item.getNome());
         encontrado.setValor(item.getValor());
-        return repository.save(encontrado).toItem();
+        return repository.save(encontrado).toEntity();
     }
 
     @Override
     public List<Item> listar() {
-        return repository.findAll().stream().map(ItemEntity::toItem).collect(Collectors.toList());
+        return repository.findAll().stream().map(ItemEntity::toEntity).collect(Collectors.toList());
     }
 
     @Override
@@ -50,7 +50,7 @@ public class ItemDatabaseGateway implements ItemGateway {
             return Optional.empty();
         }
 
-        return Optional.of(optionalItemEntity.get().toItem());
+        return Optional.of(optionalItemEntity.get().toEntity());
     }
 
     @Override

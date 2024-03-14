@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-@Tag(name = "Cliente", description = "Cliente API")
+@Tag(name = "Cliente", description = "Gestão de Cliente API")
 @RestController
 public class DeletarClienteController {
 

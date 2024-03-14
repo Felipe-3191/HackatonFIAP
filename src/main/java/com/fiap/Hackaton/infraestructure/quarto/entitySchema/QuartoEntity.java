@@ -64,11 +64,16 @@ public class QuartoEntity {
                 this.status,
                 this.tipoQuarto.toEntity()
         );
-
-
-
     }
 
+    public Quarto toEntityToPredio(){
+        return new Quarto(
+                this.id,
+                this.valorDiaria,
+                this.status,
+                this.tipoQuarto.toEntityWithMoveis()
+        );
+    }
 
     public Quarto toSimpleEntity(){
         return new Quarto(

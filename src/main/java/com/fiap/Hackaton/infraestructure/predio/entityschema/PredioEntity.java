@@ -63,6 +63,14 @@ public class PredioEntity {
         return predio;
     }
 
+    public Predio toEntityWithoutHotel() {
+        Predio predio = new Predio(
+                this.id,
+                this.nome,
+                this.quartoEntities.stream().map(QuartoEntity::toEntityToPredio).collect(Collectors.toList())
+        );
+        return predio;
+    }
 
     public PredioEntity(Long id, String nome, HotelEntity hotel) {
         this.id = id;

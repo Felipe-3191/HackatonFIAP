@@ -39,8 +39,13 @@ public class Quarto {
         this.valorDiaria = valorDiaria;
         this.status = status;
         this.tipoQuarto = tipoQuarto;
+    }
 
-
+    public Quarto(Long id, BigDecimal valorDiaria, Status status, TipoQuarto tipoQuarto) {
+        this.id = id;
+        this.valorDiaria = valorDiaria;
+        this.status = status;
+        this.tipoQuarto = tipoQuarto;
     }
 
     public Long getId(){

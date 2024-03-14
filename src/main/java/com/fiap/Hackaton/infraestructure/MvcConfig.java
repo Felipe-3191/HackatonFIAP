@@ -280,9 +280,10 @@ public class MvcConfig {
     }
 
     @Bean
-    public BuscarQuartoPorTipoUseCase buscarQuartoPorTipoUseCase(QuartoRepository repository){
+    public BuscarQuartoPorTipoUseCase buscarQuartoPorTipoUseCase(QuartoRepository repository, TipoQuartoRepository tipoQuartoRepository){
         QuartoGateway quartoGateway = new QuartoDatabaseGateway(repository);
-        return new BuscarQuartoPorTipoUseCase(quartoGateway);
+        TipoQuartoGateway tipoQuartoGateway = new TipoQuartoDatabaseGateway(tipoQuartoRepository);
+        return new BuscarQuartoPorTipoUseCase(quartoGateway, tipoQuartoGateway);
     }
 
     @Bean

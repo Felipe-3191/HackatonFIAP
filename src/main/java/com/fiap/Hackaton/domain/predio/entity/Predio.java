@@ -33,7 +33,6 @@ public class Predio {
         this.id = id;
         this.hotel = hotel;
         this.nome = nome;
-
     }
 
     public Predio(String nome, Hotel hotel, List<Quarto> quartos) {

@@ -15,8 +15,9 @@ public class AtualizarClienteUseCase {
         this.clienteGateway = clienteGateway;
     }
 
-
     public Cliente execute(Long id, IClienteRequestData dados) {
+
+        Cliente cliente = this.clienteGateway.buscarPorId(id).orElseThrow();
 
         if(eBrasileiro(dados.paisOrigem()) && cpfNaoInformado(dados.cpf()))
             throw new CpfObrigatorioException();
@@ -24,7 +25,6 @@ public class AtualizarClienteUseCase {
         if(!eBrasileiro(dados.paisOrigem()) && passaporteNaoInformado(dados.passaporte()))
             throw new CpfObrigatorioException();
 
-        Cliente cliente = this.clienteGateway.buscarPorId(id).orElseThrow();
         Cliente clienteAtualizado = this.atualizarCliente(cliente, dados);
 
         return this.clienteGateway.atualizar(clienteAtualizado);

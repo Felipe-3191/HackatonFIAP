@@ -16,6 +16,11 @@ public class Item {
         this.valor = valor;
     }
 
+    public Item(String nome, BigDecimal valor) {
+    this.nome = nome;
+    this.valor = valor;
+    }
+
     public Long getId() {
         return id;
     }
@@ -26,5 +31,17 @@ public class Item {
 
     public BigDecimal getValor() {
         return valor;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setValor(BigDecimal valor) {
+        this.valor = valor;
     }
 }

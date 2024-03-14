@@ -4,6 +4,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageConversionException;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.bind.support.WebExchangeBindException;
@@ -13,10 +15,8 @@ import java.util.List;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
-
-
-    @ExceptionHandler(WebExchangeBindException.class)
-    public ResponseEntity<ErroValidacaoResponse> handleValidationException(WebExchangeBindException ex) {
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<ErroValidacaoResponse> handleValidationException(MethodArgumentNotValidException ex) {
         ErroValidacaoResponse response = new ErroValidacaoResponse();
         response.setStatus(400);
         response.setMensagem("Erro de validação");
@@ -44,12 +44,25 @@ public class GlobalExceptionHandler {
         ErrorMessage error = new ErrorMessage(errorMessage);
         return ResponseEntity.badRequest().body(error);
     }
-
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<ErrorMessage> runtimeException(RuntimeException ex) {
-        ex.printStackTrace();
         String errorMessage = ex.getMessage();
         ErrorMessage error = new ErrorMessage(errorMessage);
         return ResponseEntity.badRequest().body(error);
+    }
+
+    @ExceptionHandler(MissingServletRequestParameterException.class)
+    public ResponseEntity<ErroValidacaoResponse> handleValidationParameterException(MissingServletRequestParameterException ex) {
+        ErroValidacaoResponse response = new ErroValidacaoResponse();
+        response.setStatus(400);
+        response.setMensagem("Erro de validação");
+
+        List<String> erros = new ArrayList<>();
+
+        String mensagemErro = "Campo '" + ex.getParameterName() + "': " + ex.getMessage();
+        erros.add(mensagemErro);
+        response.setErros(erros);
+
+        return ResponseEntity.badRequest().body(response);
     }
 }

@@ -6,6 +6,7 @@ package com.fiap.Hackaton.infraestructure.hotel.entityschema;
 import com.fiap.Hackaton.domain.amenidade.entity.Amenidade;
 import com.fiap.Hackaton.domain.hotel.entity.Hotel;
 
+import com.fiap.Hackaton.domain.hotel.servico.entity.Servico;
 import com.fiap.Hackaton.infraestructure.amenidade.entityschema.AmenidadeEntity;
 import com.fiap.Hackaton.infraestructure.endereco.entityschema.EnderecoEntity;
 import com.fiap.Hackaton.infraestructure.hotel.item.entityschema.ItemEntity;
@@ -97,6 +98,26 @@ public class HotelEntity {
         );
     }
 
+
+    public Hotel toEntityWithServicos() {
+        Hotel hotel = new Hotel(
+                this.getId(),
+                this.nome,
+                this.endereco.toEntity()
+
+
+        );
+
+        this.servicos.stream().forEach(servicoEntity -> {
+                Servico servico = servicoEntity.toEntity();
+                hotel.addServico(servico);
+        });
+
+        return hotel;
+    }
+
+
+
     public Long getId() {
         return id;
     }
@@ -135,5 +156,21 @@ public class HotelEntity {
 
     public void setAmenidades(Set<AmenidadeEntity> amenidades) {
         this.amenidades = amenidades;
+    }
+
+    public Set<ItemEntity> getItens() {
+        return itens;
+    }
+
+    public void setItens(Set<ItemEntity> itens) {
+        this.itens = itens;
+    }
+
+    public Set<ServicoEntity> getServicos() {
+        return servicos;
+    }
+
+    public void setServicos(Set<ServicoEntity> servicos) {
+        this.servicos = servicos;
     }
 }

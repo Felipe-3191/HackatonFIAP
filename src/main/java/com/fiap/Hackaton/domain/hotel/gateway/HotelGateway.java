@@ -14,6 +14,10 @@ public interface HotelGateway {
 
     Hotel adicionarPredio(Hotel hotel);
 
+    Hotel adicionarServico(Hotel hotel);
+
+    Hotel adicionarItem(Hotel hotel);
+
     List<Hotel> listar ();
 
     Optional<Hotel> buscarPorId(Long id);

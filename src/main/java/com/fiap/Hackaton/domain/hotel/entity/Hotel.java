@@ -53,6 +53,7 @@ public class Hotel {
         this.itensDiponiveis = new ArrayList<>();
     }
 
+
     public Hotel(String nome, Endereco endereco) {
         this.nome = nome;
         this.endereco = endereco;
@@ -103,5 +104,13 @@ public class Hotel {
 
     public void addPredio(Predio predio) {
         this.predios.add(predio);
+    }
+
+    public void addServico(Servico servico){
+        this.servicosDisponiveis.add(servico);
+    }
+
+    public void addItem(Item item){
+        this.itensDiponiveis.add(item);
     }
 }

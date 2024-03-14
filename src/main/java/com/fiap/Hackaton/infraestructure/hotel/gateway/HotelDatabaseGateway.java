@@ -4,6 +4,7 @@ import com.fiap.Hackaton.domain.hotel.entity.Hotel;
 import com.fiap.Hackaton.domain.hotel.gateway.HotelGateway;
 import com.fiap.Hackaton.infraestructure.hotel.entityschema.HotelEntity;
 import com.fiap.Hackaton.infraestructure.hotel.repository.HotelRepository;
+import com.fiap.Hackaton.infraestructure.hotel.servico.entityschema.ServicoEntity;
 import com.fiap.Hackaton.infraestructure.predio.entityschema.PredioEntity;
 
 import java.util.List;
@@ -35,6 +36,18 @@ public class HotelDatabaseGateway implements HotelGateway {
         HotelEntity entity = new HotelEntity(hotel);
         entity.setPredios(hotel.getPredios().stream().map(PredioEntity::new).collect(Collectors.toList()));
         return this.repository.save(entity).toEntityWithPredios();
+    }
+
+    @Override
+    public Hotel adicionarServico(Hotel hotel) {
+        HotelEntity entity = new HotelEntity(hotel);
+        entity.setServicos(hotel.getServicosDisponiveis().stream().map(ServicoEntity::new).collect(Collectors.toSet()));
+        return this.repository.save(entity).toEntityWithServicos();
+    }
+
+    @Override
+    public Hotel adicionarItem(Hotel hotel) {
+        return null;
     }
 
     @Override

@@ -126,6 +126,13 @@ public class MvcConfig {
     }
 
     @Bean
+    public AdicionarServicoUseCase adicionarServicoUseCase (HotelRepository repository, BuscarServicoUseCase buscarServicoUseCase) {
+        HotelGateway hotelGateway = new HotelDatabaseGateway(repository);
+
+        return new AdicionarServicoUseCase(hotelGateway, buscarServicoUseCase);
+    }
+
+    @Bean
     public RemoverPredioUseCase removerPredioUseCase (HotelRepository repository, DeletarPredioUseCase deletarPredioUseCase) {
         HotelGateway hotelGateway = new HotelDatabaseGateway(repository);
 

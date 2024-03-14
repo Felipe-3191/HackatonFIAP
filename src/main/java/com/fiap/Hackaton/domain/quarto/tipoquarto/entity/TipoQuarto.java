@@ -7,6 +7,7 @@ public class TipoQuarto {
     private Integer quantidadeCamas;
 
 
+
     public TipoQuarto(){}
 
     public TipoQuarto(Long id, String nomeTipo, Integer capacidadeTotal, Integer quantidadeCamas) {

@@ -23,7 +23,7 @@ public class AdicionarItemController {
 
     @PostMapping("/hotel/{idHotel}/item/{idItem}")
     @Operation(summary = "Adiciona um item a um hotel")
-    public ResponseEntity<HotelItensPublicData> adicionarItemaoHotel(@PathVariable Long idHotel, @PathVariable Long idItem){
+    public ResponseEntity<HotelItensPublicData> adicionarItemaoHotel(@PathVariable Long idHotel, @PathVariable Long idItem) {
         Hotel hotel = this.adicionarItemUseCase.executar(idHotel, idItem);
         return ResponseEntity.ok(new HotelItensPublicData(hotel));
     }

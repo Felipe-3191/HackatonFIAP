@@ -14,7 +14,7 @@ public class BuscarHotelPorNomeUseCase {
     }
 
 
-    public List<Hotel> executar(String nome){
+    public List<Hotel> executar(String nome) {
         return this.hotelGateway.buscarPorNome(nome).orElseThrow();
 
 

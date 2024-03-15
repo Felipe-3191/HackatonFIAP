@@ -16,7 +16,7 @@ public class RemoverItemUseCase {
         this.buscarItemUseCase = buscarItemUseCase;
     }
 
-    public Hotel executar (Long hotelId, Long itemId ) {
+    public Hotel executar(Long hotelId, Long itemId) {
         Hotel hotel = hotelGateway.buscarPorId(hotelId).orElseThrow();
         Item item = buscarItemUseCase.execute(itemId);
 

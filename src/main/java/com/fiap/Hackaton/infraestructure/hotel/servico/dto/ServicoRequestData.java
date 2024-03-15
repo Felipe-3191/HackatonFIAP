@@ -16,5 +16,5 @@ public record ServicoRequestData(
         @Positive(message = "Valor deve ser maior que zero")
         BigDecimal valor
 
-)  implements IServicoRequestData {
+) implements IServicoRequestData {
 }

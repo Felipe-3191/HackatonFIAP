@@ -8,14 +8,16 @@ import java.util.Optional;
 public interface ClienteGateway {
 
 
-    Cliente criar (Cliente cliente);
-    Cliente atualizar (Cliente cliente);
+    Cliente criar(Cliente cliente);
+
+    Cliente atualizar(Cliente cliente);
 
     List<Cliente> listar();
 
     Optional<Cliente> buscarPorId(Long id);
 
     Optional<Cliente> buscarPorCpf(String cpf);
+
     void deletar(Cliente cliente);
 
 }

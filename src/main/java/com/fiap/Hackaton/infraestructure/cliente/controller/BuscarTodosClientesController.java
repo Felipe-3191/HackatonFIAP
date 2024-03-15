@@ -18,7 +18,7 @@ public class BuscarTodosClientesController {
 
     public BuscarTodosClientesUseCase buscarTodosClientesUseCase;
 
-    public BuscarTodosClientesController(BuscarTodosClientesUseCase buscarTodosClientesUseCase){
+    public BuscarTodosClientesController(BuscarTodosClientesUseCase buscarTodosClientesUseCase) {
         this.buscarTodosClientesUseCase = buscarTodosClientesUseCase;
     }
 

@@ -13,7 +13,8 @@ public class TipoQuarto {
 
     private List<Movel> moveis;
 
-    public TipoQuarto(){}
+    public TipoQuarto() {
+    }
 
     public TipoQuarto(Long id, String nomeTipo, Integer capacidadeTotal, String quantidadeCamas, String banheiro) {
         this.id = id;
@@ -22,6 +23,7 @@ public class TipoQuarto {
         this.quantidadeCamas = quantidadeCamas;
         this.banheiro = banheiro;
     }
+
     public TipoQuarto(Long id, String nomeTipo, Integer capacidadeTotal, String quantidadeCamas, String banheiro, List<Movel> moveis) {
         this.id = id;
         this.nomeTipo = nomeTipo;
@@ -35,39 +37,39 @@ public class TipoQuarto {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getNomeTipo() {
         return nomeTipo;
+    }
+
+    public void setNomeTipo(String nomeTipo) {
+        this.nomeTipo = nomeTipo;
     }
 
     public Integer getCapacidadeTotal() {
         return capacidadeTotal;
     }
 
+    public void setCapacidadeTotal(Integer capacidadeTotal) {
+        this.capacidadeTotal = capacidadeTotal;
+    }
+
     public String getQuantidadeCamas() {
         return quantidadeCamas;
     }
 
-    public void setId(Long id){
-        this.id = id;
-    }
-
-    public void setNomeTipo(String nomeTipo){
-        this.nomeTipo = nomeTipo;
-    }
-
-    public void setCapacidadeTotal(Integer capacidadeTotal){
-        this.capacidadeTotal = capacidadeTotal;
-    }
-
-    public void setQuantidadeCamas(String quantidadeCamas){
+    public void setQuantidadeCamas(String quantidadeCamas) {
         this.quantidadeCamas = quantidadeCamas;
     }
 
-    public List<Movel> getMoveis(){
+    public List<Movel> getMoveis() {
         return moveis;
     }
 
-    public void setMoveis(List<Movel> moveis){
+    public void setMoveis(List<Movel> moveis) {
         this.moveis = moveis;
     }
 }

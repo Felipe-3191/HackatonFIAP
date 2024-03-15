@@ -15,16 +15,17 @@ public class Quarto {
     private TipoQuarto tipoQuarto;
 
 
-    public Quarto(){}
+    public Quarto() {
+    }
 
-    public Quarto(Predio predio, TipoQuarto tipoQuarto, Status status, BigDecimal valorDiaria){
+    public Quarto(Predio predio, TipoQuarto tipoQuarto, Status status, BigDecimal valorDiaria) {
         this.predio = predio;
         this.tipoQuarto = tipoQuarto;
         this.status = status;
         this.valorDiaria = valorDiaria;
     }
 
-    public Quarto(Long id, Predio predio, Long idHotel, BigDecimal valorDiaria, Status status, TipoQuarto tipoQuarto){
+    public Quarto(Long id, Predio predio, Long idHotel, BigDecimal valorDiaria, Status status, TipoQuarto tipoQuarto) {
         this.id = id;
         this.predio = predio;
         this.idHotel = idHotel;
@@ -48,51 +49,51 @@ public class Quarto {
         this.tipoQuarto = tipoQuarto;
     }
 
-    public Long getId(){
+    public Long getId() {
         return id;
     }
 
-    public void setId(Long id){
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public Predio getPredio(){
+    public Predio getPredio() {
         return predio;
     }
 
-    public void setPredio(Predio predio){
+    public void setPredio(Predio predio) {
         this.predio = predio;
     }
 
-    public Long getIdHotel(){
+    public Long getIdHotel() {
         return idHotel;
     }
 
-    public void setIdHotel(Long idHotel){
+    public void setIdHotel(Long idHotel) {
         this.idHotel = idHotel;
     }
 
-    public BigDecimal getValorDiaria(){
+    public BigDecimal getValorDiaria() {
         return valorDiaria;
     }
 
-    public void setValorDiaria(BigDecimal valorDiaria){
+    public void setValorDiaria(BigDecimal valorDiaria) {
         this.valorDiaria = valorDiaria;
     }
 
-    public Status getStatus(){
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(Status status){
+    public void setStatus(Status status) {
         this.status = status;
     }
 
-    public TipoQuarto getTipoQuarto(){
+    public TipoQuarto getTipoQuarto() {
         return tipoQuarto;
     }
 
-    public void setTipoQuarto(TipoQuarto tipoQuarto){
+    public void setTipoQuarto(TipoQuarto tipoQuarto) {
         this.tipoQuarto = tipoQuarto;
     }
 }

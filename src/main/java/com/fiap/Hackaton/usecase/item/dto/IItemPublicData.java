@@ -4,9 +4,10 @@ import java.math.BigDecimal;
 
 public interface IItemPublicData {
 
-     Long id();
-     String nome();
+    Long id();
 
-     BigDecimal valor();
+    String nome();
+
+    BigDecimal valor();
 
 }

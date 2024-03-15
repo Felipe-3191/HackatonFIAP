@@ -8,24 +8,24 @@ import jakarta.persistence.*;
 public class AmenidadeEntity {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
 
-    public AmenidadeEntity() {}
+    public AmenidadeEntity() {
+    }
 
-    public AmenidadeEntity(Amenidade amenidade){
+    public AmenidadeEntity(Amenidade amenidade) {
         this.id = amenidade.getId();
         this.nome = amenidade.getNome();
     }
 
-    public Amenidade toEntity(){
+    public Amenidade toEntity() {
         return new Amenidade(
                 this.getId(),
                 this.getNome()
         );
     }
-
 
 
     public Long getId() {

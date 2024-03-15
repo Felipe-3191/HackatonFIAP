@@ -23,7 +23,8 @@ public class Reserva {
     private List<Servico> servicosConsumidos;
 
 
-    public Reserva(){}
+    public Reserva() {
+    }
 
     public Reserva(Long id, LocalDate dataInicial, LocalDate dataFinal, BigDecimal valorReserva,
                    BigDecimal valorTotal, Integer quantidadePessoas, Cliente responsavelReserva,

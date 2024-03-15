@@ -1,10 +1,7 @@
 package com.fiap.Hackaton.infraestructure.config.exception;
 
-import com.fiap.Hackaton.domain.cliente.gateway.ClienteGateway;
-import com.fiap.Hackaton.infraestructure.cliente.gateway.ClienteDatabaseGateway;
 import com.fiap.Hackaton.infraestructure.cliente.gateway.EnvioEmailGateway;
-import com.fiap.Hackaton.infraestructure.cliente.repository.ClienteRepository;
-import com.fiap.Hackaton.usecase.cliente.*;
+import com.fiap.Hackaton.usecase.cliente.EnvioEmailUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,7 +9,6 @@ import org.springframework.mail.javamail.JavaMailSender;
 
 @Configuration
 public class MailMvcConfig {
-
 
 
     @Autowired

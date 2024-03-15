@@ -8,9 +8,9 @@ import java.util.Optional;
 public interface HotelGateway {
 
 
-    Hotel criar (Hotel hotel);
+    Hotel criar(Hotel hotel);
 
-    Hotel atualizar (Hotel hotel);
+    Hotel atualizar(Hotel hotel);
 
     Hotel adicionarPredio(Hotel hotel);
 
@@ -18,16 +18,15 @@ public interface HotelGateway {
 
     Hotel adicionarItem(Hotel hotel);
 
-    List<Hotel> listar ();
+    List<Hotel> listar();
 
     Optional<Hotel> buscarPorId(Long id);
 
     Optional<List<Hotel>> buscarPorNome(String nome);
-    Optional<List<Hotel>> buscarPorLogradouro (String endereco);
 
-    Optional<List<Hotel>> buscarPorCep (String cep);
+    Optional<List<Hotel>> buscarPorLogradouro(String endereco);
 
-
+    Optional<List<Hotel>> buscarPorCep(String cep);
 
 
     void deletar(Hotel hotel);

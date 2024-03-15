@@ -3,15 +3,17 @@ package com.fiap.Hackaton.usecase.hotel;
 import com.fiap.Hackaton.domain.endereco.entity.Endereco;
 import com.fiap.Hackaton.domain.hotel.entity.Hotel;
 import com.fiap.Hackaton.domain.hotel.gateway.HotelGateway;
-import com.fiap.Hackaton.usecase.hotel.dto.IHotelCadastroRequestData;
 import com.fiap.Hackaton.infraestructure.endereco.dto.EnderecoCadastroRequestData;
+import com.fiap.Hackaton.usecase.hotel.dto.IHotelCadastroRequestData;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import static org.mockito.Mockito.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.when;
 
 class CriarHotelUseCaseTest {
 

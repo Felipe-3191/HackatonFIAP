@@ -5,7 +5,6 @@ import com.fiap.Hackaton.infraestructure.tipoquarto.entityschema.TipoQuartoEntit
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface QuartoRepository extends JpaRepository<QuartoEntity, Long> {
     List<QuartoEntity> findByTipoQuarto(TipoQuartoEntity tipoQuarto);

@@ -14,7 +14,7 @@ public class Predio {
     private List<Quarto> quartos;
 
 
-    public Predio(){
+    public Predio() {
 
     }
 

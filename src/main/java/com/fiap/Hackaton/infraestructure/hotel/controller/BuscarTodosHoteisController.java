@@ -23,13 +23,12 @@ public class BuscarTodosHoteisController {
 
     @GetMapping("/hotel")
     @Operation(summary = "buscar todos os hoteis")
-    public ResponseEntity<List<HotelPublicData>> buscarTodososHoteis () {
+    public ResponseEntity<List<HotelPublicData>> buscarTodososHoteis() {
 
         List<HotelPublicData> response = this.buscarTodosHoteisUseCase.executar().stream().map(HotelPublicData::new).collect(Collectors.toList());
         return ResponseEntity.ok(response);
 
     }
-
 
 
 }

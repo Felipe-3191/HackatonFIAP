@@ -21,7 +21,7 @@ public class RemoverPredioController {
 
     @DeleteMapping("/hotel/{idHotel}/predio/{idPredio}")
     @Operation(summary = "remove um predio de um hotel")
-    public ResponseEntity<Void> removerPredio(@PathVariable Long idHotel, @PathVariable Long idPredio){
+    public ResponseEntity<Void> removerPredio(@PathVariable Long idHotel, @PathVariable Long idPredio) {
         this.removerPredioUseCase.executar(idHotel, idPredio);
         return ResponseEntity.noContent().build();
     }

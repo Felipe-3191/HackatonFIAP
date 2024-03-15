@@ -9,7 +9,9 @@ import java.util.List;
 public class BuscarTodosItensUseCase {
     private final ItemGateway itemGateway;
 
-    public BuscarTodosItensUseCase(ItemGateway itemGateway) { this.itemGateway = itemGateway;}
+    public BuscarTodosItensUseCase(ItemGateway itemGateway) {
+        this.itemGateway = itemGateway;
+    }
 
     public List<Item> execute() {
         List<Item> itens = this.itemGateway.listar();

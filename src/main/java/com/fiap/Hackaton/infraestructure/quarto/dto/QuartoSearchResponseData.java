@@ -1,6 +1,5 @@
 package com.fiap.Hackaton.infraestructure.quarto.dto;
 
-import com.fiap.Hackaton.domain.predio.entity.Predio;
 import com.fiap.Hackaton.domain.quarto.entity.Quarto;
 import com.fiap.Hackaton.domain.quarto.entity.Status;
 import com.fiap.Hackaton.domain.quarto.tipoquarto.entity.TipoQuarto;

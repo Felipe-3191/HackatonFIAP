@@ -1,13 +1,10 @@
 package com.fiap.Hackaton.infraestructure.movel.entityschema;
 
 import com.fiap.Hackaton.domain.movel.entity.Movel;
-import com.fiap.Hackaton.infraestructure.tipoquarto.entityschema.TipoQuartoEntity;
 import jakarta.persistence.*;
 
-import java.util.List;
-
 @Entity
-@Table(name="movel")
+@Table(name = "movel")
 public class MovelEntity {
 
     @Id
@@ -17,15 +14,13 @@ public class MovelEntity {
     private String nome;
 
 
-
-    public MovelEntity(){
+    public MovelEntity() {
     }
 
-    public MovelEntity(Long id, String nome){
+    public MovelEntity(Long id, String nome) {
         this.id = id;
         this.nome = nome;
     }
-
 
 
     public MovelEntity(Movel movel) {
@@ -45,19 +40,19 @@ public class MovelEntity {
         );
     }
 
-    public Long getId(){
+    public Long getId() {
         return id;
     }
 
-    public void setId(Long id){
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getNome(){
+    public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome){
+    public void setNome(String nome) {
         this.nome = nome;
     }
 

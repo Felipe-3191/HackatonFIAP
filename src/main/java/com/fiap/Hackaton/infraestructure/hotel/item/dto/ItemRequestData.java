@@ -15,5 +15,5 @@ public record ItemRequestData(
         @Positive(message = "Valor deve ser maior que zero")
         BigDecimal valor
 
-)  implements IItemRequestData {
+) implements IItemRequestData {
 }

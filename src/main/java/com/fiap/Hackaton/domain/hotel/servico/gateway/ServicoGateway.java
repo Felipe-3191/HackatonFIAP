@@ -7,11 +7,13 @@ import java.util.Optional;
 
 public interface ServicoGateway {
 
-    Servico criar (Servico servico);
-    Servico atualizar (Servico servico);
+    Servico criar(Servico servico);
+
+    Servico atualizar(Servico servico);
 
     List<Servico> listar();
 
     Optional<Servico> buscarPorId(Long id);
+
     void deletar(Servico servico);
 }

@@ -19,7 +19,8 @@ public class Hotel {
     private List<Servico> servicosDisponiveis;
     private List<Item> itensDiponiveis = new ArrayList<>();
 
-    public Hotel() {}
+    public Hotel() {
+    }
 
     public Hotel(Long id, String nome, Endereco endereco, List<Predio> predios,
                  List<Amenidade> amenidades, List<Servico> servicosDisponiveis,
@@ -64,7 +65,6 @@ public class Hotel {
     }
 
 
-
     public Long getId() {
         return id;
     }
@@ -73,8 +73,16 @@ public class Hotel {
         return nome;
     }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public Endereco getEndereco() {
         return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
     }
 
     public List<Predio> getPredios() {
@@ -89,15 +97,6 @@ public class Hotel {
         return servicosDisponiveis;
     }
 
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
-    }
-
     public List<Item> getItensDiponiveis() {
         return itensDiponiveis;
     }
@@ -106,14 +105,15 @@ public class Hotel {
         this.predios.add(predio);
     }
 
-    public void addServico(Servico servico){
+    public void addServico(Servico servico) {
         this.servicosDisponiveis.add(servico);
     }
 
-    public void removerServico(Servico servico){
+    public void removerServico(Servico servico) {
         this.servicosDisponiveis.remove(servico);
     }
-    public void addItem(Item item){
+
+    public void addItem(Item item) {
         this.itensDiponiveis.add(item);
     }
 

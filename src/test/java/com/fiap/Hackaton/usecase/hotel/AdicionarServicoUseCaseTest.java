@@ -12,7 +12,8 @@ import org.mockito.MockitoAnnotations;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
 public class AdicionarServicoUseCaseTest {
@@ -48,6 +49,7 @@ public class AdicionarServicoUseCaseTest {
         verify(hotelGateway).adicionarServico(hotel);
         assertEquals(hotel, resultado);
     }
+
     @Test
     void hotelNaoEncontrado() {
         Long hotelId = 1L;

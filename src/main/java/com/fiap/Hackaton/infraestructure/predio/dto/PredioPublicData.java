@@ -18,6 +18,7 @@ public record PredioPublicData (
 ) {
     public PredioPublicData(Predio predio) {
         this(
+                new HotelPublicData(predio.getHotel()),
                 predio.getId(),
                 predio.getNome(),
                 predio.getQuartos().stream().map(QuartoSummaryPublicData::new).toList()

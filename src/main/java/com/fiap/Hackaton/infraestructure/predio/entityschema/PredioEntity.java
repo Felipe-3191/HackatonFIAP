@@ -1,7 +1,6 @@
 package com.fiap.Hackaton.infraestructure.predio.entityschema;
 
 
-
 import com.fiap.Hackaton.domain.predio.entity.Predio;
 import com.fiap.Hackaton.infraestructure.hotel.entityschema.HotelEntity;
 import com.fiap.Hackaton.infraestructure.quarto.entitySchema.QuartoEntity;
@@ -27,12 +26,19 @@ public class PredioEntity {
     @JoinColumn(name = "predio_id")
     private List<QuartoEntity> quartoEntities;
 
-    public PredioEntity(){}
+    public PredioEntity() {
+    }
 
-    public PredioEntity(Predio predio){
+    public PredioEntity(Predio predio) {
         this.id = predio.getId();
         this.nome = predio.getNome();
         this.hotel = new HotelEntity(predio.getHotel());
+    }
+
+    public PredioEntity(Long id, String nome, HotelEntity hotel) {
+        this.id = id;
+        this.nome = nome;
+        this.hotel = hotel;
     }
 
     public Predio toSimpleEntity() {
@@ -71,12 +77,5 @@ public class PredioEntity {
         );
         return predio;
     }
-
-    public PredioEntity(Long id, String nome, HotelEntity hotel) {
-        this.id = id;
-        this.nome = nome;
-        this.hotel = hotel;
-    }
-
 
 }

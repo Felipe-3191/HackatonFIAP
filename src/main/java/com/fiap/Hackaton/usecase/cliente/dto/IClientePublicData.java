@@ -4,14 +4,22 @@ import java.time.LocalDate;
 
 public interface IClientePublicData {
 
-     Long id();
-     String paisOrigem();
-     String cpf();
-     String passaporte();
-     String nome();
-     LocalDate dataNascimento();
-     String enderecoPaisOrigem();
-     String telefone();
-     String email();
+    Long id();
+
+    String paisOrigem();
+
+    String cpf();
+
+    String passaporte();
+
+    String nome();
+
+    LocalDate dataNascimento();
+
+    String enderecoPaisOrigem();
+
+    String telefone();
+
+    String email();
 
 }

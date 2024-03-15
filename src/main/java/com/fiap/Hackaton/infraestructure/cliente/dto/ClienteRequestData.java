@@ -31,5 +31,5 @@ public record ClienteRequestData(
         @Email(message = "Email inválido")
         String email
 
-)  implements IClienteRequestData {
+) implements IClienteRequestData {
 }

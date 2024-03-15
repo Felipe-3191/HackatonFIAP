@@ -11,13 +11,14 @@ public class BuscarQuartoPorTipoUseCase {
     private final QuartoGateway quartoGateway;
 
     private final TipoQuartoGateway tipoQuartoGateway;
+
     public BuscarQuartoPorTipoUseCase(QuartoGateway quartoGateway, TipoQuartoGateway tipoQuartoGateway) {
         this.quartoGateway = quartoGateway;
         this.tipoQuartoGateway = tipoQuartoGateway;
     }
 
     public List<Quarto> execute(Long idTipoQuarto) {
-        TipoQuarto tipoQuarto =tipoQuartoGateway.buscarPorId(idTipoQuarto);
+        TipoQuarto tipoQuarto = tipoQuartoGateway.buscarPorId(idTipoQuarto);
         return this.quartoGateway.buscarQuartoPorTipo(tipoQuarto);
     }
 }

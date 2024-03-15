@@ -4,8 +4,6 @@ import com.fiap.Hackaton.domain.hotel.entity.Hotel;
 import com.fiap.Hackaton.domain.hotel.gateway.HotelGateway;
 import com.fiap.Hackaton.usecase.predio.DeletarPredioUseCase;
 
-import java.util.Optional;
-
 public class RemoverPredioUseCase {
 
     private final HotelGateway hotelGateway;
@@ -16,7 +14,7 @@ public class RemoverPredioUseCase {
         this.deletarPredioUseCase = deletarPredioUseCase;
     }
 
-    public Hotel executar(Long hotelId, Long predioId){
+    public Hotel executar(Long hotelId, Long predioId) {
         Hotel hotel = this.hotelGateway.buscarPorId(hotelId).orElseThrow();
 
         this.deletarPredioUseCase.executar(predioId);

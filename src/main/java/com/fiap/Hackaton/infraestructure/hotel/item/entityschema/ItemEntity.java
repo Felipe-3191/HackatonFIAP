@@ -17,9 +17,10 @@ public class ItemEntity {
     private String nome;
     private BigDecimal valor;
 
-    public ItemEntity(){}
+    public ItemEntity() {
+    }
 
-    public ItemEntity(Long id, String nome, BigDecimal valor){
+    public ItemEntity(Long id, String nome, BigDecimal valor) {
         this.id = id;
         this.nome = nome;
         this.valor = valor;

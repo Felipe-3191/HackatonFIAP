@@ -17,8 +17,8 @@ public class EnderecoEntity {
     private String estado;
 
 
-
-    public EnderecoEntity(){}
+    public EnderecoEntity() {
+    }
 
     public EnderecoEntity(Long id, String logradouro, String cep, String cidade, String estado) {
         this.id = id;

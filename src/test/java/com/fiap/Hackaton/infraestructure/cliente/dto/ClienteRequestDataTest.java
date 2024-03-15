@@ -1,12 +1,11 @@
 package com.fiap.Hackaton.infraestructure.cliente.dto;
 
 import jakarta.validation.ConstraintViolation;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
 import jakarta.validation.ValidatorFactory;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.util.Set;

@@ -15,6 +15,7 @@ public class CriarQuartoUseCase {
     private PredioGateway predioGateway;
 
     private TipoQuartoGateway tipoQuartoGateway;
+
     public CriarQuartoUseCase(
             QuartoGateway quartoGateway,
             PredioGateway predioGateway,

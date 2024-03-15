@@ -9,7 +9,10 @@ public class Endereco {
     private String estado;
 
 
-    public Endereco(){};
+    public Endereco() {
+    }
+
+    ;
 
     public Endereco(Long id, String logradouro, String cep, String cidade, String estado) {
         this.id = id;

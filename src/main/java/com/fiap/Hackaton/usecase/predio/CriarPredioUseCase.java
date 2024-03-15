@@ -2,7 +2,6 @@ package com.fiap.Hackaton.usecase.predio;
 
 import com.fiap.Hackaton.domain.predio.entity.Predio;
 import com.fiap.Hackaton.domain.predio.gateway.PredioGateway;
-import com.fiap.Hackaton.usecase.predio.dto.IPredioRequestData;
 
 public class CriarPredioUseCase {
 
@@ -13,7 +12,7 @@ public class CriarPredioUseCase {
         this.predioGateway = predioGateway;
     }
 
-    public Predio executar(Predio predio){
+    public Predio executar(Predio predio) {
 
         return this.predioGateway.criar(predio);
     }

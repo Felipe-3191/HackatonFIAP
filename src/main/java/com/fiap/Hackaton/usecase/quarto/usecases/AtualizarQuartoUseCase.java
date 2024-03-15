@@ -11,15 +11,15 @@ import com.fiap.Hackaton.usecase.quarto.dto.IQuartoRequestData;
 
 public class AtualizarQuartoUseCase {
 
-    private  final QuartoGateway quartoGateway;
+    private final QuartoGateway quartoGateway;
 
     private PredioGateway predioGateway;
 
     private TipoQuartoGateway tipoQuartoGateway;
 
-    public AtualizarQuartoUseCase( QuartoGateway quartoGateway,
-                                   PredioGateway predioGateway,
-                                   TipoQuartoGateway tipoQuartoGateway) {
+    public AtualizarQuartoUseCase(QuartoGateway quartoGateway,
+                                  PredioGateway predioGateway,
+                                  TipoQuartoGateway tipoQuartoGateway) {
         this.quartoGateway = quartoGateway;
         this.predioGateway = predioGateway;
         this.tipoQuartoGateway = tipoQuartoGateway;
@@ -27,11 +27,11 @@ public class AtualizarQuartoUseCase {
 
     public Quarto execute(Long id, IQuartoRequestData dados) {
         Quarto quarto = quartoGateway.buscarPorId(id).orElseThrow();
-       Quarto quartoAtualizado = this.atualizarQuarto(quarto, dados);
+        Quarto quartoAtualizado = this.atualizarQuarto(quarto, dados);
         return quartoGateway.atualizar(quartoAtualizado);
     }
 
-    private Quarto atualizarQuarto(Quarto quarto, IQuartoRequestData dados){
+    private Quarto atualizarQuarto(Quarto quarto, IQuartoRequestData dados) {
 
         Predio predio = predioGateway.buscarPorId(dados.idPredio()).orElseThrow();
         TipoQuarto tipoQuarto = tipoQuartoGateway.buscarPorId(dados.idTipoQuarto());
@@ -42,6 +42,6 @@ public class AtualizarQuartoUseCase {
         quarto.setStatus(status);
         quarto.setIdHotel(predio.getHotel().getId());
         quarto.setValorDiaria(dados.valorDiaria());
-        return  quarto;
+        return quarto;
     }
 }

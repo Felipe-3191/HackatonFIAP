@@ -13,7 +13,7 @@ public class BuscarTodosHoteisUseCase {
         this.hotelGateway = hotelGateway;
     }
 
-    public List<Hotel> executar(){
+    public List<Hotel> executar() {
 
         return this.hotelGateway.listar();
 

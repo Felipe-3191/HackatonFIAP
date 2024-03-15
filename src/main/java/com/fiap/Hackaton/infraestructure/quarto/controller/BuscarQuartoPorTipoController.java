@@ -1,10 +1,7 @@
 package com.fiap.Hackaton.infraestructure.quarto.controller;
 
 import com.fiap.Hackaton.domain.quarto.entity.Quarto;
-import com.fiap.Hackaton.domain.quarto.tipoquarto.entity.TipoQuarto;
-import com.fiap.Hackaton.infraestructure.quarto.dto.QuartoPublicData;
 import com.fiap.Hackaton.infraestructure.quarto.dto.QuartoSearchResponseData;
-import com.fiap.Hackaton.usecase.quarto.usecases.BuscarQuartoPorIdUseCase;
 import com.fiap.Hackaton.usecase.quarto.usecases.BuscarQuartoPorTipoUseCase;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

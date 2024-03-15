@@ -16,7 +16,7 @@ public class BuscarServicoUseCase {
 
     public Servico execute(Long id) {
         Optional<Servico> servico = this.servicoGateway.buscarPorId(id);
-        if(servico.isEmpty())  {
+        if (servico.isEmpty()) {
             throw new ServicoNaoEncontradoException();
         }
         return servico.get();

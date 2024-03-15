@@ -1,11 +1,7 @@
 package com.fiap.Hackaton.infraestructure.hotel.entityschema;
 
 
-
-
-import com.fiap.Hackaton.domain.amenidade.entity.Amenidade;
 import com.fiap.Hackaton.domain.hotel.entity.Hotel;
-
 import com.fiap.Hackaton.domain.hotel.item.entity.Item;
 import com.fiap.Hackaton.domain.hotel.servico.entity.Servico;
 import com.fiap.Hackaton.infraestructure.amenidade.entityschema.AmenidadeEntity;
@@ -42,8 +38,8 @@ public class HotelEntity {
 
     @ManyToMany
     @JoinTable(name = "hotel_amenidades",
-    joinColumns = @JoinColumn(name = "hotel_id"),
-    inverseJoinColumns = @JoinColumn(name = "amenidade_id"))
+            joinColumns = @JoinColumn(name = "hotel_id"),
+            inverseJoinColumns = @JoinColumn(name = "amenidade_id"))
     private Set<AmenidadeEntity> amenidades = new HashSet<>();
 
     @ManyToMany
@@ -57,15 +53,17 @@ public class HotelEntity {
             joinColumns = @JoinColumn(name = "hotel_id"),
             inverseJoinColumns = @JoinColumn(name = "servico_id"))
     private Set<ServicoEntity> servicos = new HashSet<>();
-    public HotelEntity(){}
 
-    public HotelEntity(Hotel hotel){
+    public HotelEntity() {
+    }
+
+    public HotelEntity(Hotel hotel) {
         this.id = hotel.getId();
         this.nome = hotel.getNome();
         this.endereco = new EnderecoEntity(hotel.getEndereco());
     }
 
-    public Hotel toEntity(){
+    public Hotel toEntity() {
 
         return new Hotel(
                 this.getId(),
@@ -89,7 +87,7 @@ public class HotelEntity {
     }
 
 
-    public Hotel toEntityWithPredios(){
+    public Hotel toEntityWithPredios() {
 
         return new Hotel(
                 this.getId(),
@@ -110,10 +108,9 @@ public class HotelEntity {
         );
 
 
-
         this.servicos.stream().forEach(servicoEntity -> {
-                Servico servico = servicoEntity.toEntity();
-                hotel.addServico(servico);
+            Servico servico = servicoEntity.toEntity();
+            hotel.addServico(servico);
         });
 
         return hotel;
@@ -129,7 +126,6 @@ public class HotelEntity {
         );
 
 
-
         this.itens.stream().forEach(itemEntity -> {
             Item item = itemEntity.toEntity();
             hotel.addItem(item);
@@ -137,9 +133,6 @@ public class HotelEntity {
 
         return hotel;
     }
-
-
-
 
 
     public Long getId() {

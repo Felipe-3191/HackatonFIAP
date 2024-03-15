@@ -1,7 +1,6 @@
 package com.fiap.Hackaton.infraestructure.hotel.controller;
 
 import com.fiap.Hackaton.domain.hotel.entity.Hotel;
-import com.fiap.Hackaton.infraestructure.cliente.dto.ClienteRequestData;
 import com.fiap.Hackaton.infraestructure.hotel.dto.HotelCadastroRequestData;
 import com.fiap.Hackaton.infraestructure.hotel.dto.HotelPublicData;
 import com.fiap.Hackaton.usecase.hotel.CriarHotelUseCase;
@@ -25,7 +24,7 @@ public class CriarHotelController {
 
     @PostMapping("/hotel")
     @Operation(summary = "Criar Hotel")
-    public ResponseEntity<HotelPublicData> criarHotel(@Valid @RequestBody HotelCadastroRequestData dados){
+    public ResponseEntity<HotelPublicData> criarHotel(@Valid @RequestBody HotelCadastroRequestData dados) {
         Hotel hotel = criarHotelUseCase.executar(dados);
         return ResponseEntity.ok(new HotelPublicData(hotel));
 

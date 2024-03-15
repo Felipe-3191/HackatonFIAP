@@ -3,10 +3,12 @@ package com.fiap.Hackaton.infraestructure.quarto.entitySchema;
 import com.fiap.Hackaton.domain.quarto.entity.Quarto;
 import com.fiap.Hackaton.domain.quarto.entity.Status;
 import com.fiap.Hackaton.infraestructure.predio.entityschema.PredioEntity;
+import com.fiap.Hackaton.infraestructure.reserva.entitySchema.ReservaEntity;
 import com.fiap.Hackaton.infraestructure.tipoquarto.entityschema.TipoQuartoEntity;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "quarto")
@@ -21,10 +23,10 @@ public class QuartoEntity {
     private Long idHotel;
     private BigDecimal valorDiaria;
     private Status status;
-
     @ManyToOne
     @JoinColumn(name = "tipo_quarto_id")
     private TipoQuartoEntity tipoQuarto;
+
 
     public QuartoEntity() {
     }
@@ -45,6 +47,14 @@ public class QuartoEntity {
         this.valorDiaria = quarto.getValorDiaria();
         this.status = quarto.getStatus();
         this.tipoQuarto = new TipoQuartoEntity(quarto.getTipoQuarto());
+    }
+
+    public List<ReservaEntity> getReservaEntities() {
+        return reservaEntities;
+    }
+
+    public void setReservaEntities(List<ReservaEntity> reservaEntities) {
+        this.reservaEntities = reservaEntities;
     }
 
     public PredioEntity getPredio() {

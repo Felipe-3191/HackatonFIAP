@@ -4,6 +4,7 @@ import com.fiap.Hackaton.domain.cliente.entity.Cliente;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -23,6 +24,8 @@ public class ClienteEntity {
     private String enderecoPaisOrigem;
     private String telefone;
     private String email;
+    @OneToMany(mappedBy = "cliente")
+    private List<ClienteEntity> clienteEntities;
 
     public ClienteEntity() {
     }
@@ -60,6 +63,14 @@ public class ClienteEntity {
         );
 
         return cliente;
+    }
+
+    public List<ClienteEntity> getClienteEntities() {
+        return clienteEntities;
+    }
+
+    public void setClienteEntities(List<ClienteEntity> clienteEntities) {
+        this.clienteEntities = clienteEntities;
     }
 
     public Long getId() {

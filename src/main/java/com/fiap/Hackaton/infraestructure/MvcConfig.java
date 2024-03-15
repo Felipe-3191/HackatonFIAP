@@ -29,10 +29,7 @@ import com.fiap.Hackaton.usecase.hotel.*;
 import com.fiap.Hackaton.usecase.item.*;
 import com.fiap.Hackaton.usecase.predio.*;
 import com.fiap.Hackaton.usecase.quarto.usecases.*;
-import com.fiap.Hackaton.usecase.reserva.DeletarReservaPorIdUseCase;
-import com.fiap.Hackaton.usecase.reserva.ListarReservasDeUmClienteUseCase;
-import com.fiap.Hackaton.usecase.reserva.ListarReservasDeUmHotelUseCase;
-import com.fiap.Hackaton.usecase.reserva.ListarReservasDeUmPeriodoUseCase;
+import com.fiap.Hackaton.usecase.reserva.*;
 import com.fiap.Hackaton.usecase.servico.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -347,7 +344,7 @@ public class MvcConfig {
         return new ListarReservasDeUmClienteUseCase(reservaGateway);
     }
 
- @Bean
+    @Bean
     public DeletarReservaPorIdUseCase deletarReservaPorIdUseCase(ReservaRepository repository) {
         ReservaGateway reservaGateway = new ReservaDatabaseGateway(repository);
         return new DeletarReservaPorIdUseCase(reservaGateway);
@@ -358,7 +355,7 @@ public class MvcConfig {
         ReservaGateway reservaGateway = new ReservaDatabaseGateway(repository);
         return new ListarReservasDeUmPeriodoUseCase(reservaGateway);
     }
-@Bean
+    @Bean
     public ListarQuartosPorPeriodoDisponibilidadeUseCase listarQuartosPorPeriodoDisponibilidadeUseCase(QuartoRepository repository){
         QuartoGateway quartoGateway = new QuartoDatabaseGateway(repository);
         return new ListarQuartosPorPeriodoDisponibilidadeUseCase(quartoGateway);
@@ -369,5 +366,11 @@ public class MvcConfig {
         return new ExibirPossibilidadesDeQuartosDisponiveisParaAtenderReserva(listarQuartosPorPeriodoDisponibilidadeUseCase);
     }
 
+
+    @Bean
+    public BuscarReservaPorIdUseCase buscarReservaPorIdUseCase(ReservaRepository repository) {
+        ReservaGateway reservaGateway = new ReservaDatabaseGateway(repository);
+        return new BuscarReservaPorIdUseCase(reservaGateway);
+    }
 
 }

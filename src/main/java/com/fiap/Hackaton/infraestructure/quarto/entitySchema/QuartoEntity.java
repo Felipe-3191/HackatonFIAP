@@ -86,6 +86,7 @@ public class QuartoEntity {
     public Quarto toSimpleEntity() {
         return new Quarto(
                 this.id,
+                this.predio.toEntity(),
                 this.idHotel,
                 this.valorDiaria,
                 this.status,

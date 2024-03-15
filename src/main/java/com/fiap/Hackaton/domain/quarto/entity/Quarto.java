@@ -2,8 +2,10 @@ package com.fiap.Hackaton.domain.quarto.entity;
 
 import com.fiap.Hackaton.domain.predio.entity.Predio;
 import com.fiap.Hackaton.domain.quarto.tipoquarto.entity.TipoQuarto;
+import com.fiap.Hackaton.infraestructure.tipoquarto.entityschema.TipoQuartoEntity;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public class Quarto {
 
@@ -47,6 +49,15 @@ public class Quarto {
         this.valorDiaria = valorDiaria;
         this.status = status;
         this.tipoQuarto = tipoQuarto;
+    }
+
+    public Quarto(Long idQuarto, Long idHotel, BigDecimal valorDiaria, Status status, TipoQuartoEntity tipoQuarto) {
+        this.id = idQuarto;
+        this.idHotel = idHotel;
+        this.valorDiaria = valorDiaria;
+        this.status = status;
+        this.tipoQuarto = tipoQuarto.toEntity();
+
     }
 
     public Long getId() {
@@ -95,5 +106,20 @@ public class Quarto {
 
     public void setTipoQuarto(TipoQuarto tipoQuarto) {
         this.tipoQuarto = tipoQuarto;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Quarto quarto = (Quarto) o;
+
+        return Objects.equals(id, quarto.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
     }
 }

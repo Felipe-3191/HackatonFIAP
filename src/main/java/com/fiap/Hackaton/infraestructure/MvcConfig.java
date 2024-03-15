@@ -351,4 +351,16 @@ public class MvcConfig {
         ReservaGateway reservaGateway = new ReservaDatabaseGateway(repository);
         return new ListarReservasDeUmPeriodoUseCase(reservaGateway);
     }
+
+
+    @Bean
+    public ListarQuartosPorPeriodoDisponibilidadeUseCase listarQuartosPorPeriodoDisponibilidadeUseCase(QuartoRepository repository){
+        QuartoGateway quartoGateway = new QuartoDatabaseGateway(repository);
+        return new ListarQuartosPorPeriodoDisponibilidadeUseCase(quartoGateway);
+    }
+
+    @Bean
+    public ExibirPossibilidadesDeQuartosDisponiveisParaAtenderReserva exibirPossibilidadesDeQuartosDisponiveisParaAtenderReserva(ListarQuartosPorPeriodoDisponibilidadeUseCase listarQuartosPorPeriodoDisponibilidadeUseCase){
+        return new ExibirPossibilidadesDeQuartosDisponiveisParaAtenderReserva(listarQuartosPorPeriodoDisponibilidadeUseCase);
+    }
 }

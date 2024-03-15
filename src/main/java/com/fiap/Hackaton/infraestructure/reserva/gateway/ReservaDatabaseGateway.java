@@ -60,4 +60,11 @@ public class ReservaDatabaseGateway implements ReservaGateway {
             throw new IllegalArgumentException("ID inválido");
         }
     }
+
+   @Override
+    public void removerQuartoDeReservas(QuartoEntity quarto){
+        repository.findAll().stream()
+            .filter(reserva -> reserva.getQuartoEntity().remove(quarto))
+            .forEach(repository::save);
+    }
 }

@@ -28,7 +28,7 @@ public class ReservaEntity {
     @OneToMany(mappedBy = "reserva")
     private List<ReservaItemEntity> reservaItemEntities;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "reserva_quarto",
             joinColumns = @JoinColumn(name = "reserva_id"),

@@ -312,9 +312,9 @@ public class MvcConfig {
     }
 
     @Bean
-    public DeletarQuartoUseCase deletarQuartoUseCase(QuartoRepository repository) {
+    public DeletarQuartoUseCase deletarQuartoUseCase(QuartoRepository repository, RemoverQuartoDeReservasUseCase removerQuartoDeReservasUseCase) {
         QuartoGateway quartoGateway = new QuartoDatabaseGateway(repository);
-        return new DeletarQuartoUseCase(quartoGateway);
+        return new DeletarQuartoUseCase(quartoGateway, removerQuartoDeReservasUseCase);
     }
 
 
@@ -378,5 +378,12 @@ public class MvcConfig {
     public IndisponibilizarQuartoUseCase indisponibilizarQuartoUseCase(QuartoRepository repository){
         QuartoGateway quartoGateway = new QuartoDatabaseGateway(repository);
         return new IndisponibilizarQuartoUseCase(quartoGateway);
+    }
+
+
+    @Bean
+    public RemoverQuartoDeReservasUseCase removerQuartoDeReservasUseCase(ReservaRepository repository){
+        ReservaGateway reservaGateway = new ReservaDatabaseGateway(repository);
+        return new RemoverQuartoDeReservasUseCase(reservaGateway);
     }
 }

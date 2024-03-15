@@ -41,6 +41,17 @@ public class Reserva {
         this.servicosConsumidos = servicosConsumidos;
     }
 
+    public Reserva(Long id, LocalDate dataInicial, LocalDate dataFinal, BigDecimal valorReserva, BigDecimal valorTotal, Integer quantidadePessoas, Cliente entity, List<Quarto> list){
+        this.id = id;
+        this.dataInicial = dataInicial;
+        this.dataFinal = dataFinal;
+        this.valorReserva = valorReserva;
+        this.valorTotal = valorTotal;
+        this.quantidadePessoas = quantidadePessoas;
+        this.responsavelReserva = entity;
+        this.quartosReservados = list;
+    }
+
 
     public Long getId() {
         return id;

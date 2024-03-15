@@ -155,4 +155,18 @@ public class ClienteEntity {
                 Objects.equals(nome, that.nome) &&
                 Objects.equals(cpf, that.cpf);
     }
+
+    public Cliente toEntity(){
+        return new Cliente(
+                this.id,
+                this.paisOrigem,
+                this.cpf,
+                this.passaporte,
+                this.nome,
+                this.dataNascimento,
+                this.enderecoPaisOrigem,
+                this.telefone,
+                this.email
+        );
+    }
 }

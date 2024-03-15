@@ -25,9 +25,12 @@ public class CriarHotelController {
     @PostMapping("/hotel")
     @Operation(summary = "Criar Hotel")
     public ResponseEntity<HotelPublicData> criarHotel(@Valid @RequestBody HotelCadastroRequestData dados) {
+      try {
         Hotel hotel = criarHotelUseCase.executar(dados);
         return ResponseEntity.ok(new HotelPublicData(hotel));
-
+      } catch (IllegalArgumentException e) {
+        return ResponseEntity.badRequest().build();
+      }
     }
 
 }

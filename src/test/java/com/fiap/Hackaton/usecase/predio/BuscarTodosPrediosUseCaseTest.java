@@ -1,6 +1,7 @@
 package com.fiap.Hackaton.usecase.predio;
 
 import com.fiap.Hackaton.domain.predio.entity.Predio;
+import com.fiap.Hackaton.domain.predio.exception.PredioNaoEncontradoException;
 import com.fiap.Hackaton.domain.predio.gateway.PredioGateway;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,7 +12,7 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
 public class BuscarTodosPrediosUseCaseTest {
@@ -38,11 +39,9 @@ public class BuscarTodosPrediosUseCaseTest {
     }
 
     @Test
-    public void shouldReturnEmptyListWhenNoBuildingsExist() {
+    public void shouldThrowExceptionWhenNoBuildingsExist() {
         when(predioGateway.listar()).thenReturn(Collections.emptyList());
 
-        List<Predio> result = buscarTodosPrediosUseCase.executar();
-
-        assertTrue(result.isEmpty());
+        assertThrows(PredioNaoEncontradoException.class, () -> buscarTodosPrediosUseCase.executar());
     }
 }

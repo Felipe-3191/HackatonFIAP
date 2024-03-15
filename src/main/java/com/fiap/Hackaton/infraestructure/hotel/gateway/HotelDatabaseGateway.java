@@ -28,74 +28,121 @@ public class HotelDatabaseGateway implements HotelGateway {
 
     @Override
     public Hotel atualizar(Hotel hotel) {
-        HotelEntity entity = new HotelEntity(hotel);
-        return this.repository.save(entity).toEntity();
+        try {
+            HotelEntity entity = new HotelEntity(hotel);
+            return this.repository.save(entity).toEntity();
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     @Override
     public Hotel adicionarPredio(Hotel hotel) {
-        HotelEntity entity = new HotelEntity(hotel);
-        entity.setPredios(hotel.getPredios().stream().map(PredioEntity::new).collect(Collectors.toList()));
-        return this.repository.save(entity).toEntityWithPredios();
+        try {
+            HotelEntity entity = new HotelEntity(hotel);
+            entity.setPredios(hotel.getPredios().stream().map(PredioEntity::new).collect(Collectors.toList()));
+            return this.repository.save(entity).toEntityWithPredios();
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     @Override
     public Hotel adicionarServico(Hotel hotel) {
-        HotelEntity entity = new HotelEntity(hotel);
-        entity.setServicos(hotel.getServicosDisponiveis().stream().map(ServicoEntity::new).collect(Collectors.toSet()));
-        return this.repository.save(entity).toEntityWithServicos();
+        try {
+            HotelEntity entity = new HotelEntity(hotel);
+            entity.setServicos(hotel.getServicosDisponiveis().stream().map(ServicoEntity::new).collect(Collectors.toSet()));
+            return this.repository.save(entity).toEntityWithServicos();
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     @Override
     public Hotel adicionarItem(Hotel hotel) {
-        HotelEntity entity = new HotelEntity(hotel);
-        entity.setItens(hotel.getItensDiponiveis().stream().map(ItemEntity::new).collect(Collectors.toSet()));
-        return this.repository.save(entity).toEntityWithItens();
+        try {
+            HotelEntity entity = new HotelEntity(hotel);
+            entity.setItens(hotel.getItensDiponiveis().stream().map(ItemEntity::new).collect(Collectors.toSet()));
+            return this.repository.save(entity).toEntityWithItens();
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     @Override
     public List<Hotel> listar() {
-        return this.repository.findAll().stream().map(HotelEntity::toEntity).collect(Collectors.toList());
+        try {
+            return this.repository.findAll().stream().map(HotelEntity::toEntity).collect(Collectors.toList());
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     @Override
     public Optional<Hotel> buscarPorId(Long id) {
-        return this.repository.findById(id).map(HotelEntity::toCompleteEntity);
+        try {
+            return this.repository.findById(id).map(HotelEntity::toCompleteEntity);
+        } catch (Exception e) {
+            return Optional.empty();
+        }
     }
 
     @Override
     public Optional<List<Hotel>> buscarPorNome(String nome) {
-        return this.repository.findByNome(nome).map(l -> l.stream().map(HotelEntity::toCompleteEntity).collect(Collectors.toList()));
+        try {
+            return this.repository.findByNome(nome).map(l -> l.stream().map(HotelEntity::toCompleteEntity).collect(Collectors.toList()));
+        } catch (Exception e) {
+            return Optional.empty();
+        }
     }
 
     @Override
     public Optional<List<Hotel>> buscarPorLogradouro(String endereco) {
-
-        return this.repository.findByEnderecoLogradouro(endereco).map(l -> l.stream().map(HotelEntity::toCompleteEntity).collect(Collectors.toList()));
+        try {
+            return this.repository.findByEnderecoLogradouro(endereco).map(l -> l.stream().map(HotelEntity::toCompleteEntity).collect(Collectors.toList()));
+        } catch (Exception e) {
+            return Optional.empty();
+        }
     }
 
     @Override
     public Optional<List<Hotel>> buscarPorCep(String cep) {
-        return this.repository.findByEnderecoCep(cep).map(l -> l.stream().map(HotelEntity::toCompleteEntity).collect(Collectors.toList()));
+        try {
+            return this.repository.findByEnderecoCep(cep).map(l -> l.stream().map(HotelEntity::toCompleteEntity).collect(Collectors.toList()));
+        } catch (Exception e) {
+            return Optional.empty();
+        }
     }
 
     @Override
     public void deletar(Hotel hotel) {
-        HotelEntity entity = new HotelEntity(hotel);
-        this.repository.delete(entity);
+        try {
+            HotelEntity entity = new HotelEntity(hotel);
+            this.repository.delete(entity);
+        } catch (Exception e) {
+            e.getStackTrace();
+        }
     }
 
     @Override
     public Hotel removerServico(Hotel hotel) {
-        HotelEntity entity = new HotelEntity(hotel);
-        entity.setServicos(hotel.getServicosDisponiveis().stream().map(ServicoEntity::new).collect(Collectors.toSet()));
-        return this.repository.save(entity).toEntityWithServicos();
+        try {
+            HotelEntity entity = new HotelEntity(hotel);
+            entity.setServicos(hotel.getServicosDisponiveis().stream().map(ServicoEntity::new).collect(Collectors.toSet()));
+            return this.repository.save(entity).toEntityWithServicos();
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     @Override
     public Hotel removerItem(Hotel hotel) {
-        HotelEntity entity = new HotelEntity(hotel);
-        entity.setItens(hotel.getItensDiponiveis().stream().map(ItemEntity::new).collect(Collectors.toSet()));
-        return this.repository.save(entity).toEntityWithItens();
+        try {
+            HotelEntity entity = new HotelEntity(hotel);
+            entity.setItens(hotel.getItensDiponiveis().stream().map(ItemEntity::new).collect(Collectors.toSet()));
+            return this.repository.save(entity).toEntityWithItens();
+        } catch (Exception e) {
+            return null;
+        }
     }
 }

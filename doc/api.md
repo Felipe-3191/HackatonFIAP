@@ -289,44 +289,12 @@ curl -X 'PUT' \
   'http://localhost:8080/quartos/1' \
   -H 'accept: */*' \
   -H 'Content-Type: application/json' \
-  -d '{
-  "id": 1,
-  "predioId": 1,
-  "hotelId": 1,
-  "tipoQuarto": {
-    "id": 1,
-    "nomeTipo": "Standard Simples",
-    "capacidadeTotal": 4,
-    "quantidadeCamas": "2 x Queen Size",
-    "moveis": [
-      {
-        "id": 1,
-        "nome": "1 x Sofá"
-      },
-      {
-        "id": 2,
-        "nome": "2 x Poltronas"
-      },
-      {
-        "id": 3,
-        "nome": "1 x Frigobar"
-      },
-      {
-        "id": 4,
-        "nome": "1 x TV Led 54 pols"
-      },
-      {
-        "id": 5,
-        "nome": "1 x Mesa de Escritório"
-      },
-      {
-        "id": 6,
-        "nome": "1 x Cadeira de Escritório"
-      }
-    ]
-  },
+  -d '
+{
+  "idPredio": 1,
+  "idTipoQuarto": 1,
   "status": "DISPONIVEL",
-  "valorDiaria": 200
+  "valorDiaria": 100
 }'
 ```
 <div style="display: flex; align-items: center; background-color: #ffe6e6; padding: 5px; border-radius: 5px; border: 2px solid #ff0000;">
@@ -344,12 +312,16 @@ curl -X 'DELETE' \
 
 ```bash
 curl -X 'POST' \
-  'http://localhost:8080/hotel/1/predio' \
+  'http://localhost:8080/quartos' \
   -H 'accept: */*' \
   -H 'Content-Type: application/json' \
   -d '{
-  "nome": "string"
-}'
+  "idPredio": 1,
+  "idTipoQuarto": 1,
+  "status": "DISPONIVEL",
+  "valorDiaria": 230
+}
+'
 ```
 <div style="display: flex; align-items: center; background-color: #f0f8ff; padding: 5px; border-radius: 5px; border: 2px solid #007bff;">
   <button style="background-color: #007bff; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">GET</button>

@@ -11,7 +11,7 @@ curl -X 'GET' \
 ```
 <div style="display: flex; align-items: center; background-color: #fff3e0; padding: 5px; border-radius: 5px; border: 2px solid #ff9800;">
   <button style="background-color: #ff9800; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">PUT</button>
-  <span style="margin-left: 5px; color: #ff9800;">/predio/{id}</span>
+  <span style="margin-left: 5px; color: #000000;">/predio/{id}</span>
 </div>
 
 ```bash
@@ -58,7 +58,7 @@ curl -X 'GET' \
 ```
 <div style="display: flex; align-items: center; background-color: #fff3e0; padding: 5px; border-radius: 5px; border: 2px solid #ff9800;">
   <button style="background-color: #ff9800; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">PUT</button>
-  <span style="margin-left: 5px; color: #ff9800;">/item/{id}</span>
+  <span style="margin-left: 5px; color: #000000;">/item/{id}</span>
 </div>
 
 ```bash
@@ -92,7 +92,7 @@ curl -X 'GET' \
 ```
 <div style="display: flex; align-items: center; background-color: #e5f5e5; padding: 5px; border-radius: 5px; border: 2px solid #339933;">
   <button style="background-color: #339933; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">POST</button>
-  <span style="margin-left: 5px; color: #339933;">/item</span></div>
+  <span style="margin-left: 5px; color: #000000;">/item</span></div>
 
 ```bash
 curl -X 'POST' \
@@ -117,7 +117,7 @@ curl -X 'GET' \
 ```
 <div style="display: flex; align-items: center; background-color: #fff3e0; padding: 5px; border-radius: 5px; border: 2px solid #ff9800;">
   <button style="background-color: #ff9800; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">PUT</button>
-  <span style="margin-left: 5px; color: #ff9800;">/hotel/{id}</span>
+  <span style="margin-left: 5px; color: #000000;">/hotel/{id}</span>
 </div>
 
 ```bash
@@ -157,7 +157,7 @@ curl -X 'GET' \
 ```
 <div style="display: flex; align-items: center; background-color: #e5f5e5; padding: 5px; border-radius: 5px; border: 2px solid #339933;">
   <button style="background-color: #339933; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">POST</button>
-  <span style="margin-left: 5px; color: #339933;">/hotel</span></div>
+  <span style="margin-left: 5px; color: #000000;">/hotel</span></div>
 
 ```bash
 curl -X 'POST' \
@@ -178,7 +178,7 @@ curl -X 'POST' \
 ```
 <div style="display: flex; align-items: center; background-color: #e5f5e5; padding: 5px; border-radius: 5px; border: 2px solid #339933;">
   <button style="background-color: #339933; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">POST</button>
-  <span style="margin-left: 5px; color: #339933;">/hotel/{idHotel}/item/{idItem}</span></div>
+  <span style="margin-left: 5px; color: #000000;">/hotel/{idHotel}/item/{idItem}</span></div>
 
 ```bash
 curl -X 'POST' \
@@ -197,7 +197,7 @@ curl -X 'DELETE' \
 ```
 <div style="display: flex; align-items: center; background-color: #e5f5e5; padding: 5px; border-radius: 5px; border: 2px solid #339933;">
   <button style="background-color: #339933; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">POST</button>
-  <span style="margin-left: 5px; color: #339933;">/hotel/{idHotel}/adicionarservico/{idServico}</span></div>
+  <span style="margin-left: 5px; color: #000000;">/hotel/{idHotel}/adicionarservico/{idServico}</span></div>
 
 ```bash
 curl -X 'POST' \
@@ -207,7 +207,7 @@ curl -X 'POST' \
 ```
 <div style="display: flex; align-items: center; background-color: #e5f5e5; padding: 5px; border-radius: 5px; border: 2px solid #339933;">
   <button style="background-color: #339933; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">POST</button>
-  <span style="margin-left: 5px; color: #339933;">/hotel/{hotelId}/predio</span></div>
+  <span style="margin-left: 5px; color: #000000;">/hotel/{hotelId}/predio</span></div>
 
 ```bash
 curl -X 'POST' \
@@ -281,7 +281,7 @@ curl -X 'GET' \
 ```
 <div style="display: flex; align-items: center; background-color: #fff3e0; padding: 5px; border-radius: 5px; border: 2px solid #ff9800;">
   <button style="background-color: #ff9800; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">PUT</button>
-  <span style="margin-left: 5px; color: #ff9800;">/quartos/{id}</span>
+  <span style="margin-left: 5px; color: #000000;">/quartos/{id}</span>
 </div>
 
 ```bash
@@ -340,7 +340,7 @@ curl -X 'DELETE' \
 ```
 <div style="display: flex; align-items: center; background-color: #e5f5e5; padding: 5px; border-radius: 5px; border: 2px solid #339933;">
   <button style="background-color: #339933; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">POST</button>
-  <span style="margin-left: 5px; color: #339933;">/quartos</span></div>
+  <span style="margin-left: 5px; color: #000000;">/quartos</span></div>
 
 ```bash
 curl -X 'POST' \
@@ -383,7 +383,7 @@ curl -X 'GET' \
 ```
 <div style="display: flex; align-items: center; background-color: #fff3e0; padding: 5px; border-radius: 5px; border: 2px solid #ff9800;">
   <button style="background-color: #ff9800; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">PUT</button>
-  <span style="margin-left: 5px; color: #ff9800;">/servicos/{id}</span>
+  <span style="margin-left: 5px; color: #000000;">/servicos/{id}</span>
 </div>
 
 ```bash
@@ -416,7 +416,7 @@ curl -X 'GET' \
 ```
 <div style="display: flex; align-items: center; background-color: #e5f5e5; padding: 5px; border-radius: 5px; border: 2px solid #339933;">
   <button style="background-color: #339933; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">POST</button>
-  <span style="margin-left: 5px; color: #339933;">/servicos</span></div>
+  <span style="margin-left: 5px; color: #000000;">/servicos</span></div>
 
 ```bash
 curl -X 'POST' \
@@ -441,7 +441,7 @@ curl -X 'GET' \
 ```
 <div style="display: flex; align-items: center; background-color: #fff3e0; padding: 5px; border-radius: 5px; border: 2px solid #ff9800;">
   <button style="background-color: #ff9800; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">PUT</button>
-  <span style="margin-left: 5px; color: #ff9800;">/clientes/{id}</span>
+  <span style="margin-left: 5px; color: #000000;">/clientes/{id}</span>
 </div>
 
 ```bash
@@ -480,7 +480,7 @@ curl -X 'GET' \
 ```
 <div style="display: flex; align-items: center; background-color: #e5f5e5; padding: 5px; border-radius: 5px; border: 2px solid #339933;">
   <button style="background-color: #339933; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">POST</button>
-  <span style="margin-left: 5px; color: #339933;">/clientes</span></div>
+  <span style="margin-left: 5px; color: #000000;">/clientes</span></div>
 
 ```bash
 curl -X 'POST' \

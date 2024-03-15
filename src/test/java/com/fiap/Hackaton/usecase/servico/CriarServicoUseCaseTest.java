@@ -2,7 +2,6 @@ package com.fiap.Hackaton.usecase.servico;
 
 import com.fiap.Hackaton.domain.hotel.servico.entity.Servico;
 import com.fiap.Hackaton.domain.hotel.servico.gateway.ServicoGateway;
-import com.fiap.Hackaton.usecase.servico.CriarServicoUseCase;
 import com.fiap.Hackaton.usecase.servico.dto.IServicoRequestData;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

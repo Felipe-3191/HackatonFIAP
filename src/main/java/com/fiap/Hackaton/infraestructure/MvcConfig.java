@@ -24,8 +24,8 @@ import com.fiap.Hackaton.infraestructure.tipoquarto.repository.TipoQuartoReposit
 import com.fiap.Hackaton.usecase.cliente.*;
 import com.fiap.Hackaton.usecase.hotel.*;
 import com.fiap.Hackaton.usecase.item.*;
-import com.fiap.Hackaton.usecase.quarto.usecases.*;
 import com.fiap.Hackaton.usecase.predio.*;
+import com.fiap.Hackaton.usecase.quarto.usecases.*;
 import com.fiap.Hackaton.usecase.servico.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -33,37 +33,37 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class MvcConfig {
     @Bean
-    public AtualizarClienteUseCase atualizarClienteUseCase(ClienteRepository repository){
+    public AtualizarClienteUseCase atualizarClienteUseCase(ClienteRepository repository) {
         ClienteGateway clienteGateway = new ClienteDatabaseGateway(repository);
         return new AtualizarClienteUseCase(clienteGateway);
     }
 
     @Bean
-    public BuscarClientePorCpfUseCase buscarClientePorCpfUseCase(ClienteRepository repository){
+    public BuscarClientePorCpfUseCase buscarClientePorCpfUseCase(ClienteRepository repository) {
         ClienteGateway clienteGateway = new ClienteDatabaseGateway(repository);
         return new BuscarClientePorCpfUseCase(clienteGateway);
     }
 
     @Bean
-    public BuscarClienteUseCase buscarClienteUseCase(ClienteRepository repository){
+    public BuscarClienteUseCase buscarClienteUseCase(ClienteRepository repository) {
         ClienteGateway clienteGateway = new ClienteDatabaseGateway(repository);
         return new BuscarClienteUseCase(clienteGateway);
     }
 
     @Bean
-    public BuscarTodosClientesUseCase buscarTodosClientesUseCase(ClienteRepository repository){
+    public BuscarTodosClientesUseCase buscarTodosClientesUseCase(ClienteRepository repository) {
         ClienteGateway clienteGateway = new ClienteDatabaseGateway(repository);
         return new BuscarTodosClientesUseCase(clienteGateway);
     }
 
     @Bean
-    public CriarClienteUseCase criarClienteUseCase(ClienteRepository repository){
+    public CriarClienteUseCase criarClienteUseCase(ClienteRepository repository) {
         ClienteGateway clienteGateway = new ClienteDatabaseGateway(repository);
         return new CriarClienteUseCase(clienteGateway);
     }
 
     @Bean
-    public DeletarClienteUseCase deletarClienteUseCase(ClienteRepository repository){
+    public DeletarClienteUseCase deletarClienteUseCase(ClienteRepository repository) {
         ClienteGateway clienteGateway = new ClienteDatabaseGateway(repository);
         return new DeletarClienteUseCase(clienteGateway);
     }
@@ -81,66 +81,66 @@ public class MvcConfig {
     }
 
     @Bean
-    public BuscarTodosHoteisUseCase buscarTodosHoteisUseCase (HotelRepository repository) {
+    public BuscarTodosHoteisUseCase buscarTodosHoteisUseCase(HotelRepository repository) {
         HotelGateway hotelGateway = new HotelDatabaseGateway(repository);
         return new BuscarTodosHoteisUseCase(hotelGateway);
     }
 
     @Bean
-    public BuscarHotelPorIdUseCase buscarHotelPorIdUseCase (HotelRepository repository) {
+    public BuscarHotelPorIdUseCase buscarHotelPorIdUseCase(HotelRepository repository) {
         HotelGateway hotelGateway = new HotelDatabaseGateway(repository);
         return new BuscarHotelPorIdUseCase(hotelGateway);
     }
 
 
     @Bean
-    public BuscarHotelPorCEPUseCase buscarHotelPorCEPUseCase (HotelRepository repository) {
+    public BuscarHotelPorCEPUseCase buscarHotelPorCEPUseCase(HotelRepository repository) {
         HotelGateway hotelGateway = new HotelDatabaseGateway(repository);
         return new BuscarHotelPorCEPUseCase(hotelGateway);
     }
 
     @Bean
-    public BuscarHotelPorLogradouroUseCase buscarHotelPorLogradouroUseCase (HotelRepository repository) {
+    public BuscarHotelPorLogradouroUseCase buscarHotelPorLogradouroUseCase(HotelRepository repository) {
         HotelGateway hotelGateway = new HotelDatabaseGateway(repository);
         return new BuscarHotelPorLogradouroUseCase(hotelGateway);
     }
 
     @Bean
-    public BuscarHotelPorNomeUseCase buscarHotelPorNomeUseCase (HotelRepository repository) {
+    public BuscarHotelPorNomeUseCase buscarHotelPorNomeUseCase(HotelRepository repository) {
         HotelGateway hotelGateway = new HotelDatabaseGateway(repository);
         return new BuscarHotelPorNomeUseCase(hotelGateway);
     }
 
     @Bean
-    public DeletarHotelUseCase deletarHotelUseCase (HotelRepository repository) {
+    public DeletarHotelUseCase deletarHotelUseCase(HotelRepository repository) {
         HotelGateway hotelGateway = new HotelDatabaseGateway(repository);
         return new DeletarHotelUseCase(hotelGateway);
     }
 
 
     @Bean
-    public AdicionarPredioUseCase adicionarPredioUseCase (HotelRepository repository, CriarPredioUseCase criarPredioUseCase) {
+    public AdicionarPredioUseCase adicionarPredioUseCase(HotelRepository repository, CriarPredioUseCase criarPredioUseCase) {
         HotelGateway hotelGateway = new HotelDatabaseGateway(repository);
 
         return new AdicionarPredioUseCase(hotelGateway, criarPredioUseCase);
     }
 
     @Bean
-    public AdicionarServicoUseCase adicionarServicoUseCase (HotelRepository repository, BuscarServicoUseCase buscarServicoUseCase) {
+    public AdicionarServicoUseCase adicionarServicoUseCase(HotelRepository repository, BuscarServicoUseCase buscarServicoUseCase) {
         HotelGateway hotelGateway = new HotelDatabaseGateway(repository);
 
         return new AdicionarServicoUseCase(hotelGateway, buscarServicoUseCase);
     }
 
     @Bean
-    public RemoverServicoUseCase removerServicoUseCase (HotelRepository repository, BuscarServicoUseCase buscarServicoUseCase) {
+    public RemoverServicoUseCase removerServicoUseCase(HotelRepository repository, BuscarServicoUseCase buscarServicoUseCase) {
         HotelGateway hotelGateway = new HotelDatabaseGateway(repository);
 
         return new RemoverServicoUseCase(hotelGateway, buscarServicoUseCase);
     }
 
     @Bean
-    public AdicionarItemUseCase adicionarItemUseCase (HotelRepository repository, BuscarItemUseCase buscarItemUseCase) {
+    public AdicionarItemUseCase adicionarItemUseCase(HotelRepository repository, BuscarItemUseCase buscarItemUseCase) {
         HotelGateway hotelGateway = new HotelDatabaseGateway(repository);
 
         return new AdicionarItemUseCase(hotelGateway, buscarItemUseCase);
@@ -148,36 +148,35 @@ public class MvcConfig {
 
 
     @Bean
-    public RemoverItemUseCase removerItemUseCase (HotelRepository repository, BuscarItemUseCase buscarItemUseCase) {
+    public RemoverItemUseCase removerItemUseCase(HotelRepository repository, BuscarItemUseCase buscarItemUseCase) {
         HotelGateway hotelGateway = new HotelDatabaseGateway(repository);
         return new RemoverItemUseCase(hotelGateway, buscarItemUseCase);
     }
 
     @Bean
-    public RemoverPredioUseCase removerPredioUseCase (HotelRepository repository, DeletarPredioUseCase deletarPredioUseCase) {
+    public RemoverPredioUseCase removerPredioUseCase(HotelRepository repository, DeletarPredioUseCase deletarPredioUseCase) {
         HotelGateway hotelGateway = new HotelDatabaseGateway(repository);
 
         return new RemoverPredioUseCase(hotelGateway, deletarPredioUseCase);
     }
 
     @Bean
-    public BuscarTodosPrediosUseCase buscarTodosPrediosUseCase (PredioRepository repository) {
+    public BuscarTodosPrediosUseCase buscarTodosPrediosUseCase(PredioRepository repository) {
         PredioGateway predioGateway = new PredioDatabaseGateway(repository);
 
         return new BuscarTodosPrediosUseCase(predioGateway);
     }
 
     @Bean
-    public BuscarPredioUseCase buscarPredioUseCase (PredioRepository repository) {
+    public BuscarPredioUseCase buscarPredioUseCase(PredioRepository repository) {
         PredioGateway predioGateway = new PredioDatabaseGateway(repository);
 
         return new BuscarPredioUseCase(predioGateway);
     }
 
 
-
     @Bean
-    public BuscarPredioPorNomeUseCase buscarPredioPorNomeUseCase (PredioRepository repository) {
+    public BuscarPredioPorNomeUseCase buscarPredioPorNomeUseCase(PredioRepository repository) {
         PredioGateway predioGateway = new PredioDatabaseGateway(repository);
 
         return new BuscarPredioPorNomeUseCase(predioGateway);
@@ -185,81 +184,86 @@ public class MvcConfig {
 
 
     @Bean
-    public AtualizarPredioUseCase atualizarPredioUseCase (PredioRepository repository) {
+    public AtualizarPredioUseCase atualizarPredioUseCase(PredioRepository repository) {
         PredioGateway predioGateway = new PredioDatabaseGateway(repository);
 
         return new AtualizarPredioUseCase(predioGateway);
     }
 
     @Bean
-    public CriarPredioUseCase criarPredioUseCase (PredioRepository repository) {
+    public CriarPredioUseCase criarPredioUseCase(PredioRepository repository) {
         PredioGateway predioGateway = new PredioDatabaseGateway(repository);
         return new CriarPredioUseCase(predioGateway);
     }
 
-@Bean
-    public DeletarPredioUseCase deletarPredioUseCase (PredioRepository repository){
+    @Bean
+    public DeletarPredioUseCase deletarPredioUseCase(PredioRepository repository) {
         PredioGateway predioGateway = new PredioDatabaseGateway(repository);
         return new DeletarPredioUseCase(predioGateway);
     }
 
     @Bean
-    public AtualizarItemUseCase atualizarItemUseCase (ItemRepository repository) {
+    public AtualizarItemUseCase atualizarItemUseCase(ItemRepository repository) {
         ItemGateway itemGateway = new ItemDatabaseGateway(repository);
         return new AtualizarItemUseCase(itemGateway);
     }
+
     @Bean
-    public BuscarItemUseCase buscarItemUseCase (ItemRepository repository) {
+    public BuscarItemUseCase buscarItemUseCase(ItemRepository repository) {
         ItemGateway itemGateway = new ItemDatabaseGateway(repository);
         return new BuscarItemUseCase(itemGateway);
     }
+
     @Bean
-    public BuscarTodosItensUseCase buscarTodosItensUseCase (ItemRepository repository) {
+    public BuscarTodosItensUseCase buscarTodosItensUseCase(ItemRepository repository) {
         ItemGateway itemGateway = new ItemDatabaseGateway(repository);
         return new BuscarTodosItensUseCase(itemGateway);
     }
+
     @Bean
-    public CriarItemUseCase criarItemUseCase (ItemRepository repository) {
+    public CriarItemUseCase criarItemUseCase(ItemRepository repository) {
         ItemGateway itemGateway = new ItemDatabaseGateway(repository);
         return new CriarItemUseCase(itemGateway);
     }
 
     @Bean
-    public BuscarTodosServicosUseCase buscarTodosServicosUseCase (ServicoRepository repository) {
+    public BuscarTodosServicosUseCase buscarTodosServicosUseCase(ServicoRepository repository) {
         ServicoGateway servicoGateway = new ServicoDatabaseGateway(repository);
         return new BuscarTodosServicosUseCase(servicoGateway);
     }
 
     @Bean
-    public BuscarServicoUseCase buscarServicoUserCase (ServicoRepository repository) {
+    public BuscarServicoUseCase buscarServicoUserCase(ServicoRepository repository) {
         ServicoGateway servicoGateway = new ServicoDatabaseGateway(repository);
         return new BuscarServicoUseCase(servicoGateway);
     }
+
     @Bean
-    public CriarServicoUseCase criarServicoUseCase (ServicoRepository repository) {
+    public CriarServicoUseCase criarServicoUseCase(ServicoRepository repository) {
         ServicoGateway servicoGateway = new ServicoDatabaseGateway(repository);
         return new CriarServicoUseCase(servicoGateway);
     }
 
     @Bean
-    public AtualizarServicoUseCase atualizarServicoUseCase (ServicoRepository repository) {
+    public AtualizarServicoUseCase atualizarServicoUseCase(ServicoRepository repository) {
         ServicoGateway servicoGateway = new ServicoDatabaseGateway(repository);
         return new AtualizarServicoUseCase(servicoGateway);
     }
+
     @Bean
-    public DeletarServicoUseCase deletarServicoUseCase (ServicoRepository repository) {
+    public DeletarServicoUseCase deletarServicoUseCase(ServicoRepository repository) {
         ServicoGateway servicoGateway = new ServicoDatabaseGateway(repository);
         return new DeletarServicoUseCase(servicoGateway);
     }
 
     @Bean
-    public DeletarItemUseCase deletarItemUseCase (ItemRepository repository) {
+    public DeletarItemUseCase deletarItemUseCase(ItemRepository repository) {
         ItemGateway itemGateway = new ItemDatabaseGateway(repository);
         return new DeletarItemUseCase(itemGateway);
     }
 
     @Bean
-    public AtualizarQuartoUseCase atualizarQuartoUseCase(QuartoRepository repository, TipoQuartoRepository tipoQuartoRepository, PredioRepository predioRepository){
+    public AtualizarQuartoUseCase atualizarQuartoUseCase(QuartoRepository repository, TipoQuartoRepository tipoQuartoRepository, PredioRepository predioRepository) {
         QuartoGateway quartoGateway = new QuartoDatabaseGateway(repository);
         TipoQuartoGateway tipoQuartoGateway = new TipoQuartoDatabaseGateway(tipoQuartoRepository);
         PredioGateway predioGateway = new PredioDatabaseGateway(predioRepository);
@@ -267,27 +271,27 @@ public class MvcConfig {
     }
 
     @Bean
-    public BuscarQuartoPorIdUseCase buscarQuartoPorIdUseCase(QuartoRepository repository){
+    public BuscarQuartoPorIdUseCase buscarQuartoPorIdUseCase(QuartoRepository repository) {
         QuartoGateway quartoGateway = new QuartoDatabaseGateway(repository);
         return new BuscarQuartoPorIdUseCase(quartoGateway);
     }
 
     @Bean
-    public BuscarQuartoPorQuantidadeDeHospedesUseCase buscarQuartoPorQuantidadeDeHospedesUseCase(QuartoRepository quartoRepository, TipoQuartoRepository tipoQuartoRepository){
+    public BuscarQuartoPorQuantidadeDeHospedesUseCase buscarQuartoPorQuantidadeDeHospedesUseCase(QuartoRepository quartoRepository, TipoQuartoRepository tipoQuartoRepository) {
         QuartoGateway quartoGateway = new QuartoDatabaseGateway(quartoRepository);
         TipoQuartoGateway tipoQuartoGateway = new TipoQuartoDatabaseGateway(tipoQuartoRepository);
         return new BuscarQuartoPorQuantidadeDeHospedesUseCase(quartoGateway, tipoQuartoGateway);
     }
 
     @Bean
-    public BuscarQuartoPorTipoUseCase buscarQuartoPorTipoUseCase(QuartoRepository repository, TipoQuartoRepository tipoQuartoRepository){
+    public BuscarQuartoPorTipoUseCase buscarQuartoPorTipoUseCase(QuartoRepository repository, TipoQuartoRepository tipoQuartoRepository) {
         QuartoGateway quartoGateway = new QuartoDatabaseGateway(repository);
         TipoQuartoGateway tipoQuartoGateway = new TipoQuartoDatabaseGateway(tipoQuartoRepository);
         return new BuscarQuartoPorTipoUseCase(quartoGateway, tipoQuartoGateway);
     }
 
     @Bean
-    public BuscarTodosQuartosUseCase buscarTodosQuartosUseCase(QuartoRepository repository){
+    public BuscarTodosQuartosUseCase buscarTodosQuartosUseCase(QuartoRepository repository) {
         QuartoGateway quartoGateway = new QuartoDatabaseGateway(repository);
         return new BuscarTodosQuartosUseCase(quartoGateway);
     }
@@ -295,7 +299,7 @@ public class MvcConfig {
     @Bean
     public CriarQuartoUseCase criarQuartoUseCase(QuartoRepository repository,
                                                  TipoQuartoRepository tipoQuartoRepository,
-                                                PredioRepository predioRepository){
+                                                 PredioRepository predioRepository) {
         QuartoGateway quartoGateway = new QuartoDatabaseGateway(repository);
         TipoQuartoGateway tipoQuartoGateway = new TipoQuartoDatabaseGateway(tipoQuartoRepository);
         PredioGateway predioGateway = new PredioDatabaseGateway(predioRepository);
@@ -303,7 +307,7 @@ public class MvcConfig {
     }
 
     @Bean
-    public DeletarQuartoUseCase deletarQuartoUseCase(QuartoRepository repository){
+    public DeletarQuartoUseCase deletarQuartoUseCase(QuartoRepository repository) {
         QuartoGateway quartoGateway = new QuartoDatabaseGateway(repository);
         return new DeletarQuartoUseCase(quartoGateway);
     }

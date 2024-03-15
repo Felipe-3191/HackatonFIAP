@@ -17,7 +17,7 @@ public class AdicionarItemUseCase {
     }
 
 
-    public Hotel executar (Long hotelId, Long itemId ) {
+    public Hotel executar(Long hotelId, Long itemId) {
         Hotel hotel = hotelGateway.buscarPorId(hotelId).orElseThrow();
         Item item = buscarItemUseCase.execute(itemId);
 

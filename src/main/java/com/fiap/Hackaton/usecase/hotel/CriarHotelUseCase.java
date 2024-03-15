@@ -30,8 +30,6 @@ public class CriarHotelUseCase {
         );
 
 
-
-
         return this.hotelGateway.criar(hotel);
 
     }

@@ -2,8 +2,6 @@ package com.fiap.Hackaton.infraestructure.hotel.dto;
 
 import com.fiap.Hackaton.domain.endereco.entity.Endereco;
 import com.fiap.Hackaton.domain.hotel.entity.Hotel;
-import com.fiap.Hackaton.domain.predio.entity.Predio;
-import com.fiap.Hackaton.infraestructure.predio.dto.PredioPublicMinimalData;
 import com.fiap.Hackaton.infraestructure.predio.dto.PredioPublicResponseAddData;
 
 import java.util.List;
@@ -14,7 +12,6 @@ public record HotelPrediosPublicData(
         String nome,
         Endereco endereco,
         List<PredioPublicResponseAddData> predios
-
 
 
 ) {

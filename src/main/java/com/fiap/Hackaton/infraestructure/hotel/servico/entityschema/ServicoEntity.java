@@ -17,9 +17,10 @@ public class ServicoEntity {
     private String nome;
     private BigDecimal valor;
 
-    public ServicoEntity(){}
+    public ServicoEntity() {
+    }
 
-    public ServicoEntity(Long id, String nome, BigDecimal valor){
+    public ServicoEntity(Long id, String nome, BigDecimal valor) {
         this.id = id;
         this.nome = nome;
         this.valor = valor;

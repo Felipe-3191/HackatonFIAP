@@ -10,6 +10,7 @@ public class AdicionarPredioUseCase {
 
     private final HotelGateway hotelGateway;
     private final CriarPredioUseCase criarPredioUseCase;
+
     public AdicionarPredioUseCase(HotelGateway hotelGateway, CriarPredioUseCase criarPredioUseCase) {
         this.hotelGateway = hotelGateway;
         this.criarPredioUseCase = criarPredioUseCase;

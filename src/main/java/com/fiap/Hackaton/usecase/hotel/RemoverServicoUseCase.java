@@ -16,7 +16,7 @@ public class RemoverServicoUseCase {
     }
 
 
-    public Hotel executar (Long hotelId, Long servicoId) {
+    public Hotel executar(Long hotelId, Long servicoId) {
         Hotel hotel = hotelGateway.buscarPorId(hotelId).orElseThrow();
         Servico servico = buscarServicoUseCase.execute(servicoId);
 

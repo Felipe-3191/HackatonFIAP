@@ -9,12 +9,14 @@ import java.util.List;
 public class BuscarTodosServicosUseCase {
     private final ServicoGateway servicoGateway;
 
-    public BuscarTodosServicosUseCase(ServicoGateway servicoGateway) { this.servicoGateway = servicoGateway;}
+    public BuscarTodosServicosUseCase(ServicoGateway servicoGateway) {
+        this.servicoGateway = servicoGateway;
+    }
 
     public List<Servico> execute() {
         List<Servico> servicos = this.servicoGateway.listar();
 
-        if(servicos.isEmpty())  {
+        if (servicos.isEmpty()) {
             throw new ServicoNaoEncontradoException();
         }
         return servicos;

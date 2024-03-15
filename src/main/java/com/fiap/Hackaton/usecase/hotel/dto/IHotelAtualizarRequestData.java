@@ -5,8 +5,8 @@ import com.fiap.Hackaton.domain.endereco.entity.Endereco;
 public interface IHotelAtualizarRequestData {
 
     String nome();
-    Endereco endereco();
 
+    Endereco endereco();
 
 
 }

@@ -1,7 +1,6 @@
 package com.fiap.Hackaton.infraestructure.hotel.controller;
 
 import com.fiap.Hackaton.infraestructure.hotel.dto.HotelCompletePublicData;
-import com.fiap.Hackaton.infraestructure.hotel.dto.HotelPublicData;
 import com.fiap.Hackaton.usecase.hotel.BuscarHotelPorLogradouroUseCase;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -26,7 +25,7 @@ public class BuscarHotelporLogradouroController {
 
     @GetMapping("/hotel/logradouro/{logradouro}")
     @Operation(summary = "Buscar Hotel por Logradouro")
-    public ResponseEntity<List<HotelCompletePublicData>> buscarHotelPorLogradouro (@PathVariable String logradouro) {
+    public ResponseEntity<List<HotelCompletePublicData>> buscarHotelPorLogradouro(@PathVariable String logradouro) {
         List<HotelCompletePublicData> response = this.buscarHotelPorLogradouroUseCase.executar(logradouro).stream().map(HotelCompletePublicData::new).collect(Collectors.toList());
         return ResponseEntity.ok(response);
 

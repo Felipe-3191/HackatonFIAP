@@ -24,10 +24,11 @@ public class ClienteEntity {
     private String telefone;
     private String email;
 
-    public ClienteEntity(){}
+    public ClienteEntity() {
+    }
 
 
-    public ClienteEntity(Cliente cliente){
+    public ClienteEntity(Cliente cliente) {
         this.id = cliente.getId();
         this.paisOrigem = cliente.getPaisOrigem();
         this.cpf = cliente.getCpf();
@@ -39,14 +40,6 @@ public class ClienteEntity {
         this.email = cliente.getEmail();
     }
 
-    public Cliente toCliente() {
-        Cliente cliente = new Cliente(this.getId(),
-                this.getPaisOrigem(), this.getCpf(),this.getPassaporte(),
-                this.getNome(), this.getDataNascimento(),this.getEnderecoPaisOrigem(),this.getTelefone(),this.getEmail()
-        );
-
-        return cliente;
-    }
     public ClienteEntity(Long id, String paisOrigem, String cpf, String passaporte, String nome, LocalDate dataNascimento,
                          String enderecoPaisOrigem, String telefone, String email) {
         this.id = id;
@@ -60,11 +53,14 @@ public class ClienteEntity {
         this.email = email;
     }
 
+    public Cliente toCliente() {
+        Cliente cliente = new Cliente(this.getId(),
+                this.getPaisOrigem(), this.getCpf(), this.getPassaporte(),
+                this.getNome(), this.getDataNascimento(), this.getEnderecoPaisOrigem(), this.getTelefone(), this.getEmail()
+        );
 
-
-
-
-
+        return cliente;
+    }
 
     public Long getId() {
         return id;

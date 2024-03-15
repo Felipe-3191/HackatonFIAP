@@ -22,7 +22,7 @@ public class BuscarPredioController {
 
     @GetMapping("/predio/{id}")
     @Operation(summary = "Buscar Predio por Id")
-    public ResponseEntity<PredioPublicData> buscarPredio(@PathVariable(name = "id") Long predioId){
+    public ResponseEntity<PredioPublicData> buscarPredio(@PathVariable(name = "id") Long predioId) {
         Predio predio = this.buscarPredioUseCase.executar(predioId);
         return ResponseEntity.ok(new PredioPublicData(predio));
     }

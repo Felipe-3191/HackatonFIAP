@@ -19,10 +19,10 @@ public class AtualizarClienteUseCase {
 
         Cliente cliente = this.clienteGateway.buscarPorId(id).orElseThrow();
 
-        if(eBrasileiro(dados.paisOrigem()) && cpfNaoInformado(dados.cpf()))
+        if (eBrasileiro(dados.paisOrigem()) && cpfNaoInformado(dados.cpf()))
             throw new CpfObrigatorioException();
 
-        if(!eBrasileiro(dados.paisOrigem()) && passaporteNaoInformado(dados.passaporte()))
+        if (!eBrasileiro(dados.paisOrigem()) && passaporteNaoInformado(dados.passaporte()))
             throw new CpfObrigatorioException();
 
         Cliente clienteAtualizado = this.atualizarCliente(cliente, dados);
@@ -41,8 +41,6 @@ public class AtualizarClienteUseCase {
 
         return cliente;
     }
-
-
 
 
 }

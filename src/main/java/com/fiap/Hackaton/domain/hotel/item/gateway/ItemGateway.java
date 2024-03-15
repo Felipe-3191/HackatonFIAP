@@ -7,11 +7,13 @@ import java.util.Optional;
 
 public interface ItemGateway {
 
-    Item criar (Item item);
-    Item atualizar (Item item);
+    Item criar(Item item);
+
+    Item atualizar(Item item);
 
     List<Item> listar();
 
     Optional<Item> buscarPorId(Long id);
+
     void deletar(Item item);
 }

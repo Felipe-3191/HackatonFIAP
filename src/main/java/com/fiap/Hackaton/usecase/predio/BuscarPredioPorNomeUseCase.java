@@ -12,7 +12,7 @@ public class BuscarPredioPorNomeUseCase {
         this.predioGateway = predioGateway;
     }
 
-    public List<Predio> execute (String nome) {
+    public List<Predio> execute(String nome) {
         return this.predioGateway.buscarPorNome(nome).orElseThrow();
     }
 

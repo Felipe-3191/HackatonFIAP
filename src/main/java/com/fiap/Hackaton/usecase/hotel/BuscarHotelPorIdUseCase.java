@@ -12,7 +12,7 @@ public class BuscarHotelPorIdUseCase {
         this.hotelGateway = hotelGateway;
     }
 
-    public Hotel buscarPorId(Long id){
+    public Hotel buscarPorId(Long id) {
         return this.hotelGateway.buscarPorId(id).orElseThrow();
     }
 

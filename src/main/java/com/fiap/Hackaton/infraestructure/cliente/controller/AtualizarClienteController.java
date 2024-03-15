@@ -4,7 +4,6 @@ import com.fiap.Hackaton.domain.cliente.entity.Cliente;
 import com.fiap.Hackaton.infraestructure.cliente.dto.ClientePublicData;
 import com.fiap.Hackaton.infraestructure.cliente.dto.ClienteRequestData;
 import com.fiap.Hackaton.usecase.cliente.AtualizarClienteUseCase;
-import com.fiap.Hackaton.usecase.cliente.dto.IClienteRequestData;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;

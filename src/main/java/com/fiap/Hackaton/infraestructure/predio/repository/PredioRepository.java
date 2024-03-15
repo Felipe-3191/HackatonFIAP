@@ -1,6 +1,5 @@
 package com.fiap.Hackaton.infraestructure.predio.repository;
 
-import com.fiap.Hackaton.domain.predio.entity.Predio;
 import com.fiap.Hackaton.infraestructure.predio.entityschema.PredioEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 

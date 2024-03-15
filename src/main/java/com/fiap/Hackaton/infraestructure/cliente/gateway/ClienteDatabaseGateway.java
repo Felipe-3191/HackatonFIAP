@@ -57,14 +57,14 @@ public class ClienteDatabaseGateway implements ClienteGateway {
     }
 
     @Override
-    public Optional<Cliente> buscarPorCpf(String cpf){
+    public Optional<Cliente> buscarPorCpf(String cpf) {
         return repository.findByCpf(cpf).map(ClienteEntity::toCliente);
     }
 
     @Override
     public void deletar(Cliente cliente) {
         ClienteEntity clienteEntity = new ClienteEntity(cliente);
-         repository.delete(clienteEntity);
+        repository.delete(clienteEntity);
     }
 
 

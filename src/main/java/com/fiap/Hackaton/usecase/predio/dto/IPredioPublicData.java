@@ -8,8 +8,11 @@ import java.util.List;
 public interface IPredioPublicData {
 
     Hotel hotel();
+
     Long id();
+
     String nome();
+
     List<Quarto> quartos();
 
 }

@@ -16,21 +16,23 @@ public class QuartoDatabaseGateway implements QuartoGateway {
 
     private final QuartoRepository repository;
 
-    public QuartoDatabaseGateway(QuartoRepository repository) {this.repository = repository;}
-
-    @Override
-    public Quarto criar(Quarto quarto){
-        QuartoEntity quartoEntity = new QuartoEntity(quarto);
-        return  repository.save(quartoEntity).toEntity();
+    public QuartoDatabaseGateway(QuartoRepository repository) {
+        this.repository = repository;
     }
 
     @Override
-    public Quarto atualizar(Quarto quarto){
-        if (quarto.getId() == null){
+    public Quarto criar(Quarto quarto) {
+        QuartoEntity quartoEntity = new QuartoEntity(quarto);
+        return repository.save(quartoEntity).toEntity();
+    }
+
+    @Override
+    public Quarto atualizar(Quarto quarto) {
+        if (quarto.getId() == null) {
             throw new IllegalArgumentException("Quarto ID não pode ser nulo ao atualizar");
         }
         Optional<QuartoEntity> optionalQuartoEntity = repository.findById(quarto.getId());
-        if (optionalQuartoEntity.isEmpty()){
+        if (optionalQuartoEntity.isEmpty()) {
             throw new IllegalArgumentException("Quarto com ID " + quarto.getId() + " não encontrado");
         }
         QuartoEntity encontrado = optionalQuartoEntity.get();
@@ -44,22 +46,22 @@ public class QuartoDatabaseGateway implements QuartoGateway {
     }
 
     @Override
-    public List<Quarto> listar(){
+    public List<Quarto> listar() {
         return repository.findAll().stream().map(QuartoEntity::toEntity).collect(Collectors.toList());
     }
 
     @Override
-    public List<Quarto> buscarQuartoPorTipo(TipoQuarto tipoQuarto){
+    public List<Quarto> buscarQuartoPorTipo(TipoQuarto tipoQuarto) {
         return repository.findByTipoQuarto(new TipoQuartoEntity(tipoQuarto)).stream().map(QuartoEntity::toEntity).collect(Collectors.toList());
     }
 
     @Override
-    public Optional<Quarto> buscarPorId(Long id){
+    public Optional<Quarto> buscarPorId(Long id) {
         return repository.findById(id).map(QuartoEntity::toEntity);
     }
 
     @Override
-    public void deletar(Quarto quarto){
+    public void deletar(Quarto quarto) {
         QuartoEntity quartoEntity = new QuartoEntity(quarto);
         repository.delete(quartoEntity);
     }

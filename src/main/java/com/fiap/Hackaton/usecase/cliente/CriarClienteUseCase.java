@@ -18,15 +18,15 @@ public class CriarClienteUseCase {
         this.clienteGateway = clienteGateway;
     }
 
-    public Cliente executar (IClienteRequestData dados) {
+    public Cliente executar(IClienteRequestData dados) {
 
-        if(eBrasileiro(dados.paisOrigem()) && cpfNaoInformado(dados.cpf()))
+        if (eBrasileiro(dados.paisOrigem()) && cpfNaoInformado(dados.cpf()))
             throw new CpfObrigatorioException();
 
-        if(!eBrasileiro(dados.paisOrigem()) && passaporteNaoInformado(dados.passaporte()))
+        if (!eBrasileiro(dados.paisOrigem()) && passaporteNaoInformado(dados.passaporte()))
             throw new PassaporteObrigatorioException();
 
-        if(dados.cpf() != null && cpfCadastrado(dados.cpf())){
+        if (dados.cpf() != null && cpfCadastrado(dados.cpf())) {
             throw new CpfJaCadastradoException();
         }
 
@@ -39,7 +39,7 @@ public class CriarClienteUseCase {
 
     }
 
-    private boolean cpfCadastrado(String cpf){
+    private boolean cpfCadastrado(String cpf) {
         return this.clienteGateway.buscarPorCpf(cpf).isPresent();
     }
 }

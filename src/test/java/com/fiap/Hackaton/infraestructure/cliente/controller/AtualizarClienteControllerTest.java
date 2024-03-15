@@ -3,15 +3,12 @@ package com.fiap.Hackaton.infraestructure.cliente.controller;
 import com.fiap.Hackaton.domain.cliente.entity.Cliente;
 import com.fiap.Hackaton.infraestructure.cliente.dto.ClienteRequestData;
 import com.fiap.Hackaton.usecase.cliente.AtualizarClienteUseCase;
-import io.restassured.mapper.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-
-import java.time.LocalDate;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;

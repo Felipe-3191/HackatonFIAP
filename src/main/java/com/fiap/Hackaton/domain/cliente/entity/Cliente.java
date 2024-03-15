@@ -13,8 +13,10 @@ public class Cliente {
     private String telefone;
     private String email;
 
-public Cliente(){};
+    public Cliente() {
+    }
 
+    ;
 
 
     public Cliente(String paisOrigem, String cpf, String passaporte, String nome
@@ -28,7 +30,6 @@ public Cliente(){};
         this.telefone = telefone;
         this.email = email;
     }
-
 
 
     public Cliente(Long id, String paisOrigem, String cpf, String passaporte, String nome
@@ -49,72 +50,71 @@ public Cliente(){};
         return id;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public String getPaisOrigem() {
         return paisOrigem;
+    }
+
+    public void setPaisOrigem(String paisOrigem) {
+        this.paisOrigem = paisOrigem;
     }
 
     public String getCpf() {
         return cpf;
     }
 
-    public String getPassaporte() {
-        return passaporte;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public LocalDate getDataNascimento() {
-        return dataNascimento;
-    }
-
-    public String getEnderecoPaisOrigem() {
-        return enderecoPaisOrigem;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-
-    public void setPaisOrigem(String paisOrigem) {
-        this.paisOrigem = paisOrigem;
-    }
-
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    public String getPassaporte() {
+        return passaporte;
     }
 
     public void setPassaporte(String passaporte) {
         this.passaporte = passaporte;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public LocalDate getDataNascimento() {
+        return dataNascimento;
     }
 
     public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
+    public String getEnderecoPaisOrigem() {
+        return enderecoPaisOrigem;
+    }
+
     public void setEnderecoPaisOrigem(String enderecoPaisOrigem) {
         this.enderecoPaisOrigem = enderecoPaisOrigem;
+    }
+
+    public String getTelefone() {
+        return telefone;
     }
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public String getEmail() {
+        return email;
     }
 
-    public void setId(long id){
-        this.id = id;
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

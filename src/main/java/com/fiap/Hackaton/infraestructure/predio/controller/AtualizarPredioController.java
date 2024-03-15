@@ -2,10 +2,8 @@ package com.fiap.Hackaton.infraestructure.predio.controller;
 
 import com.fiap.Hackaton.domain.predio.entity.Predio;
 import com.fiap.Hackaton.infraestructure.predio.dto.PredioAtualizarRequestData;
-import com.fiap.Hackaton.infraestructure.predio.dto.PredioPublicData;
 import com.fiap.Hackaton.infraestructure.predio.dto.PredioPublicResponseAddData;
 import com.fiap.Hackaton.usecase.predio.AtualizarPredioUseCase;
-import com.fiap.Hackaton.usecase.predio.dto.IPredioUpdateData;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +24,7 @@ public class AtualizarPredioController {
 
     @PutMapping("/predio/{id}")
     @Operation(summary = "Atualizar Predio")
-    public ResponseEntity<PredioPublicResponseAddData> atualizarPredio (@PathVariable Long id, @RequestBody PredioAtualizarRequestData dados){
+    public ResponseEntity<PredioPublicResponseAddData> atualizarPredio(@PathVariable Long id, @RequestBody PredioAtualizarRequestData dados) {
         Predio predio = this.atualizarPredioUseCase.executar(id, dados);
         return ResponseEntity.ok(new PredioPublicResponseAddData(predio));
     }

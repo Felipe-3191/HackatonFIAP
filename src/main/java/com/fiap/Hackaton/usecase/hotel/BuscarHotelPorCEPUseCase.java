@@ -15,7 +15,7 @@ public class BuscarHotelPorCEPUseCase {
     }
 
 
-    public List<Hotel> executar(String cep){
+    public List<Hotel> executar(String cep) {
         return this.hotelGateway.buscarPorCep(cep).orElseThrow();
 
     }

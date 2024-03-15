@@ -1,10 +1,5 @@
 package com.fiap.Hackaton.domain.movel.entity;
 
-import com.fiap.Hackaton.domain.quarto.tipoquarto.entity.TipoQuarto;
-import com.fiap.Hackaton.infraestructure.tipoquarto.entityschema.TipoQuartoEntity;
-
-import java.util.List;
-
 public class Movel {
 
     private Long id;
@@ -23,12 +18,12 @@ public class Movel {
         return id;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
     }
 
     public void setNome(String nome) {

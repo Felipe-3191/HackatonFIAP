@@ -8,7 +8,6 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import org.springframework.web.bind.support.WebExchangeBindException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +43,7 @@ public class GlobalExceptionHandler {
         ErrorMessage error = new ErrorMessage(errorMessage);
         return ResponseEntity.badRequest().body(error);
     }
+
     @ExceptionHandler(RuntimeException.class)
     public ResponseEntity<ErrorMessage> runtimeException(RuntimeException ex) {
         String errorMessage = ex.getMessage();

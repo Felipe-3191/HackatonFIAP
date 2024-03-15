@@ -5,19 +5,18 @@ import com.fiap.Hackaton.domain.hotel.entity.Hotel;
 
 public record HotelPublicData(
 
-         Long id,
-         String nome,
-         Endereco endereco
-
+        Long id,
+        String nome,
+        Endereco endereco
 
 
 ) {
     public HotelPublicData(Hotel hotel) {
 
         this(
-        hotel.getId(),
-        hotel.getNome(),
-        hotel.getEndereco()
+                hotel.getId(),
+                hotel.getNome(),
+                hotel.getEndereco()
 
         );
 

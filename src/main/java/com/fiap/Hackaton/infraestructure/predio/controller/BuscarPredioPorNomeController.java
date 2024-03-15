@@ -25,7 +25,7 @@ public class BuscarPredioPorNomeController {
 
     @GetMapping("/predio/nome/{nome}")
     @Operation(summary = "Buscar prédio por nome")
-    public ResponseEntity<List<PredioPublicData>> buscarPredioPorNome (@PathVariable String nome) {
+    public ResponseEntity<List<PredioPublicData>> buscarPredioPorNome(@PathVariable String nome) {
         List<Predio> response = this.buscarPredioPorNomeUseCase.execute(nome);
         return ResponseEntity.ok((response.stream().map(PredioPublicData::new).collect(Collectors.toList())));
 

@@ -3,7 +3,6 @@ package com.fiap.Hackaton.usecase.hotel;
 import com.fiap.Hackaton.domain.hotel.entity.Hotel;
 import com.fiap.Hackaton.domain.hotel.gateway.HotelGateway;
 import com.fiap.Hackaton.domain.hotel.item.entity.Item;
-import com.fiap.Hackaton.usecase.hotel.AdicionarItemUseCase;
 import com.fiap.Hackaton.usecase.item.BuscarItemUseCase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,7 +11,7 @@ import org.mockito.Mockito;
 import java.math.BigDecimal;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 class AdicionarItemUseCaseTest {

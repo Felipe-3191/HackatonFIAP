@@ -16,7 +16,7 @@ public class BuscarItemUseCase {
 
     public Item execute(Long id) {
         Optional<Item> item = this.itemGateway.buscarPorId(id);
-        if(item.isEmpty()) {
+        if (item.isEmpty()) {
             throw new ItemNaoEncontradoException();
         }
 

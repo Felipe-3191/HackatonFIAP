@@ -1,18 +1,17 @@
 package com.fiap.Hackaton.infraestructure.predio.dto;
 
-import com.fiap.Hackaton.domain.hotel.entity.Hotel;
 import com.fiap.Hackaton.domain.predio.entity.Predio;
 import com.fiap.Hackaton.domain.quarto.entity.Quarto;
 import com.fiap.Hackaton.infraestructure.hotel.dto.HotelPublicData;
 
 import java.util.List;
 
-public record PredioPublicData (
+public record PredioPublicData(
 
-         HotelPublicData hotel,
-         Long id,
-         String nome,
-         List<Quarto>quartos
+        HotelPublicData hotel,
+        Long id,
+        String nome,
+        List<Quarto> quartos
 
 
 ) {

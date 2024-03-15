@@ -5,8 +5,6 @@ import com.fiap.Hackaton.domain.endereco.entity.Endereco;
 import com.fiap.Hackaton.domain.hotel.entity.Hotel;
 import com.fiap.Hackaton.domain.hotel.item.entity.Item;
 import com.fiap.Hackaton.domain.hotel.servico.entity.Servico;
-import com.fiap.Hackaton.domain.predio.entity.Predio;
-import com.fiap.Hackaton.infraestructure.predio.dto.PredioPublicData;
 import com.fiap.Hackaton.infraestructure.predio.dto.PredioPublicMinimalData;
 
 import java.util.List;
@@ -22,10 +20,9 @@ public record HotelCompletePublicData(
         List<Item> itensDiponiveis
 
 
-
 ) {
 
-    public HotelCompletePublicData(Hotel hotel){
+    public HotelCompletePublicData(Hotel hotel) {
         this(
                 hotel.getId(),
                 hotel.getNome(),

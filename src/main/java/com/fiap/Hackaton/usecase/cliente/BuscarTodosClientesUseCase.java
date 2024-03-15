@@ -8,7 +8,9 @@ import java.util.List;
 public class BuscarTodosClientesUseCase {
     private final ClienteGateway clienteGateway;
 
-    public BuscarTodosClientesUseCase(ClienteGateway clienteGateway) { this.clienteGateway = clienteGateway;}
+    public BuscarTodosClientesUseCase(ClienteGateway clienteGateway) {
+        this.clienteGateway = clienteGateway;
+    }
 
     public List<Cliente> execute() {
         return this.clienteGateway.listar();

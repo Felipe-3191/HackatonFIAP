@@ -3,7 +3,6 @@ package com.fiap.Hackaton.infraestructure.hotel.dto;
 import com.fiap.Hackaton.domain.endereco.entity.Endereco;
 import com.fiap.Hackaton.domain.hotel.entity.Hotel;
 import com.fiap.Hackaton.infraestructure.hotel.item.dto.ItemPublicData;
-import com.fiap.Hackaton.infraestructure.hotel.servico.dto.ServicoPublicData;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,7 +15,7 @@ public record HotelItensPublicData(
 
 ) {
 
-    public HotelItensPublicData(Hotel hotel){
+    public HotelItensPublicData(Hotel hotel) {
         this(
                 hotel.getId(),
                 hotel.getNome(),

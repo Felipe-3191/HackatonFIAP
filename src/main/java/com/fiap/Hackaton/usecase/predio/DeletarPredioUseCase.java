@@ -11,7 +11,7 @@ public class DeletarPredioUseCase {
         this.predioGateway = predioGateway;
     }
 
-    public void executar (Long id) {
+    public void executar(Long id) {
         Predio predio = this.predioGateway.buscarPorId(id).orElseThrow();
         this.predioGateway.deletar(predio);
     }

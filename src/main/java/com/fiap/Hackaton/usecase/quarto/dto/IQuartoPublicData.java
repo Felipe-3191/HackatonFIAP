@@ -8,9 +8,13 @@ import java.math.BigDecimal;
 
 public interface IQuartoPublicData {
     Long id();
+
     Predio predio();
+
     TipoQuarto tipoQuarto();
+
     Status status();
+
     BigDecimal valorDiaria();
 
 }

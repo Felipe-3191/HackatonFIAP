@@ -1,8 +1,6 @@
 package com.fiap.Hackaton.infraestructure.predio.dto;
 
 import com.fiap.Hackaton.domain.predio.entity.Predio;
-import com.fiap.Hackaton.domain.quarto.entity.Quarto;
-import com.fiap.Hackaton.infraestructure.hotel.dto.HotelPublicData;
 import com.fiap.Hackaton.infraestructure.quarto.dto.QuartoHotelPublicData;
 
 import java.util.List;
@@ -17,11 +15,11 @@ public record PredioPublicMinimalData(
 
 ) {
 
-    public PredioPublicMinimalData(Predio predio){
+    public PredioPublicMinimalData(Predio predio) {
         this(
-           predio.getId(),
-           predio.getNome(),
-           predio.getQuartos().stream().map(QuartoHotelPublicData::new).collect(Collectors.toList())
+                predio.getId(),
+                predio.getNome(),
+                predio.getQuartos().stream().map(QuartoHotelPublicData::new).collect(Collectors.toList())
         );
     }
 }

@@ -12,7 +12,7 @@ public class CriarServicoUseCase {
         this.servicoGateway = servicoGateway;
     }
 
-    public Servico executar (IServicoRequestData dados) {
+    public Servico executar(IServicoRequestData dados) {
 
         Servico servico = new Servico(
                 dados.nome(), dados.valor());

@@ -1,7 +1,6 @@
 package com.fiap.Hackaton.infraestructure.reserva.entitySchema;
 
 import com.fiap.Hackaton.infraestructure.cliente.entityschema.ClienteEntity;
-import com.fiap.Hackaton.infraestructure.movel.entityschema.MovelEntity;
 import com.fiap.Hackaton.infraestructure.quarto.entitySchema.QuartoEntity;
 import com.fiap.Hackaton.infraestructure.reserva.reservaItem.entitySchema.ReservaItemEntity;
 import com.fiap.Hackaton.infraestructure.reserva.reservaServico.entitySchema.ReservaServicoEntity;
@@ -34,12 +33,12 @@ public class ReservaEntity {
     private List<QuartoEntity> quartoEntities;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cliente_id")
-    private ClienteEntity clienteEntity;
+    private ClienteEntity cliente;
 
 
     public ReservaEntity() {
     }
-    public ReservaEntity(Long id, LocalDate dataInicial, LocalDate dataFinal, Long valorReserva, Long valorTotal, Integer quantidadePessoas, List<ReservaServicoEntity> reservaServicoEntities, List<ReservaItemEntity> reservaItemEntities, ClienteEntity clienteEntity) {
+    public ReservaEntity(Long id, LocalDate dataInicial, LocalDate dataFinal, Long valorReserva, Long valorTotal, Integer quantidadePessoas, List<ReservaServicoEntity> reservaServicoEntities, List<ReservaItemEntity> reservaItemEntities, ClienteEntity cliente) {
         this.id = id;
         DataInicial = dataInicial;
         DataFinal = dataFinal;
@@ -48,7 +47,7 @@ public class ReservaEntity {
         QuantidadePessoas = quantidadePessoas;
         this.reservaServicoEntities = reservaServicoEntities;
         this.reservaItemEntities = reservaItemEntities;
-        this.clienteEntity = clienteEntity;
+        this.cliente = cliente;
     }
     public Long getId() {
         return id;
@@ -122,11 +121,11 @@ public class ReservaEntity {
         this.quartoEntities = quartoEntities;
     }
 
-    public ClienteEntity getClienteEntity() {
-        return clienteEntity;
+    public ClienteEntity getCliente() {
+        return cliente;
     }
 
-    public void setClienteEntity(ClienteEntity clienteEntity) {
-        this.clienteEntity = clienteEntity;
+    public void setCliente(ClienteEntity cliente) {
+        this.cliente = cliente;
     }
 }

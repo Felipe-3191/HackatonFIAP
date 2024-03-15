@@ -14,19 +14,19 @@ public class ReservaServicoEntity {
     private Integer quantidade;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "reserva_id")
-    private ReservaEntity reservaEntity;
+    private ReservaEntity reserva;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "servico_id")
-    private ServicoEntity servicoEntity;
+    private ServicoEntity servico;
 
     public ReservaServicoEntity() {
     }
-    public ReservaServicoEntity(Long id, Integer quantidade, ReservaEntity reservaEntity, ServicoEntity servicoEntity) {
+    public ReservaServicoEntity(Long id, Integer quantidade, ReservaEntity reserva, ServicoEntity servico) {
         this.id = id;
         this.quantidade = quantidade;
-        this.reservaEntity = reservaEntity;
-        this.servicoEntity = servicoEntity;
+        this.reserva = reserva;
+        this.servico = servico;
     }
     public Long getId() {
         return id;
@@ -44,19 +44,19 @@ public class ReservaServicoEntity {
         this.quantidade = quantidade;
     }
 
-    public ReservaEntity getReservaEntity() {
-        return reservaEntity;
+    public ReservaEntity getReserva() {
+        return reserva;
     }
 
-    public void setReservaEntity(ReservaEntity reservaEntity) {
-        this.reservaEntity = reservaEntity;
+    public void setReserva(ReservaEntity reserva) {
+        this.reserva = reserva;
     }
 
-    public ServicoEntity getServicoEntity() {
-        return servicoEntity;
+    public ServicoEntity getServico() {
+        return servico;
     }
 
-    public void setServicoEntity(ServicoEntity servicoEntity) {
-        this.servicoEntity = servicoEntity;
+    public void setServico(ServicoEntity servico) {
+        this.servico = servico;
     }
 }

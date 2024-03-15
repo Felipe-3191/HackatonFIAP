@@ -14,18 +14,18 @@ public class ReservaItemEntity {
     private Integer quantidade;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "reserva_id")
-    private ReservaEntity reservaEntity;
+    private ReservaEntity reserva;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "item_id")
-    private ItemEntity itemEntity;
+    private ItemEntity item;
 
     public ReservaItemEntity() {
     }
-    public ReservaItemEntity(Long id, Integer quantidade, ReservaEntity reservaEntity, ItemEntity itemEntity) {
+    public ReservaItemEntity(Long id, Integer quantidade, ReservaEntity reserva, ItemEntity item) {
         this.id = id;
         this.quantidade = quantidade;
-        this.reservaEntity = reservaEntity;
-        this.itemEntity = itemEntity;
+        this.reserva = reserva;
+        this.item = item;
     }
     public Long getId() {
         return id;
@@ -43,19 +43,19 @@ public class ReservaItemEntity {
         this.quantidade = quantidade;
     }
 
-    public ReservaEntity getReservaEntity() {
-        return reservaEntity;
+    public ReservaEntity getReserva() {
+        return reserva;
     }
 
-    public void setReservaEntity(ReservaEntity reservaEntity) {
-        this.reservaEntity = reservaEntity;
+    public void setReserva(ReservaEntity reserva) {
+        this.reserva = reserva;
     }
 
-    public ItemEntity getItemEntity() {
-        return itemEntity;
+    public ItemEntity getItem() {
+        return item;
     }
 
-    public void setItemEntity(ItemEntity itemEntity) {
-        this.itemEntity = itemEntity;
+    public void setItem(ItemEntity item) {
+        this.item = item;
     }
 }

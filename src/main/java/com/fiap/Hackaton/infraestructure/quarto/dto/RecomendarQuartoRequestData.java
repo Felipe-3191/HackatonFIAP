@@ -6,7 +6,7 @@ public record RecomendarQuartoRequestData(
         LocalDate dataInicio,
         LocalDate dataFim,
         Integer quantidadePessoas,
-        Integer numeroCombinacoes
+        Integer numeroSugestoes
 ) {
 
 

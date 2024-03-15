@@ -35,7 +35,7 @@ public class RecomendarQuartosDisponiveisController {
                 recomendarQuartoRequestData.dataInicio(),
                 recomendarQuartoRequestData.dataFim(),
                 recomendarQuartoRequestData.quantidadePessoas(),
-                recomendarQuartoRequestData.numeroCombinacoes()
+                recomendarQuartoRequestData.numeroSugestoes()
         );
 
         List<List<QuartoHotelPublicData>> response = quartoList.stream().map(

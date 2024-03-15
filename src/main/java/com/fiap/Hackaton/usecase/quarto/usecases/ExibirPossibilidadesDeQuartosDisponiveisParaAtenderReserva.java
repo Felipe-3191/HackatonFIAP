@@ -20,17 +20,6 @@ public class ExibirPossibilidadesDeQuartosDisponiveisParaAtenderReserva {
 
         List<Quarto> quartosDisponiveis = this.listarQuartosPorPeriodoDisponibilidadeUseCase.execute(dataFinal, dataFinal, Status.DISPONIVEL);
         List<List<Quarto>> combinations = geraCombinacoes(quantidadePessoas, quartosDisponiveis);
-        System.out.println("Combinations that sum up to " + quantidadePessoas + ":");
-        for (List<Quarto> combination : combinations) {
-            System.out.println("possíveis combinações: ");
-            combination.forEach(
-                    quarto -> {
-                        System.out.println(quarto.getTipoQuarto().getCapacidadeTotal());});
-
-        }
-
-
-
         return  combinations.subList(0, numeroCombinacoes);
 
     }

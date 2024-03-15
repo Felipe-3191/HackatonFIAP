@@ -23,6 +23,7 @@ public class FechamentoReservaUseCase {
     private static final String LIST_ROOM_TYPE_PLACEHOLDER = "{{tipoQuarto}}";
     private static final String TOTAL_VALUE_PLACEHOLDER = "{{valorTotal}}";
     private static final String LIST_SERVICE = "{{listaDeServicos}}";
+    private static final String QTD_QUARTOS = "{{qtdQuartos}}";
     private static final String NAME_HOTEL = "{{nomeHotel}}";
 
     public FechamentoReservaUseCase(EnvioEmailGateway envioEmailGateway, ResourceLoader resourceLoader, BuscarReservaPorIdUseCase buscarReservaPorIdUseCase) {
@@ -74,7 +75,8 @@ public class FechamentoReservaUseCase {
                 .replace(LIST_ROOM_TYPE_PLACEHOLDER, listaTipoQuartos)
                 .replace(TOTAL_VALUE_PLACEHOLDER, details.getValorTotal().toString())
                 .replace(LIST_SERVICE, servicos)
-                .replace(NAME_HOTEL, details.getNomeHotel());
+                .replace(NAME_HOTEL, details.getNomeHotel())
+                .replace(QTD_QUARTOS, String.valueOf(details.getQuartosReservados().size()));
     }
 
     public void envioEmail(String to, String subject, String message) {

@@ -93,6 +93,16 @@ public class QuartoEntity {
         );
     }
 
+    public Quarto toEntityWithPredio() {
+        return new Quarto(
+                this.id,
+                this.predio.toEntityWithQuartos(),
+                this.idHotel,
+                this.valorDiaria,
+                this.status,
+                this.tipoQuarto.toEntity()
+        );
+    }
     public Long getId() {
         return id;
     }

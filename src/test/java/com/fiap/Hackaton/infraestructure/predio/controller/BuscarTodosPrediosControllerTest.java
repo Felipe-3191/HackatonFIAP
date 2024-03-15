@@ -3,6 +3,7 @@ package com.fiap.Hackaton.infraestructure.predio.controller;
 import com.fiap.Hackaton.domain.hotel.entity.Hotel;
 import com.fiap.Hackaton.domain.predio.entity.Predio;
 import com.fiap.Hackaton.infraestructure.predio.dto.PredioPublicData;
+import com.fiap.Hackaton.infraestructure.predio.dto.PredioPublicResponseAddData;
 import com.fiap.Hackaton.usecase.predio.BuscarTodosPrediosUseCase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -37,7 +38,7 @@ public class BuscarTodosPrediosControllerTest {
         List<Predio> predios = Arrays.asList(predio1, predio2);
         when(buscarTodosPrediosUseCase.executar()).thenReturn(predios);
 
-        ResponseEntity<List<PredioPublicData>> responseEntity = controller.buscarTodosPredios();
+        ResponseEntity<List<PredioPublicResponseAddData>> responseEntity = controller.buscarTodosPredios();
 
         assertEquals(200, responseEntity.getStatusCodeValue());
         assertEquals(2, responseEntity.getBody().size());
@@ -47,7 +48,7 @@ public class BuscarTodosPrediosControllerTest {
     public void shouldReturnEmptyListWhenNoBuildingsExist() {
         when(buscarTodosPrediosUseCase.executar()).thenReturn(Arrays.asList());
 
-        ResponseEntity<List<PredioPublicData>> responseEntity = controller.buscarTodosPredios();
+        ResponseEntity<List<PredioPublicResponseAddData>> responseEntity = controller.buscarTodosPredios();
 
         assertEquals(200, responseEntity.getStatusCodeValue());
         assertEquals(0, responseEntity.getBody().size());

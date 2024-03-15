@@ -16,8 +16,8 @@ public class AtualizarPredioUseCase {
 
         Predio predio = this.predioGateway.buscarPorId(id).orElseThrow();
         predio.setNome(dados.nome());
-
-        return this.predioGateway.atualizar(predio);
+        Predio predioAtualizado = this.predioGateway.atualizar(predio);
+        return predioAtualizado;
 
     }
 }

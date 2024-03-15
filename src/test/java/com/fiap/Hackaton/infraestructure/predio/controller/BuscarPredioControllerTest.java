@@ -3,6 +3,7 @@ package com.fiap.Hackaton.infraestructure.predio.controller;
 import com.fiap.Hackaton.domain.hotel.entity.Hotel;
 import com.fiap.Hackaton.domain.predio.entity.Predio;
 import com.fiap.Hackaton.infraestructure.predio.dto.PredioPublicData;
+import com.fiap.Hackaton.infraestructure.predio.dto.PredioPublicMinimalData;
 import com.fiap.Hackaton.usecase.predio.BuscarPredioUseCase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -31,7 +32,7 @@ public class BuscarPredioControllerTest {
         when(predio.getHotel()).thenReturn(hotel);
         when(buscarPredioUseCase.executar(1L)).thenReturn(predio);
 
-        ResponseEntity<PredioPublicData> responseEntity = controller.buscarPredio(1L);
+        ResponseEntity<PredioPublicMinimalData> responseEntity = controller.buscarPredio(1L);
 
         assertEquals(200, responseEntity.getStatusCodeValue());
         assertEquals(new PredioPublicData(predio), responseEntity.getBody());

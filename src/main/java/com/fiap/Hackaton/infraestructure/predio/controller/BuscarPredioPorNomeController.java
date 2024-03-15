@@ -2,6 +2,7 @@ package com.fiap.Hackaton.infraestructure.predio.controller;
 
 import com.fiap.Hackaton.domain.predio.entity.Predio;
 import com.fiap.Hackaton.infraestructure.predio.dto.PredioPublicData;
+import com.fiap.Hackaton.infraestructure.predio.dto.PredioPublicMinimalData;
 import com.fiap.Hackaton.usecase.predio.BuscarPredioPorNomeUseCase;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -25,9 +26,9 @@ public class BuscarPredioPorNomeController {
 
     @GetMapping("/predio/nome/{nome}")
     @Operation(summary = "Buscar prédio por nome")
-    public ResponseEntity<List<PredioPublicData>> buscarPredioPorNome(@PathVariable String nome) {
+    public ResponseEntity<List<PredioPublicMinimalData>> buscarPredioPorNome(@PathVariable String nome) {
         List<Predio> response = this.buscarPredioPorNomeUseCase.execute(nome);
-        return ResponseEntity.ok((response.stream().map(PredioPublicData::new).collect(Collectors.toList())));
+        return ResponseEntity.ok((response.stream().map(PredioPublicMinimalData::new).collect(Collectors.toList())));
 
 
     }

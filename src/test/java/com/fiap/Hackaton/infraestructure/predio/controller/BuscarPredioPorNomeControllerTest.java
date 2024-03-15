@@ -3,6 +3,7 @@ package com.fiap.Hackaton.infraestructure.predio.controller;
 import com.fiap.Hackaton.domain.hotel.entity.Hotel;
 import com.fiap.Hackaton.domain.predio.entity.Predio;
 import com.fiap.Hackaton.infraestructure.predio.dto.PredioPublicData;
+import com.fiap.Hackaton.infraestructure.predio.dto.PredioPublicMinimalData;
 import com.fiap.Hackaton.usecase.predio.BuscarPredioPorNomeUseCase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -37,7 +38,7 @@ public class BuscarPredioPorNomeControllerTest {
         List<Predio> predios = Arrays.asList(predio1, predio2);
         when(buscarPredioPorNomeUseCase.execute("test")).thenReturn(predios);
 
-        ResponseEntity<List<PredioPublicData>> responseEntity = controller.buscarPredioPorNome("test");
+        ResponseEntity<List<PredioPublicMinimalData>> responseEntity = controller.buscarPredioPorNome("test");
 
         assertEquals(200, responseEntity.getStatusCodeValue());
         assertEquals(2, responseEntity.getBody().size());
@@ -47,7 +48,7 @@ public class BuscarPredioPorNomeControllerTest {
     public void shouldReturnEmptyListWhenNameDoesNotExist() {
         when(buscarPredioPorNomeUseCase.execute("test")).thenReturn(Arrays.asList());
 
-        ResponseEntity<List<PredioPublicData>> responseEntity = controller.buscarPredioPorNome("test");
+        ResponseEntity<List<PredioPublicMinimalData>> responseEntity = controller.buscarPredioPorNome("test");
 
         assertEquals(200, responseEntity.getStatusCodeValue());
         assertEquals(0, responseEntity.getBody().size());

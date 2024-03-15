@@ -2,10 +2,12 @@ package com.fiap.Hackaton.infraestructure.predio.entityschema;
 
 
 import com.fiap.Hackaton.domain.predio.entity.Predio;
+import com.fiap.Hackaton.domain.quarto.entity.Quarto;
 import com.fiap.Hackaton.infraestructure.hotel.entityschema.HotelEntity;
 import com.fiap.Hackaton.infraestructure.quarto.entitySchema.QuartoEntity;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -33,7 +35,13 @@ public class PredioEntity {
         this.id = predio.getId();
         this.nome = predio.getNome();
         this.hotel = new HotelEntity(predio.getHotel());
+        List<QuartoEntity> quartos = new ArrayList<>();
+        for (Quarto quarto : predio.getQuartos()) {
+            quartos.add(new QuartoEntity(quarto));
+        }
+        this.quartoEntities = quartos;
     }
+
 
     public PredioEntity(Long id, String nome, HotelEntity hotel) {
         this.id = id;
@@ -64,7 +72,7 @@ public class PredioEntity {
                 this.id,
                 this.nome,
                 this.hotel.toEntity(),
-                this.quartoEntities.stream().map(QuartoEntity::toSimpleEntity).collect(Collectors.toList())
+                this.quartoEntities.stream().map(QuartoEntity::toEntityWithPredio).collect(Collectors.toList())
         );
         return predio;
     }

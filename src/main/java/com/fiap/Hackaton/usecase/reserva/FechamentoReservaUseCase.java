@@ -8,6 +8,7 @@ import org.springframework.core.io.ResourceLoader;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -22,7 +23,7 @@ public class FechamentoReservaUseCase {
     private static final String END_DATE_PLACEHOLDER = "{{dataFim}}";
     private static final String LIST_ROOM_TYPE_PLACEHOLDER = "{{tipoQuarto}}";
     private static final String TOTAL_VALUE_PLACEHOLDER = "{{valorTotal}}";
-    private static final String LIST_SERVICE = "{{listaDeServicos}}";
+    private static final String LIST_SERVICE_PLACEHOLDER = "{{listaDeServicos}}";
     private static final String QTD_QUARTOS = "{{qtdQuartos}}";
     private static final String NAME_HOTEL = "{{nomeHotel}}";
 
@@ -65,19 +66,28 @@ public class FechamentoReservaUseCase {
         String listaTipoQuartos = details.getQuartosReservados().stream()
                 .map(quarto -> "<li>" + quarto.getTipoQuarto().getNomeTipo() + "</li>")
                 .collect(Collectors.joining("\n"));
-        String servicos = details.getServicosConsumidos().stream()
-                .map(servico -> "<li>" + servico.getNome() + "</li>")
-                .collect(Collectors.joining("\n"));
-        return content
+        String servicos = details.getServicosConsumidos() != null && !details.getServicosConsumidos().isEmpty() ? details.getServicosConsumidos().stream()
+                .map(servico -> servico != null ? "<li>" + servico.getNome() + "</li>" : "")
+                .collect(Collectors.joining("\n")) : "";
+
+        content = content
                 .replace(NAME_PLACEHOLDER, details.getNomeCliente())
                 .replace(START_DATE_PLACEHOLDER, details.getDataCheckIn().toString())
                 .replace(END_DATE_PLACEHOLDER, details.getDataCheckOut().toString())
                 .replace(LIST_ROOM_TYPE_PLACEHOLDER, listaTipoQuartos)
                 .replace(TOTAL_VALUE_PLACEHOLDER, details.getValorTotal().toString())
-                .replace(LIST_SERVICE, servicos)
                 .replace(NAME_HOTEL, details.getNomeHotel())
                 .replace(QTD_QUARTOS, String.valueOf(details.getQuartosReservados().size()));
+
+        if (!servicos.isEmpty()) {
+            content = content.replace(LIST_SERVICE_PLACEHOLDER, servicos);
+        } else {
+            content = content.replace(LIST_SERVICE_PLACEHOLDER, "Nenhum serviço consumido.");
+        }
+
+        return content;
     }
+
 
     public void envioEmail(String to, String subject, String message) {
         envioEmailGateway.sendEmail(to, subject, message);

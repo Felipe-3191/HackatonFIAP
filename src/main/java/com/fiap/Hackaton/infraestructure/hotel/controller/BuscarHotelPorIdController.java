@@ -24,6 +24,9 @@ public class BuscarHotelPorIdController {
     @Operation(summary = "Busca um hotel por Id")
     public ResponseEntity<HotelCompletePublicData> buscarHotelPorId(@PathVariable Long id) {
         Hotel hotel = this.buscarHotelPorIdUseCase.buscarPorId(id);
+        if (hotel == null) {
+            return ResponseEntity.notFound().build();
+        }
         return ResponseEntity.ok(new HotelCompletePublicData(hotel));
     }
 

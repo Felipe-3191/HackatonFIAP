@@ -1,9 +1,11 @@
 package com.fiap.Hackaton.infraestructure.cliente.entityschema;
 
 import com.fiap.Hackaton.domain.cliente.entity.Cliente;
+import com.fiap.Hackaton.infraestructure.reserva.entitySchema.ReservaEntity;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -23,6 +25,8 @@ public class ClienteEntity {
     private String enderecoPaisOrigem;
     private String telefone;
     private String email;
+    @OneToMany(mappedBy = "cliente")
+    private List<ReservaEntity> reservaEntities;
 
     public ClienteEntity() {
     }
@@ -60,6 +64,14 @@ public class ClienteEntity {
         );
 
         return cliente;
+    }
+
+    public List<ReservaEntity> getReservaEntities() {
+        return reservaEntities;
+    }
+
+    public void setReservaEntities(List<ReservaEntity> reservaEntities) {
+        this.reservaEntities = reservaEntities;
     }
 
     public Long getId() {

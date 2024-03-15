@@ -1,6 +1,7 @@
 package com.fiap.Hackaton.domain.reserva.gateway;
 
 import com.fiap.Hackaton.domain.reserva.entity.Reserva;
+import com.fiap.Hackaton.infraestructure.quarto.entitySchema.QuartoEntity;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -16,4 +17,6 @@ public interface ReservaGateway {
     List<Reserva> listarPorPeriodo(LocalDate inicio, LocalDate fim);
 
     Optional<Reserva> buscarPorId(Long id);
+
+    void removerQuartoDeReservas(QuartoEntity quarto);
 }

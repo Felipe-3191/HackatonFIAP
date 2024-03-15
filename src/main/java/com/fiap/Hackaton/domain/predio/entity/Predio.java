@@ -11,7 +11,7 @@ public class Predio {
     private Hotel hotel;
     private Long id;
     private String nome;
-    private List<Quarto> quartos;
+    private List<Quarto> quartos = new ArrayList<>();
 
 
     public Predio() {
@@ -76,6 +76,9 @@ public class Predio {
     }
 
     public List<Quarto> getQuartos() {
+        if (quartos == null) {
+            quartos = new ArrayList<>();
+        }
         return quartos;
     }
 }

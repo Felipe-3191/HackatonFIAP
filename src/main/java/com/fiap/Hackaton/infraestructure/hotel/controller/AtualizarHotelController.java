@@ -26,6 +26,9 @@ public class AtualizarHotelController {
     @Operation(summary = "Atualizar Hotel")
     public ResponseEntity<HotelPublicData> atualizarHotel(@PathParam("id") Long id, @RequestBody HotelAtualizarRequestData data) {
         Hotel hotelAtualizado = this.atualizarHotelUseCase.executar(id, data);
+        if (hotelAtualizado == null) {
+            return ResponseEntity.notFound().build();
+        }
         return ResponseEntity.ok(new HotelPublicData(hotelAtualizado));
     }
 

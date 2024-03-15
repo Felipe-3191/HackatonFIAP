@@ -311,4 +311,17 @@ public class MvcConfig {
         QuartoGateway quartoGateway = new QuartoDatabaseGateway(repository);
         return new DeletarQuartoUseCase(quartoGateway);
     }
+
+
+    @Bean
+    public ListarServicosHotelUseCase listarServicosHotelUseCase(HotelRepository repository) {
+        HotelGateway hotelGateway = new HotelDatabaseGateway(repository);
+        return new ListarServicosHotelUseCase(hotelGateway);
+    }
+
+    @Bean
+    public ListarItensHotelUseCase listarItensHotelUseCase(HotelRepository repository) {
+        HotelGateway hotelGateway = new HotelDatabaseGateway(repository);
+        return new ListarItensHotelUseCase(hotelGateway);
+    }
 }

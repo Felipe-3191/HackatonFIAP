@@ -1,25 +1,32 @@
 package com.fiap.Hackaton.usecase.cliente;
 
 import com.fiap.Hackaton.infraestructure.cliente.gateway.EnvioEmailGateway;
+import com.fiap.Hackaton.usecase.reserva.BuscarReservaPorIdUseCase;
+import com.fiap.Hackaton.usecase.reserva.FechamentoReservaUseCase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.core.io.ResourceLoader;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
-public class EnvioEmailUseCaseTest {
+public class FechamentoReservaUseCaseTest {
 
     @Mock
     private EnvioEmailGateway envioEmailGateway;
+    @Mock
+    private ResourceLoader resourceLoader;
+    @Mock
+    private BuscarReservaPorIdUseCase buscarReservaPorIdUseCase;
 
-    private EnvioEmailUseCase envioEmailUseCase;
+    private FechamentoReservaUseCase fechamentoReservaUseCase;
 
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.openMocks(this);
-        envioEmailUseCase = new EnvioEmailUseCase(envioEmailGateway);
+        fechamentoReservaUseCase = new FechamentoReservaUseCase(envioEmailGateway, resourceLoader, buscarReservaPorIdUseCase);
     }
 
     @Test
@@ -28,7 +35,7 @@ public class EnvioEmailUseCaseTest {
         String subject = "Test Subject";
         String message = "Test Message";
 
-        envioEmailUseCase.envioEmail(to, subject, message);
+        fechamentoReservaUseCase.envioEmail(to, subject, message);
 
         verify(envioEmailGateway, times(1)).sendEmail(to, subject, message);
     }
@@ -41,6 +48,6 @@ public class EnvioEmailUseCaseTest {
 
         doThrow(RuntimeException.class).when(envioEmailGateway).sendEmail(to, subject, message);
 
-        assertThrows(RuntimeException.class, () -> envioEmailUseCase.envioEmail(to, subject, message));
+        assertThrows(RuntimeException.class, () -> fechamentoReservaUseCase.envioEmail(to, subject, message));
     }
 }

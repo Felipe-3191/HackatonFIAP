@@ -9,6 +9,7 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "quarto")
@@ -26,6 +27,9 @@ public class QuartoEntity {
     @ManyToOne
     @JoinColumn(name = "tipo_quarto_id")
     private TipoQuartoEntity tipoQuarto;
+
+    @ManyToMany(mappedBy = "quartoEntities")
+    Set<ReservaEntity> reservasEntities;
 
 
     public QuartoEntity() {
@@ -85,6 +89,7 @@ public class QuartoEntity {
     public Quarto toSimpleEntity() {
         return new Quarto(
                 this.id,
+                this.predio.toEntity(),
                 this.idHotel,
                 this.valorDiaria,
                 this.status,
@@ -138,5 +143,13 @@ public class QuartoEntity {
 
     public void setTipoQuarto(TipoQuartoEntity tipoQuarto) {
         this.tipoQuarto = tipoQuarto;
+    }
+
+    public Set<ReservaEntity> getReservasEntities() {
+        return reservasEntities;
+    }
+
+    public void setReservasEntities(Set<ReservaEntity> reservasEntities) {
+        this.reservasEntities = reservasEntities;
     }
 }

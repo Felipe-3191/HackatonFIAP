@@ -4,6 +4,7 @@ import com.fiap.Hackaton.domain.reserva.entity.Reserva;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 public interface ReservaGateway {
 
@@ -14,5 +15,5 @@ public interface ReservaGateway {
 
     List<Reserva> listarPorPeriodo(LocalDate inicio, LocalDate fim);
 
-    Reserva reservar(Reserva reserva);
+    Optional<Reserva> buscarPorId(Long id);
 }

@@ -1,13 +1,16 @@
 package com.fiap.Hackaton.infraestructure.quarto.gateway;
 
 import com.fiap.Hackaton.domain.quarto.entity.Quarto;
+import com.fiap.Hackaton.domain.quarto.entity.Status;
 import com.fiap.Hackaton.domain.quarto.gateway.QuartoGateway;
 import com.fiap.Hackaton.domain.quarto.tipoquarto.entity.TipoQuarto;
 import com.fiap.Hackaton.infraestructure.predio.entityschema.PredioEntity;
+import com.fiap.Hackaton.infraestructure.quarto.dto.QuartosDisponiveisDTO;
 import com.fiap.Hackaton.infraestructure.quarto.entitySchema.QuartoEntity;
 import com.fiap.Hackaton.infraestructure.quarto.repository.QuartoRepository;
 import com.fiap.Hackaton.infraestructure.tipoquarto.entityschema.TipoQuartoEntity;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -68,5 +71,12 @@ public class QuartoDatabaseGateway implements QuartoGateway {
     public void deletar(Quarto quarto) {
         QuartoEntity quartoEntity = new QuartoEntity(quarto);
         repository.delete(quartoEntity);
+    }
+
+    @Override
+    public List<Quarto> listarQuartoPorPeriodoDisponibilidade(LocalDate dataInicio, LocalDate dataFim, Status status) {
+        List<QuartosDisponiveisDTO> quartosDisponiveisDTO = this.repository.listarQuartoPorPeriodoDisponibilidade(dataInicio, dataFim, status).orElseThrow();
+        return  quartosDisponiveisDTO.stream().map(QuartosDisponiveisDTO::toQuarto).collect(Collectors.toList());
+
     }
 }

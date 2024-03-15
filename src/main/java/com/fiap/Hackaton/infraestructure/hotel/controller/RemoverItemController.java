@@ -22,8 +22,12 @@ public class RemoverItemController {
     @DeleteMapping("/hotel/{idHotel}/item/{idItem}")
     @Operation(summary = "remove um item de um hotel")
     public ResponseEntity<Void> removerItemdeHotel(@PathVariable Long idHotel, @PathVariable Long idItem) {
-        this.removerItemUseCase.executar(idHotel, idItem);
-        return ResponseEntity.noContent().build();
+        try {
+            this.removerItemUseCase.executar(idHotel, idItem);
+            return ResponseEntity.noContent().build();
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().build();
+        }
     }
 
 }

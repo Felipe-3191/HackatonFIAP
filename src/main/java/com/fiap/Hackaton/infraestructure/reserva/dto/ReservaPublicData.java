@@ -1,10 +1,10 @@
 package com.fiap.Hackaton.infraestructure.reserva.dto;
 
 import com.fiap.Hackaton.domain.cliente.entity.Cliente;
-import com.fiap.Hackaton.domain.hotel.item.entity.Item;
-import com.fiap.Hackaton.domain.hotel.servico.entity.Servico;
 import com.fiap.Hackaton.domain.quarto.entity.Quarto;
 import com.fiap.Hackaton.domain.reserva.entity.Reserva;
+import com.fiap.Hackaton.domain.reserva.reservaItem.entity.ReservaItem;
+import com.fiap.Hackaton.domain.reserva.reservaServico.entity.ReservaServico;
 import com.fiap.Hackaton.usecase.reserva.dto.IReservaPublicData;
 
 import java.math.BigDecimal;
@@ -20,8 +20,8 @@ public record ReservaPublicData(
         Integer quantidadePessoas,
         Cliente responsavelReserva,
         List<Quarto> quartosReservados,
-        List<Item> itensConsumidos,
-        List<Servico> servicosConsumidos
+        List<ReservaItem> itensConsumidos,
+        List<ReservaServico> servicosConsumidos
 
 ) implements IReservaPublicData {
     public ReservaPublicData(Reserva reserva) {

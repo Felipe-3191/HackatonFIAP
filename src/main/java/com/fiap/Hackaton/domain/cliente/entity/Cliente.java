@@ -45,6 +45,10 @@ public class Cliente {
         this.email = email;
     }
 
+    public Cliente(Long idCLiente) {
+        this.id = idCLiente;
+    }
+
 
     public Long getId() {
         return id;

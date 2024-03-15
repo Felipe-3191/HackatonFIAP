@@ -1,6 +1,10 @@
 package com.fiap.Hackaton.infraestructure.reserva.entitySchema;
 
+import com.fiap.Hackaton.domain.cliente.entity.Cliente;
+import com.fiap.Hackaton.domain.quarto.entity.Quarto;
 import com.fiap.Hackaton.domain.reserva.entity.Reserva;
+import com.fiap.Hackaton.domain.reserva.reservaItem.entity.ReservaItem;
+import com.fiap.Hackaton.domain.reserva.reservaServico.entity.ReservaServico;
 import com.fiap.Hackaton.infraestructure.cliente.entityschema.ClienteEntity;
 import com.fiap.Hackaton.infraestructure.quarto.entitySchema.QuartoEntity;
 import com.fiap.Hackaton.infraestructure.reserva.reservaItem.entitySchema.ReservaItemEntity;
@@ -18,6 +22,7 @@ public class ReservaEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private Boolean confirmada;
     private LocalDate dataInicial;
     private LocalDate dataFinal;
     private BigDecimal valorReserva;
@@ -62,6 +67,32 @@ public class ReservaEntity {
         this.cliente = new ClienteEntity(reserva.getResponsavelReserva());
         this.reservaServicoEntities = reserva.getServicosConsumidos().stream().map(ReservaServicoEntity::new).toList();
         this.reservaItemEntities = reserva.getItensConsumidos().stream().map(ReservaItemEntity::new).toList();
+    }
+
+    public ReservaEntity(Cliente cliente, LocalDate dataInicial, LocalDate dataFinal, Integer quantidadePessoas,
+                         List<Quarto> quartos, List<ReservaServico> servicos, List<ReservaItem> itens) {
+        this.dataInicial = dataInicial;
+        this.dataFinal = dataFinal;
+        this.quantidadePessoas = quantidadePessoas;
+        this.cliente = new ClienteEntity(cliente);
+        this.quartoEntities = quartos.stream().map(QuartoEntity::new).toList();
+        this.reservaServicoEntities = servicos.stream().map(ReservaServicoEntity::new).toList();
+        this.reservaItemEntities = itens.stream().map(ReservaItemEntity::new).toList();
+    }
+    public Boolean getConfirmada() {
+        return confirmada;
+    }
+
+    public void setConfirmada(Boolean confirmada) {
+        this.confirmada = confirmada;
+    }
+
+    public void setValorTotal(BigDecimal valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+
+    public List<QuartoEntity> getQuartoEntities() {
+        return quartoEntities;
     }
 
     public Long getId() {

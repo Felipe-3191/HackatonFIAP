@@ -17,7 +17,9 @@ public class Quarto {
 
     public Quarto() {
     }
-
+    public Quarto(Long id) {
+        this.id = id;
+    }
     public Quarto(Predio predio, TipoQuarto tipoQuarto, Status status, BigDecimal valorDiaria) {
         this.predio = predio;
         this.tipoQuarto = tipoQuarto;

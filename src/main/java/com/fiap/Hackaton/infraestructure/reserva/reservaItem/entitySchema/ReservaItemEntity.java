@@ -1,6 +1,7 @@
 package com.fiap.Hackaton.infraestructure.reserva.reservaItem.entitySchema;
 
 import com.fiap.Hackaton.domain.hotel.item.entity.Item;
+import com.fiap.Hackaton.domain.reserva.reservaItem.entity.ReservaItem;
 import com.fiap.Hackaton.infraestructure.hotel.item.entityschema.ItemEntity;
 import com.fiap.Hackaton.infraestructure.reserva.entitySchema.ReservaEntity;
 import jakarta.persistence.*;
@@ -27,6 +28,15 @@ public class ReservaItemEntity {
         this.quantidade = quantidade;
         this.reserva = reserva;
         this.item = item;
+    }
+
+    public ReservaItemEntity (ReservaItem reservaItem){
+        this.id = reservaItem.getId();
+        this.quantidade = reservaItem.getQuantidade();
+        if(reservaItem.getReserva() != null)
+            this.reserva = new ReservaEntity(reservaItem.getReserva());
+        if(reservaItem.getItem() != null)
+            this.item = new ItemEntity(reservaItem.getItem());
     }
 
     public ReservaItemEntity(Item item){

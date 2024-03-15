@@ -49,4 +49,11 @@ public class ReservaDatabaseGateway implements ReservaGateway {
                 .map(ReservaEntity::toEntity)
                 .collect(Collectors.toList());
     }
+    @Override
+    public Reserva reservar(Reserva reserva) {
+        ReservaEntity reservaEntity = new ReservaEntity(reserva.getResponsavelReserva(), reserva.getDataInicial(), reserva.getDataFinal(),
+                reserva.getQuantidadePessoas(), reserva.getQuartosReservados(), reserva.getServicosConsumidos(), reserva.getItensConsumidos());
+        return repository.save(reservaEntity).toEntity();
+    }
+
 }

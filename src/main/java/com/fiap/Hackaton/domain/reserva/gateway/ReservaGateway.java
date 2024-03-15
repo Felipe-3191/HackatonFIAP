@@ -13,4 +13,6 @@ public interface ReservaGateway {
     List<Reserva> listarPorHotel(Long idHotel);
 
     List<Reserva> listarPorPeriodo(LocalDate inicio, LocalDate fim);
+
+    Reserva reservar(Reserva reserva);
 }

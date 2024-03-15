@@ -22,8 +22,7 @@ public class PredioEntity {
     @JoinColumn(name = "hotel_id")
     private HotelEntity hotel;
 
-    @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "predio_id")
+    @OneToMany(mappedBy = "predio")
     private List<QuartoEntity> quartoEntities;
 
     public PredioEntity() {

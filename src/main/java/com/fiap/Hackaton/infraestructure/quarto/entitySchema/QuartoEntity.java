@@ -42,11 +42,14 @@ public class QuartoEntity {
 
     public QuartoEntity(Quarto quarto) {
         this.id = quarto.getId();
-        this.predio = new PredioEntity(quarto.getPredio());
-        this.idHotel = quarto.getIdHotel();
+        if(quarto.getPredio() != null)
+            this.predio = new PredioEntity(quarto.getPredio());
+        if(quarto.getIdHotel() != null)
+            this.idHotel = quarto.getIdHotel();
         this.valorDiaria = quarto.getValorDiaria();
         this.status = quarto.getStatus();
-        this.tipoQuarto = new TipoQuartoEntity(quarto.getTipoQuarto());
+        if(quarto.getTipoQuarto() != null)
+            this.tipoQuarto = new TipoQuartoEntity(quarto.getTipoQuarto());
     }
 
     public PredioEntity getPredio() {
@@ -60,11 +63,11 @@ public class QuartoEntity {
     public Quarto toEntity() {
         return new Quarto(
                 this.id,
-                this.getPredio().toEntity(),
+                this.getPredio() != null ? this.getPredio().toEntity() : null,
                 this.idHotel,
                 this.valorDiaria,
                 this.status,
-                this.tipoQuarto.toEntity()
+                this.tipoQuarto != null ? this.tipoQuarto.toEntity() : null
         );
 
 

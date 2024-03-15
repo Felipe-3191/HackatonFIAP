@@ -32,6 +32,7 @@ import com.fiap.Hackaton.usecase.quarto.usecases.*;
 import com.fiap.Hackaton.usecase.reserva.ListarReservasDeUmClienteUseCase;
 import com.fiap.Hackaton.usecase.reserva.ListarReservasDeUmHotelUseCase;
 import com.fiap.Hackaton.usecase.reserva.ListarReservasDeUmPeriodoUseCase;
+import com.fiap.Hackaton.usecase.reserva.ReservarReservaUseCase;
 import com.fiap.Hackaton.usecase.servico.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -350,5 +351,11 @@ public class MvcConfig {
     public ListarReservasDeUmPeriodoUseCase listarReservasDeUmPeriodoUseCase(ReservaRepository repository) {
         ReservaGateway reservaGateway = new ReservaDatabaseGateway(repository);
         return new ListarReservasDeUmPeriodoUseCase(reservaGateway);
+    }
+
+    @Bean
+    public ReservarReservaUseCase reservarReservaUseCase(ReservaRepository repository) {
+        ReservaGateway reservaGateway = new ReservaDatabaseGateway(repository);
+        return new ReservarReservaUseCase(reservaGateway);
     }
 }

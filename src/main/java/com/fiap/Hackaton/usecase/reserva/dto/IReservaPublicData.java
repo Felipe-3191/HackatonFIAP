@@ -4,6 +4,8 @@ import com.fiap.Hackaton.domain.cliente.entity.Cliente;
 import com.fiap.Hackaton.domain.hotel.item.entity.Item;
 import com.fiap.Hackaton.domain.hotel.servico.entity.Servico;
 import com.fiap.Hackaton.domain.quarto.entity.Quarto;
+import com.fiap.Hackaton.domain.reserva.reservaItem.entity.ReservaItem;
+import com.fiap.Hackaton.domain.reserva.reservaServico.entity.ReservaServico;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -18,6 +20,6 @@ public interface IReservaPublicData {
     Integer quantidadePessoas();
     Cliente responsavelReserva();
     List<Quarto> quartosReservados();
-    List<Item> itensConsumidos();
-    List<Servico> servicosConsumidos();
+    List<ReservaItem> itensConsumidos();
+    List<ReservaServico> servicosConsumidos();
 }

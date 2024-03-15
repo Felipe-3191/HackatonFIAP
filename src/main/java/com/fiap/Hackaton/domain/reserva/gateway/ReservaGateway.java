@@ -9,7 +9,7 @@ public interface ReservaGateway {
 
     Reserva criar(Reserva reserva);
     void deletar(Reserva reserva);
-    List<Reserva> listarPorCliente(Long idCliente);
+    List<Reserva> listarPorCliente(String cpf);
     List<Reserva> listarPorHotel(Long idHotel);
 
     List<Reserva> listarPorPeriodo(LocalDate inicio, LocalDate fim);

@@ -7,6 +7,7 @@ import com.fiap.Hackaton.infraestructure.reserva.repository.ReservaRepository;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ReservaDatabaseGateway implements ReservaGateway {
 
@@ -29,17 +30,23 @@ public class ReservaDatabaseGateway implements ReservaGateway {
     }
 
     @Override
-    public List<Reserva> listarPorCliente(Long idCliente){
-        return null;
+    public List<Reserva> listarPorCliente(String cpf){
+        return repository.findByCliente_Cpf(cpf).stream()
+                .map(ReservaEntity::toEntity)
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<Reserva> listarPorHotel(Long idHotel){
-        return null;
+        return repository.findByHotel_Id(idHotel).stream()
+                .map(ReservaEntity::toEntity)
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<Reserva> listarPorPeriodo(LocalDate inicio, LocalDate fim){
-        return null;
+        return repository.findByDataReservaBetween(inicio, fim).stream()
+                .map(ReservaEntity::toEntity)
+                .collect(Collectors.toList());
     }
 }

@@ -7,6 +7,7 @@ import com.fiap.Hackaton.domain.hotel.servico.gateway.ServicoGateway;
 import com.fiap.Hackaton.domain.predio.gateway.PredioGateway;
 import com.fiap.Hackaton.domain.quarto.gateway.QuartoGateway;
 import com.fiap.Hackaton.domain.quarto.tipoquarto.gateway.TipoQuartoGateway;
+import com.fiap.Hackaton.domain.reserva.gateway.ReservaGateway;
 import com.fiap.Hackaton.infraestructure.cliente.gateway.ClienteDatabaseGateway;
 import com.fiap.Hackaton.infraestructure.cliente.repository.ClienteRepository;
 import com.fiap.Hackaton.infraestructure.hotel.gateway.HotelDatabaseGateway;
@@ -19,6 +20,8 @@ import com.fiap.Hackaton.infraestructure.predio.gateway.PredioDatabaseGateway;
 import com.fiap.Hackaton.infraestructure.predio.repository.PredioRepository;
 import com.fiap.Hackaton.infraestructure.quarto.gateway.QuartoDatabaseGateway;
 import com.fiap.Hackaton.infraestructure.quarto.repository.QuartoRepository;
+import com.fiap.Hackaton.infraestructure.reserva.gateway.ReservaDatabaseGateway;
+import com.fiap.Hackaton.infraestructure.reserva.repository.ReservaRepository;
 import com.fiap.Hackaton.infraestructure.tipoquarto.gateway.TipoQuartoDatabaseGateway;
 import com.fiap.Hackaton.infraestructure.tipoquarto.repository.TipoQuartoRepository;
 import com.fiap.Hackaton.usecase.cliente.*;
@@ -26,6 +29,9 @@ import com.fiap.Hackaton.usecase.hotel.*;
 import com.fiap.Hackaton.usecase.item.*;
 import com.fiap.Hackaton.usecase.predio.*;
 import com.fiap.Hackaton.usecase.quarto.usecases.*;
+import com.fiap.Hackaton.usecase.reserva.ListarReservasDeUmClienteUseCase;
+import com.fiap.Hackaton.usecase.reserva.ListarReservasDeUmHotelUseCase;
+import com.fiap.Hackaton.usecase.reserva.ListarReservasDeUmPeriodoUseCase;
 import com.fiap.Hackaton.usecase.servico.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -323,5 +329,26 @@ public class MvcConfig {
     public ListarItensHotelUseCase listarItensHotelUseCase(HotelRepository repository) {
         HotelGateway hotelGateway = new HotelDatabaseGateway(repository);
         return new ListarItensHotelUseCase(hotelGateway);
+    }
+
+
+
+
+    @Bean
+    public ListarReservasDeUmHotelUseCase listarReservasDeUmHotelUseCase(ReservaRepository repository) {
+        ReservaGateway reservaGateway = new ReservaDatabaseGateway(repository);
+        return new ListarReservasDeUmHotelUseCase(reservaGateway);
+    }
+
+    @Bean
+    public ListarReservasDeUmClienteUseCase listarReservasDeUmClienteUseCase(ReservaRepository repository) {
+        ReservaGateway reservaGateway = new ReservaDatabaseGateway(repository);
+        return new ListarReservasDeUmClienteUseCase(reservaGateway);
+    }
+
+    @Bean
+    public ListarReservasDeUmPeriodoUseCase listarReservasDeUmPeriodoUseCase(ReservaRepository repository) {
+        ReservaGateway reservaGateway = new ReservaDatabaseGateway(repository);
+        return new ListarReservasDeUmPeriodoUseCase(reservaGateway);
     }
 }

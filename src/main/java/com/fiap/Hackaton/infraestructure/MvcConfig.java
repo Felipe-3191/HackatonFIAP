@@ -29,6 +29,7 @@ import com.fiap.Hackaton.usecase.hotel.*;
 import com.fiap.Hackaton.usecase.item.*;
 import com.fiap.Hackaton.usecase.predio.*;
 import com.fiap.Hackaton.usecase.quarto.usecases.*;
+import com.fiap.Hackaton.usecase.reserva.DeletarReservaPorIdUseCase;
 import com.fiap.Hackaton.usecase.reserva.ListarReservasDeUmClienteUseCase;
 import com.fiap.Hackaton.usecase.reserva.ListarReservasDeUmHotelUseCase;
 import com.fiap.Hackaton.usecase.reserva.ListarReservasDeUmPeriodoUseCase;
@@ -346,14 +347,18 @@ public class MvcConfig {
         return new ListarReservasDeUmClienteUseCase(reservaGateway);
     }
 
+ @Bean
+    public DeletarReservaPorIdUseCase deletarReservaPorIdUseCase(ReservaRepository repository) {
+        ReservaGateway reservaGateway = new ReservaDatabaseGateway(repository);
+        return new DeletarReservaPorIdUseCase(reservaGateway);
+    }
+
     @Bean
     public ListarReservasDeUmPeriodoUseCase listarReservasDeUmPeriodoUseCase(ReservaRepository repository) {
         ReservaGateway reservaGateway = new ReservaDatabaseGateway(repository);
         return new ListarReservasDeUmPeriodoUseCase(reservaGateway);
     }
-
-
-    @Bean
+@Bean
     public ListarQuartosPorPeriodoDisponibilidadeUseCase listarQuartosPorPeriodoDisponibilidadeUseCase(QuartoRepository repository){
         QuartoGateway quartoGateway = new QuartoDatabaseGateway(repository);
         return new ListarQuartosPorPeriodoDisponibilidadeUseCase(quartoGateway);
@@ -363,4 +368,6 @@ public class MvcConfig {
     public ExibirPossibilidadesDeQuartosDisponiveisParaAtenderReserva exibirPossibilidadesDeQuartosDisponiveisParaAtenderReserva(ListarQuartosPorPeriodoDisponibilidadeUseCase listarQuartosPorPeriodoDisponibilidadeUseCase){
         return new ExibirPossibilidadesDeQuartosDisponiveisParaAtenderReserva(listarQuartosPorPeriodoDisponibilidadeUseCase);
     }
+
+
 }

@@ -49,14 +49,6 @@ public class QuartoEntity {
         this.tipoQuarto = new TipoQuartoEntity(quarto.getTipoQuarto());
     }
 
-    public List<ReservaEntity> getReservaEntities() {
-        return reservaEntities;
-    }
-
-    public void setReservaEntities(List<ReservaEntity> reservaEntities) {
-        this.reservaEntities = reservaEntities;
-    }
-
     public PredioEntity getPredio() {
         return predio;
     }

@@ -57,7 +57,11 @@ public class QuartoDatabaseGateway implements QuartoGateway {
 
     @Override
     public Optional<Quarto> buscarPorId(Long id) {
-        return repository.findById(id).map(QuartoEntity::toEntity);
+        try {
+            return repository.findById(id).map(QuartoEntity::toEntity);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("ID inválido");
+        }
     }
 
     @Override

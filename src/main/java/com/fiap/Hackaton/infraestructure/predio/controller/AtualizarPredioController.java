@@ -25,7 +25,11 @@ public class AtualizarPredioController {
     @PutMapping("/predio/{id}")
     @Operation(summary = "Atualizar Predio")
     public ResponseEntity<PredioPublicResponseAddData> atualizarPredio(@PathVariable Long id, @RequestBody PredioAtualizarRequestData dados) {
-        Predio predio = this.atualizarPredioUseCase.executar(id, dados);
-        return ResponseEntity.ok(new PredioPublicResponseAddData(predio));
+      try {
+          Predio predio = this.atualizarPredioUseCase.executar(id, dados);
+          return ResponseEntity.ok(new PredioPublicResponseAddData(predio));
+      } catch (Exception e) {
+        return ResponseEntity.notFound().build();
+      }
     }
 }

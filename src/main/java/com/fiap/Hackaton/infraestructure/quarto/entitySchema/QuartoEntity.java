@@ -68,7 +68,7 @@ public class QuartoEntity {
                 this.idHotel,
                 this.valorDiaria,
                 this.status,
-                this.tipoQuarto.toEntity()
+                this.tipoQuarto.toEntityWithMoveis()
         );
     }
 

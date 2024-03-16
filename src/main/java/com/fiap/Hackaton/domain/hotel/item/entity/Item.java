@@ -11,6 +11,9 @@ public class Item {
 
     public Item() {
     }
+    public Item(Long id) {
+        this.id = id;
+    }
 
     public Item(Long id, String nome, BigDecimal valor) {
         this.id = id;

@@ -37,6 +37,8 @@ public class CriarQuartoUseCase {
                 status,
                 dados.valorDiaria()
         );
+
+        quarto.setIdHotel(predio.getHotel().getId());
         return this.quartoGateway.criar(quarto);
     }
 }

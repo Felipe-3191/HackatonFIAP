@@ -4,6 +4,8 @@ import com.fiap.Hackaton.domain.cliente.entity.Cliente;
 import com.fiap.Hackaton.domain.hotel.item.entity.Item;
 import com.fiap.Hackaton.domain.hotel.servico.entity.Servico;
 import com.fiap.Hackaton.domain.quarto.entity.Quarto;
+import com.fiap.Hackaton.domain.reserva.reservaItem.entity.ReservaItem;
+import com.fiap.Hackaton.domain.reserva.reservaServico.entity.ReservaServico;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -20,8 +22,8 @@ public class Reserva {
     private Integer quantidadePessoas;
     private Cliente responsavelReserva;
     private List<Quarto> quartosReservados = new ArrayList<>();
-    private List<Item> itensConsumidos = new ArrayList<>();
-    private List<Servico> servicosConsumidos = new ArrayList<>();
+    private List<ReservaItem> itensConsumidos = new ArrayList<>();
+    private List<ReservaServico> servicosConsumidos = new ArrayList<>();
 
 
     public Reserva() {
@@ -29,7 +31,7 @@ public class Reserva {
 
     public Reserva(Long id, LocalDate dataInicial, LocalDate dataFinal, BigDecimal valorReserva,
                    BigDecimal valorTotal, Integer quantidadePessoas, Cliente responsavelReserva,
-                   List<Quarto> quartosReservados, List<Item> itensConsumidos, List<Servico> servicosConsumidos) {
+                   List<Quarto> quartosReservados, List<ReservaItem> itensConsumidos, List<ReservaServico> servicosConsumidos) {
         this.id = id;
         this.dataInicial = dataInicial;
         this.dataFinal = dataFinal;
@@ -53,6 +55,20 @@ public class Reserva {
         this.quartosReservados = list;
     }
 
+    public Reserva(Cliente cliente, List<Quarto> quartos, LocalDate dataInicio, LocalDate dataFim,
+                   BigDecimal valorReserva, BigDecimal valorTotal,
+                   List<ReservaServico> servicos, List<ReservaItem> items, Integer quantidadePessoas){
+
+        this.dataInicial = dataInicio;
+        this.dataFinal = dataFim;
+        this.valorReserva = valorReserva;
+        this.valorTotal = valorTotal;
+        this.quantidadePessoas = quantidadePessoas;
+        this.responsavelReserva = cliente;
+        this.quartosReservados = quartos;
+        this.servicosConsumidos = servicos;
+        this.itensConsumidos = items;
+    }
 
     public Long getId() {
         return id;
@@ -89,14 +105,14 @@ public class Reserva {
         return quartosReservados;
     }
 
-    public List<Item> getItensConsumidos() {
+    public List<ReservaItem> getItensConsumidos() {
         if(itensConsumidos == null) {
             itensConsumidos = new ArrayList<>();
         }
         return itensConsumidos;
     }
 
-    public List<Servico> getServicosConsumidos() {
+    public List<ReservaServico> getServicosConsumidos() {
         if(servicosConsumidos == null) {
             servicosConsumidos = new ArrayList<>();
         }

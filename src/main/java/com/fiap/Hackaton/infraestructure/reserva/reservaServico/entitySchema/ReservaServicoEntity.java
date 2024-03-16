@@ -1,6 +1,7 @@
 package com.fiap.Hackaton.infraestructure.reserva.reservaServico.entitySchema;
 
 import com.fiap.Hackaton.domain.hotel.servico.entity.Servico;
+import com.fiap.Hackaton.domain.reserva.reservaServico.entity.ReservaServico;
 import com.fiap.Hackaton.infraestructure.hotel.servico.entityschema.ServicoEntity;
 import com.fiap.Hackaton.infraestructure.reserva.entitySchema.ReservaEntity;
 import jakarta.persistence.*;
@@ -30,6 +31,27 @@ public class ReservaServicoEntity {
         this.servico = servico;
     }
 
+    public ReservaServicoEntity(ReservaServico reservaServico){
+        this.id = reservaServico.getId();
+        this.quantidade = reservaServico.getQuantidade();
+        if(reservaServico.getReserva() != null)
+            this.reserva = new ReservaEntity(reservaServico.getReserva());
+        if(reservaServico.getServico() != null)
+            this.servico = new ServicoEntity(reservaServico.getServico());
+
+    }
+    public ReservaServicoEntity(Long id, Integer quantidade, ServicoEntity servico) {
+        this.id = id;
+        this.quantidade = quantidade;
+        this.servico = servico;
+    }
+    public ReservaServico toEntity(){
+        return new ReservaServico(
+                this.id,
+                this.quantidade,
+                this.servico
+        );
+    }
     public ReservaServicoEntity(Servico servico){
         this.servico = new ServicoEntity(servico);
     }

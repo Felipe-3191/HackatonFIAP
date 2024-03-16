@@ -79,4 +79,16 @@ public class ReservaDatabaseGateway implements ReservaGateway {
                 .filter(reservaEntity -> reservaEntity.getCliente().getId().equals(cliente.getId()))
                 .forEach(repository::delete);
     }
+
+    @Override
+    public Reserva reservar(Reserva reserva) {
+        ReservaEntity reservaEntity = new ReservaEntity(reserva.getResponsavelReserva(), reserva.getDataInicial(),
+                reserva.getDataFinal(), reserva.getQuantidadePessoas(),
+                reserva.getValorReserva(), reserva.getValorTotal(),
+                reserva.getQuartosReservados(),
+                reserva.getServicosConsumidos(), reserva.getItensConsumidos());
+
+        return repository.save(reservaEntity).toEntityReservar();
+
+    }
 }

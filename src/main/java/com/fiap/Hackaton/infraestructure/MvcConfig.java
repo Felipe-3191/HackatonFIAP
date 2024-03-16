@@ -390,4 +390,19 @@ public class MvcConfig {
         ReservaGateway reservaGateway = new ReservaDatabaseGateway(repository);
         return new RemoverQuartoDeReservasUseCase(reservaGateway);
     }
+
+    @Bean ReservarReservaUseCase reservarReservaUseCase(ReservaRepository repository, ClienteRepository clienteRepository,
+                                                        QuartoRepository quartoRepository, ServicoRepository servicoRepository,
+                                                        ItemRepository itemRepository){
+        ReservaGateway reservaGateway = new ReservaDatabaseGateway(repository);
+        ClienteGateway clienteGateway = new ClienteDatabaseGateway(clienteRepository);
+        QuartoGateway quartoGateway = new QuartoDatabaseGateway(quartoRepository);
+        ServicoGateway servicoGateway = new ServicoDatabaseGateway(servicoRepository);
+        ItemGateway itemGateway = new ItemDatabaseGateway(itemRepository);
+
+        return new ReservarReservaUseCase(reservaGateway, new BuscarClienteUseCase(clienteGateway), new BuscarQuartoPorIdUseCase(quartoGateway),
+                new BuscarServicoUseCase(servicoGateway), new BuscarItemUseCase(itemGateway));
+    }
+
+
 }

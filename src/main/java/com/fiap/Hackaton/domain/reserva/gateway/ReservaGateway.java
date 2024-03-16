@@ -22,4 +22,7 @@ public interface ReservaGateway {
     void removerQuartoDeReservas(QuartoEntity quarto);
 
     void removerClienteDeReserva(Cliente cliente);
+
+
+    Reserva reservar(Reserva reserva);
 }

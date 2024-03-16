@@ -13,6 +13,10 @@ public class Servico {
     public Servico() {
     }
 
+    public Servico(Long id) {
+        this.id = id;
+    }
+
     public Servico(Long id, String nome, BigDecimal valor) {
         this.id = id;
         this.nome = nome;

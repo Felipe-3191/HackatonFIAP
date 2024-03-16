@@ -67,7 +67,7 @@ public class FechamentoReservaUseCase {
                 .map(quarto -> "<li>" + quarto.getTipoQuarto().getNomeTipo() + "</li>")
                 .collect(Collectors.joining("\n"));
         String servicos = details.getServicosConsumidos() != null && !details.getServicosConsumidos().isEmpty() ? details.getServicosConsumidos().stream()
-                .map(servico -> servico != null ? "<li>" + servico.getNome() + "</li>" : "")
+                .map(servico -> servico != null ? "<li>" + servico.getServico().getNome() + "</li>" : "")
                 .collect(Collectors.joining("\n")) : "";
 
         content = content

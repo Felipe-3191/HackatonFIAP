@@ -65,14 +65,19 @@ public class TipoQuartoEntity {
     }
 
     public TipoQuarto toEntityWithMoveis() {
-        return new TipoQuarto(
-                this.id,
-                this.nomeTipo,
-                this.capacidadeTotal,
-                this.quantidadeCamas,
-                this.banheiro,
-                this.movelEntities.stream().map(MovelEntity::toEntity).toList()
-        );
+
+        if (this.movelEntities != null) {
+            return new TipoQuarto(
+                    this.id,
+                    this.nomeTipo,
+                    this.capacidadeTotal,
+                    this.quantidadeCamas,
+                    this.banheiro,
+                    this.movelEntities.stream().map(MovelEntity::toEntity).toList()
+            );
+        } else {
+            return this.toEntity();
+        }
     }
 
     public Long getId() {

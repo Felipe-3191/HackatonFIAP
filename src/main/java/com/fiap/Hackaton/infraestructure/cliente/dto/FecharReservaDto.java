@@ -2,6 +2,7 @@ package com.fiap.Hackaton.infraestructure.cliente.dto;
 
 import com.fiap.Hackaton.domain.hotel.servico.entity.Servico;
 import com.fiap.Hackaton.domain.quarto.entity.Quarto;
+import com.fiap.Hackaton.domain.reserva.reservaServico.entity.ReservaServico;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -16,10 +17,10 @@ public class FecharReservaDto {
     private LocalDate dataCheckOut;
     private List<Quarto> quartosReservados;
     private BigDecimal valorTotal;
-    private List<Servico> servicosConsumidos = new ArrayList<>();
+    private List<ReservaServico> servicosConsumidos = new ArrayList<>();
     private String email;
 
-    public FecharReservaDto(String nomeCliente, String nomeHotel, LocalDate dataCheckIn, LocalDate dataCheckOut, List<Quarto> quartosReservados, BigDecimal valorTotal, List<Servico> servicosConsumidos, String email) {
+    public FecharReservaDto(String nomeCliente, String nomeHotel, LocalDate dataCheckIn, LocalDate dataCheckOut, List<Quarto> quartosReservados, BigDecimal valorTotal, List<ReservaServico> servicosConsumidos, String email) {
         this.nomeCliente = nomeCliente;
         this.nomeHotel = nomeHotel;
         this.dataCheckIn = dataCheckIn;
@@ -89,14 +90,14 @@ public class FecharReservaDto {
         this.email = email;
     }
 
-    public List<Servico> getServicosConsumidos() {
+    public List<ReservaServico> getServicosConsumidos() {
         if(servicosConsumidos == null) {
             servicosConsumidos = new ArrayList<>();
         }
         return servicosConsumidos;
     }
 
-    public void setServicosConsumidos(List<Servico> servicosConsumidos) {
+    public void setServicosConsumidos(List<ReservaServico> servicosConsumidos) {
         this.servicosConsumidos = servicosConsumidos;
     }
 }

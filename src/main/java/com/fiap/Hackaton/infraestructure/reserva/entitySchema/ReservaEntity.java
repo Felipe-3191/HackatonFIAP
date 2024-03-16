@@ -32,14 +32,12 @@ public class ReservaEntity {
     private List<ReservaServicoEntity> reservaServicoEntities;
     @OneToMany(mappedBy = "reserva")
     private List<ReservaItemEntity> reservaItemEntities;
-
     @ManyToMany
     @JoinTable(
             name = "reserva_quarto",
-            joinColumns = @JoinColumn(name = "reserva_id"),
-            inverseJoinColumns = @JoinColumn(name = "quarto_id"))
+            joinColumns = @JoinColumn(name = "quarto_id"),
+            inverseJoinColumns = @JoinColumn(name = "reserva_id"))
     private List<QuartoEntity> quartoEntities;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cliente_id")
     private ClienteEntity cliente;

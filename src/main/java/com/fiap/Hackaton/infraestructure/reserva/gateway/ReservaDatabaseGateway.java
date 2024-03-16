@@ -2,13 +2,11 @@ package com.fiap.Hackaton.infraestructure.reserva.gateway;
 
 import com.fiap.Hackaton.domain.reserva.entity.Reserva;
 import com.fiap.Hackaton.domain.reserva.gateway.ReservaGateway;
-import com.fiap.Hackaton.infraestructure.quarto.entitySchema.QuartoEntity;
 import com.fiap.Hackaton.infraestructure.reserva.entitySchema.ReservaEntity;
 import com.fiap.Hackaton.infraestructure.reserva.repository.ReservaRepository;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class ReservaDatabaseGateway implements ReservaGateway {
@@ -51,13 +49,11 @@ public class ReservaDatabaseGateway implements ReservaGateway {
                 .map(ReservaEntity::toEntity)
                 .collect(Collectors.toList());
     }
-
     @Override
-    public Optional<Reserva> buscarPorId(Long id){
-        try {
-            return repository.findById(id).map(ReservaEntity::toEntity);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("ID inválido");
-        }
+    public Reserva reservar(Reserva reserva) {
+        ReservaEntity reservaEntity = new ReservaEntity(reserva.getResponsavelReserva(), reserva.getDataInicial(), reserva.getDataFinal(),
+                reserva.getQuantidadePessoas(), reserva.getQuartosReservados(), reserva.getServicosConsumidos(), reserva.getItensConsumidos());
+        return repository.save(reservaEntity).toEntity();
     }
+
 }

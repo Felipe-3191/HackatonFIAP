@@ -98,6 +98,7 @@ c. Documentação do(s) bancos de dados utilizados, mostrando os diagramas e est
 d. Link para o Github do Projeto
 [Hackaton Github](https://github.com/Felipe-3191/HackatonFIAP)
 e. Link para o Vídeo do Projeto
+[Link do Vídeo Youtube](https://www.youtube.com/watch?v=xqR5UUradx0)
 
 1. Pontos obrigatórios do Projeto:
 a. Todo o projeto deverá ser entregue dockerizado, ou seja, vocês devem entregar o os arquivos de configuração do Docker e a imagem. Os professores devem ser capazes de simplesmente executar o docker-compose up e o Container da aplicação subir com a aplicação pronta para uso.
@@ -105,3 +106,5 @@ b. Utilização de Swagger para as documentação das APIs
 c. Criar todo o código utilizando as melhores práticas de Qualidade de Software e Clean Architecture.
 d. Deixar um Curl para cada endpoint na documentação do projeto
 e. Na documentação deve conter um print com a cobertura de testes do projeto
+![](./doc/coberturaTestes.jpeg)
+55% de cobertura de testes

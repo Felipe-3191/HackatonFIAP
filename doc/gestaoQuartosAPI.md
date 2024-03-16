@@ -2,16 +2,6 @@
 
 <div style="display: flex; align-items: center; background-color: #f0f8ff; padding: 5px; border-radius: 5px; border: 2px solid #007bff;">
   <button style="background-color: #007bff; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">GET</button>
-  <span style="margin-left: 5px; color: #000000;">/hotel/{id}</span>
-</div>
-
-```bash
-curl -X 'GET' \
-  'http://localhost:8080/hotel/1' \
-  -H 'accept: */*
-```
-<div style="display: flex; align-items: center; background-color: #f0f8ff; padding: 5px; border-radius: 5px; border: 2px solid #007bff;">
-  <button style="background-color: #007bff; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">GET</button>
   <span style="margin-left: 5px; color: #000000;">/hotel</span>
 </div>
 
@@ -19,6 +9,16 @@ curl -X 'GET' \
 curl -X 'GET' \
   'http://localhost:8080/hotel' \
   -H 'accept: */*'
+```
+<div style="display: flex; align-items: center; background-color: #f0f8ff; padding: 5px; border-radius: 5px; border: 2px solid #007bff;">
+  <button style="background-color: #007bff; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">GET</button>
+  <span style="margin-left: 5px; color: #000000;">/hotel/{id}</span>
+</div>
+
+```bash
+curl -X 'GET' \
+  'http://localhost:8080/hotel/1' \
+  -H 'accept: */*
 ```
 <div style="display: flex; align-items: center; background-color: #f0f8ff; padding: 5px; border-radius: 5px; border: 2px solid #007bff;">
   <button style="background-color: #007bff; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">GET</button>
@@ -124,11 +124,11 @@ curl -X 'POST' \
 
   ```bash
 curl -X 'POST' \
-  'http://localhost:8080/hotel/1/predio' \
+  'http://localhost:8080/hotel/3/predio' \
   -H 'accept: */*' \
   -H 'Content-Type: application/json' \
   -d '{
-  "nome": "string"
+  "nome": "Predio novo"
 }'
   ```
 <div style="display: flex; align-items: center; background-color: #fff3e0; padding: 5px; border-radius: 5px; border: 2px solid #ff9800;">
@@ -182,7 +182,7 @@ curl -X 'DELETE' \
 ```
 <div style="display: flex; align-items: center; background-color: #ffe6e6; padding: 5px; border-radius: 5px; border: 2px solid #ff0000;">
   <button style="background-color: #ff0000; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">DELETE</button>
-  <span style="margin-left: 5px; color: #000000;">/hotel/{idHotel}/servico/{idsServico}</span></div>
+  <span style="margin-left: 5px; color: #000000;">/hotel/{idHotel}/servico/{idServico}</span></div>
 
 ```bash
 curl -X 'DELETE' \

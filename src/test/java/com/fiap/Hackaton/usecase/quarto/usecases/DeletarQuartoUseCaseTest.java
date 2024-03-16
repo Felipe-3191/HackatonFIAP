@@ -2,6 +2,7 @@ package com.fiap.Hackaton.usecase.quarto.usecases;
 
 import com.fiap.Hackaton.domain.quarto.entity.Quarto;
 import com.fiap.Hackaton.domain.quarto.gateway.QuartoGateway;
+import com.fiap.Hackaton.usecase.reserva.RemoverQuartoDeReservasUseCase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -20,10 +21,11 @@ public class DeletarQuartoUseCaseTest {
 
     private DeletarQuartoUseCase deletarQuartoUseCase;
 
+    private RemoverQuartoDeReservasUseCase removerQuartoDeReservasUseCase;
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.openMocks(this);
-        deletarQuartoUseCase = new DeletarQuartoUseCase(quartoGateway);
+        deletarQuartoUseCase = new DeletarQuartoUseCase(quartoGateway, removerQuartoDeReservasUseCase);
     }
 
     @Test

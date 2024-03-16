@@ -164,6 +164,7 @@ public class ReservaEntity {
         this.reservaItemEntities = reservaItemEntities;
     }
 
+
     public List<QuartoEntity> getQuartoEntity() {
         return quartoEntities;
     }

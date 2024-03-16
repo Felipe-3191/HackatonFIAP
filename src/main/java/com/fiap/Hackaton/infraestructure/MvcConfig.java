@@ -5,6 +5,7 @@ import com.fiap.Hackaton.domain.hotel.gateway.HotelGateway;
 import com.fiap.Hackaton.domain.hotel.item.gateway.ItemGateway;
 import com.fiap.Hackaton.domain.hotel.servico.gateway.ServicoGateway;
 import com.fiap.Hackaton.domain.predio.gateway.PredioGateway;
+import com.fiap.Hackaton.domain.quarto.entity.Quarto;
 import com.fiap.Hackaton.domain.quarto.gateway.QuartoGateway;
 import com.fiap.Hackaton.domain.quarto.tipoquarto.gateway.TipoQuartoGateway;
 import com.fiap.Hackaton.domain.reserva.gateway.ReservaGateway;
@@ -377,6 +378,13 @@ public class MvcConfig {
     public IndisponibilizarQuartoUseCase indisponibilizarQuartoUseCase(QuartoRepository repository){
         QuartoGateway quartoGateway = new QuartoDatabaseGateway(repository);
         return new IndisponibilizarQuartoUseCase(quartoGateway);
+    }
+
+
+    @Bean
+    public RemoverQuartoDeReservasUseCase removerQuartoDeReservasUseCase(ReservaRepository repository){
+        ReservaGateway reservaGateway = new ReservaDatabaseGateway(repository);
+        return new RemoverQuartoDeReservasUseCase(reservaGateway);
     }
 
     @Bean ReservarReservaUseCase reservarReservaUseCase(ReservaRepository repository, ClienteRepository clienteRepository,

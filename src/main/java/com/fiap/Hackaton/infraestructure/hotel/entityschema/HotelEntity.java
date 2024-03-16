@@ -65,6 +65,9 @@ public class HotelEntity {
 
     public Hotel toEntity() {
 
+        if(this == null){
+            throw new NullPointerException("O hotel foi deletado ou não existe mais.");
+        }
         return new Hotel(
                 this.getId(),
                 this.nome,

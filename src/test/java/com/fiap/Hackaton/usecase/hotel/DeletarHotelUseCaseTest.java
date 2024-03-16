@@ -2,6 +2,7 @@ package com.fiap.Hackaton.usecase.hotel;
 
 import com.fiap.Hackaton.domain.hotel.entity.Hotel;
 import com.fiap.Hackaton.domain.hotel.gateway.HotelGateway;
+import com.fiap.Hackaton.domain.predio.gateway.PredioGateway;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -17,12 +18,15 @@ public class DeletarHotelUseCaseTest {
     @Mock
     private HotelGateway hotelGateway;
 
+    @Mock
+    private PredioGateway predioGateway;
+
     private DeletarHotelUseCase deletarHotelUseCase;
 
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.openMocks(this);
-        deletarHotelUseCase = new DeletarHotelUseCase(hotelGateway);
+        deletarHotelUseCase = new DeletarHotelUseCase(hotelGateway, predioGateway);
     }
 
     @Test

@@ -5,6 +5,7 @@ import com.fiap.Hackaton.domain.quarto.entity.Quarto;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class FecharReservaDto {
@@ -15,7 +16,7 @@ public class FecharReservaDto {
     private LocalDate dataCheckOut;
     private List<Quarto> quartosReservados;
     private BigDecimal valorTotal;
-    private List<Servico> servicosConsumidos;
+    private List<Servico> servicosConsumidos = new ArrayList<>();
     private String email;
 
     public FecharReservaDto(String nomeCliente, String nomeHotel, LocalDate dataCheckIn, LocalDate dataCheckOut, List<Quarto> quartosReservados, BigDecimal valorTotal, List<Servico> servicosConsumidos, String email) {
@@ -89,6 +90,9 @@ public class FecharReservaDto {
     }
 
     public List<Servico> getServicosConsumidos() {
+        if(servicosConsumidos == null) {
+            servicosConsumidos = new ArrayList<>();
+        }
         return servicosConsumidos;
     }
 

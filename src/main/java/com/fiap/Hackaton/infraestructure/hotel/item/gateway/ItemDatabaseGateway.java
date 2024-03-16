@@ -2,6 +2,7 @@ package com.fiap.Hackaton.infraestructure.hotel.item.gateway;
 
 import com.fiap.Hackaton.domain.hotel.item.entity.Item;
 import com.fiap.Hackaton.domain.hotel.item.gateway.ItemGateway;
+import com.fiap.Hackaton.infraestructure.hotel.entityschema.HotelEntity;
 import com.fiap.Hackaton.infraestructure.hotel.item.entityschema.ItemEntity;
 import com.fiap.Hackaton.infraestructure.hotel.item.repository.ItemRepository;
 
@@ -58,4 +59,5 @@ public class ItemDatabaseGateway implements ItemGateway {
         ItemEntity itemEntity = new ItemEntity(item);
         repository.delete(itemEntity);
     }
+
 }

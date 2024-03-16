@@ -26,22 +26,22 @@ public class PredioEntity {
     @JoinColumn(name = "predio_id")
     private List<QuartoEntity> quartoEntities;
 
-    public PredioEntity() {
+    public PredioEntity(){
     }
 
-    public PredioEntity(Predio predio) {
+    public PredioEntity(Predio predio){
         this.id = predio.getId();
         this.nome = predio.getNome();
-        this.hotel = new HotelEntity(predio.getHotel());
+        this.hotel =  predio.getHotel() != null ? new HotelEntity(predio.getHotel()) : null;
     }
 
-    public PredioEntity(Long id, String nome, HotelEntity hotel) {
+    public PredioEntity(Long id, String nome, HotelEntity hotel){
         this.id = id;
         this.nome = nome;
         this.hotel = hotel;
     }
 
-    public Predio toSimpleEntity() {
+    public Predio toSimpleEntity(){
         Predio predio = new Predio(
                 this.id,
                 this.nome,
@@ -50,16 +50,11 @@ public class PredioEntity {
         return predio;
     }
 
-    public Predio toEntity() {
-        Predio predio = new Predio(
-                this.id,
-                this.nome,
-                this.hotel.toEntity()
-        );
-        return predio;
+    public Predio toEntity(){
+        return this.hotel == null ? new Predio(this.id, this.nome) : new Predio(this.id, this.nome, this.hotel.toEntity());
     }
 
-    public Predio toEntityWithQuartos() {
+    public Predio toEntityWithQuartos(){
         Predio predio = new Predio(
                 this.id,
                 this.nome,
@@ -69,7 +64,7 @@ public class PredioEntity {
         return predio;
     }
 
-    public Predio toEntityWithoutHotel() {
+    public Predio toEntityWithoutHotel(){
         Predio predio = new Predio(
                 this.id,
                 this.nome,
@@ -78,35 +73,35 @@ public class PredioEntity {
         return predio;
     }
 
-    public Long getId() {
+    public Long getId(){
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Long id){
         this.id = id;
     }
 
-    public String getNome() {
+    public String getNome(){
         return nome;
     }
 
-    public void setNome(String nome) {
+    public void setNome(String nome){
         this.nome = nome;
     }
 
-    public HotelEntity getHotel() {
+    public HotelEntity getHotel(){
         return hotel;
     }
 
-    public void setHotel(HotelEntity hotel) {
+    public void setHotel(HotelEntity hotel){
         this.hotel = hotel;
     }
 
-    public List<QuartoEntity> getQuartoEntities() {
+    public List<QuartoEntity> getQuartoEntities(){
         return quartoEntities;
     }
 
-    public void setQuartoEntities(List<QuartoEntity> quartoEntities) {
+    public void setQuartoEntities(List<QuartoEntity> quartoEntities){
         this.quartoEntities = quartoEntities;
     }
 }

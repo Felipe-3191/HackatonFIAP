@@ -46,6 +46,39 @@ curl -X 'POST' \
   -H 'accept: */*' \
   -d ''
 ```
+<div style="display: flex; align-items: center; background-color: #e5f5e5; padding: 5px; border-radius: 5px; border: 2px solid #339933;">
+  <button style="background-color: #339933; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">POST</button>
+  <span style="margin-left: 5px; color: #000000;">/reservas</span></div>
+
+```bash
+curl -X 'POST' \
+  'http://localhost:8080/reservas' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "idCliente": 1,
+  "idQuartos": [
+    1
+  ],
+  "dataInicio": "2024-03-16",
+  "dataFim": "2024-03-18",
+  "servicos": [
+    {
+      "idServico": 1,
+      "quantidade": 2
+    }
+  ],
+  "itens": [
+    {
+      "idItem": 1,
+      "quantidade": 2
+    }
+  ],
+  "quantidadePessoas": 2
+}'
+```
+
+
 <div style="display: flex; align-items: center; background-color: #ffe6e6; padding: 5px; border-radius: 5px; border: 2px solid #ff0000;">
   <button style="background-color: #ff0000; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">DELETE</button>
   <span style="margin-left: 5px; color: #000000;">/reservas/{id}</span></div>

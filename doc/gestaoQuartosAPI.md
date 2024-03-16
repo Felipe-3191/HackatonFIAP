@@ -10,41 +10,9 @@ curl -X 'GET' \
   'http://localhost:8080/hotel/1' \
   -H 'accept: */*
 ```
-
-<div style="display: flex; align-items: center; background-color: #fff3e0; padding: 5px; border-radius: 5px; border: 2px solid #ff9800;">
-  <button style="background-color: #ff9800; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">PUT</button>
-  <span style="margin-left: 5px; color: #000000;">/hotel/{id}</span>
-</div>
-
-```bash
-curl -X 'PUT' \
-  'http://localhost:8080/hotel/{id}?id=1' \
-  -H 'accept: */*' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "nome": "Novo nome de Hotel",
-  "endereco": {    
-    "logradouro": "rua alterada",
-    "cep": "cep alterado",
-    "cidade": "cidade alterada",
-    "estado": "estado alterado"
-  }
-}'
-```
-
-<div style="display: flex; align-items: center; background-color: #ffe6e6; padding: 5px; border-radius: 5px; border: 2px solid #ff0000;">
-  <button style="background-color: #ff0000; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">DELETE</button>
-  <span style="margin-left: 5px; color: #000000;">/hotel/{id}</span></div>
-
-```bash
-curl -X 'DELETE' \
-  'http://localhost:8080/hotel/1' \
-  -H 'accept: */*'
-```
-
 <div style="display: flex; align-items: center; background-color: #f0f8ff; padding: 5px; border-radius: 5px; border: 2px solid #007bff;">
   <button style="background-color: #007bff; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">GET</button>
-  <span style="margin-left: 5px; color: #000000;">/hotel/</span>
+  <span style="margin-left: 5px; color: #000000;">/hotel</span>
 </div>
 
 ```bash
@@ -52,80 +20,6 @@ curl -X 'GET' \
   'http://localhost:8080/hotel' \
   -H 'accept: */*'
 ```
-
-<div style="display: flex; align-items: center; background-color: #e5f5e5; padding: 5px; border-radius: 5px; border: 2px solid #339933;">
-  <button style="background-color: #339933; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">POST</button>
-  <span style="margin-left: 5px; color: #000000;">/hotel</span></div>
-
-```bash
-curl -X 'POST' \
-  'http://localhost:8080/hotel' \
-  -H 'accept: */*' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "nome": "Hotel 5",
-  "endereco": {
-    "logradouro": "endereco hotel 5",
-    "cep": "25641730",
-    "cidade": "rio de janeiro",
-    "estado": "rio de janeiro"
-  }
-}'
-```
-
-<div style="display: flex; align-items: center; background-color: #e5f5e5; padding: 5px; border-radius: 5px; border: 2px solid #339933;">
-  <button style="background-color: #339933; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">POST</button>
-  <span style="margin-left: 5px; color: #000000;">/hotel/{idHotel}/item/{idItem}</span></div>
-
-```bash
-curl -X 'POST' \
-  'http://localhost:8080/hotel/3/item/2' \
-  -H 'accept: */*' \
-  -d ''
-```
-
-
-
-<div style="display: flex; align-items: center; background-color: #ffe6e6; padding: 5px; border-radius: 5px; border: 2px solid #ff0000;">
-  <button style="background-color: #ff0000; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">DELETE</button>
-  <span style="margin-left: 5px; color: #000000;">/hotel/{idHotel}/item/{idItem}</span></div>
-
-
-```bash
-curl -X 'DELETE' \
-  'http://localhost:8080/hotel/3/item/2' \
-  -H 'accept: */*'
-```
-
-<div style="display: flex; align-items: center; background-color: #e5f5e5; padding: 5px; border-radius: 5px; border: 2px solid #339933;">
-  <button style="background-color: #339933; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">POST</button>
-  <span style="margin-left: 5px; color: #000000;">/hotel/{idHotel}/adicionarServico/{idServico}</span></div>
-
-
-```bash
-curl -X 'POST' \
-  'http://localhost:8080/hotel/2/adicionarservico/3' \
-  -H 'accept: */*' \
-  -d ''
-
-  ```
-
-
-<div style="display: flex; align-items: center; background-color: #e5f5e5; padding: 5px; border-radius: 5px; border: 2px solid #339933;">
-  <button style="background-color: #339933; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">POST</button>
-  <span style="margin-left: 5px; color: #000000;">/hotel/{hotelId}/predio</span></div>
-
-  ```bash
-curl -X 'POST' \
-  'http://localhost:8080/hotel/1/predio' \
-  -H 'accept: */*' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "nome": "string"
-}'
-
-  ```
-
 <div style="display: flex; align-items: center; background-color: #f0f8ff; padding: 5px; border-radius: 5px; border: 2px solid #007bff;">
   <button style="background-color: #007bff; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">GET</button>
   <span style="margin-left: 5px; color: #000000;">/hotel/{id}/servicos</span>
@@ -179,16 +73,104 @@ curl -X 'GET' \
   'http://localhost:8080/hotel/cep/54123945' \
   -H 'accept: */*'
 ```
+<div style="display: flex; align-items: center; background-color: #e5f5e5; padding: 5px; border-radius: 5px; border: 2px solid #339933;">
+  <button style="background-color: #339933; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">POST</button>
+  <span style="margin-left: 5px; color: #000000;">/hotel</span></div>
+
+```bash
+curl -X 'POST' \
+  'http://localhost:8080/hotel' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "nome": "Hotel 5",
+  "endereco": {
+    "logradouro": "endereco hotel 5",
+    "cep": "25641730",
+    "cidade": "rio de janeiro",
+    "estado": "rio de janeiro"
+  }
+}'
+```
+
+<div style="display: flex; align-items: center; background-color: #e5f5e5; padding: 5px; border-radius: 5px; border: 2px solid #339933;">
+  <button style="background-color: #339933; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">POST</button>
+  <span style="margin-left: 5px; color: #000000;">/hotel/{idHotel}/item/{idItem}</span></div>
+
+```bash
+curl -X 'POST' \
+  'http://localhost:8080/hotel/3/item/2' \
+  -H 'accept: */*' \
+  -d ''
+```
+
+<div style="display: flex; align-items: center; background-color: #e5f5e5; padding: 5px; border-radius: 5px; border: 2px solid #339933;">
+  <button style="background-color: #339933; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">POST</button>
+  <span style="margin-left: 5px; color: #000000;">/hotel/{idHotel}/adicionarServico/{idServico}</span></div>
+
+
+```bash
+curl -X 'POST' \
+  'http://localhost:8080/hotel/2/adicionarservico/3' \
+  -H 'accept: */*' \
+  -d ''
+
+  ```
+
+
+<div style="display: flex; align-items: center; background-color: #e5f5e5; padding: 5px; border-radius: 5px; border: 2px solid #339933;">
+  <button style="background-color: #339933; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">POST</button>
+  <span style="margin-left: 5px; color: #000000;">/hotel/{hotelId}/predio</span></div>
+
+  ```bash
+curl -X 'POST' \
+  'http://localhost:8080/hotel/1/predio' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "nome": "string"
+}'
+  ```
+<div style="display: flex; align-items: center; background-color: #fff3e0; padding: 5px; border-radius: 5px; border: 2px solid #ff9800;">
+  <button style="background-color: #ff9800; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">PUT</button>
+  <span style="margin-left: 5px; color: #000000;">/hotel/{id}</span>
+</div>
+
+```bash
+curl -X 'PUT' \
+  'http://localhost:8080/hotel/{id}?id=1' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "nome": "Novo nome de Hotel",
+  "endereco": {    
+    "logradouro": "rua alterada",
+    "cep": "cep alterado",
+    "cidade": "cidade alterada",
+    "estado": "estado alterado"
+  }
+}'
+```
+
 <div style="display: flex; align-items: center; background-color: #ffe6e6; padding: 5px; border-radius: 5px; border: 2px solid #ff0000;">
   <button style="background-color: #ff0000; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">DELETE</button>
-  <span style="margin-left: 5px; color: #000000;">/hotel/{idHotel}/servico/{idsServico}</span></div>
+  <span style="margin-left: 5px; color: #000000;">/hotel/{id}</span></div>
 
 ```bash
 curl -X 'DELETE' \
-  'http://localhost:8080/hotel/1/servico/1' \
+  'http://localhost:8080/hotel/1' \
   -H 'accept: */*'
 ```
+<div style="display: flex; align-items: center; background-color: #ffe6e6; padding: 5px; border-radius: 5px; border: 2px solid #ff0000;">
+  <button style="background-color: #ff0000; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">DELETE</button>
+  <span style="margin-left: 5px; color: #000000;">/hotel/{idHotel}/item/{idItem}</span></div>
 
+
+```bash
+curl -X 'DELETE' \
+  'http://localhost:8080/hotel/3/item/2' \
+  -H 'accept: */*'
+```
 <div style="display: flex; align-items: center; background-color: #ffe6e6; padding: 5px; border-radius: 5px; border: 2px solid #ff0000;">
   <button style="background-color: #ff0000; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">DELETE</button>
   <span style="margin-left: 5px; color: #000000;">/hotel/{idHotel}/predio/{idPredio}</span></div>
@@ -198,10 +180,29 @@ curl -X 'DELETE' \
   'http://localhost:8080/hotel/1/predio/1' \
   -H 'accept: */*'
 ```
+<div style="display: flex; align-items: center; background-color: #ffe6e6; padding: 5px; border-radius: 5px; border: 2px solid #ff0000;">
+  <button style="background-color: #ff0000; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">DELETE</button>
+  <span style="margin-left: 5px; color: #000000;">/hotel/{idHotel}/servico/{idsServico}</span></div>
 
+```bash
+curl -X 'DELETE' \
+  'http://localhost:8080/hotel/1/servico/1' \
+  -H 'accept: */*'
+```
 ---
 
 ## Predio API
+
+<div style="display: flex; align-items: center; background-color: #f0f8ff; padding: 5px; border-radius: 5px; border: 2px solid #007bff;">
+  <button style="background-color: #007bff; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">GET</button>
+  <span style="margin-left: 5px; color: #000000;">/predio</span>
+</div>
+
+```bash
+curl -X 'GET' \
+  'http://localhost:8080/predio' \
+  -H 'accept: */*'
+```
 <div style="display: flex; align-items: center; background-color: #f0f8ff; padding: 5px; border-radius: 5px; border: 2px solid #007bff;">
   <button style="background-color: #007bff; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">GET</button>
   <span style="margin-left: 5px; color: #000000;">/predio/{id}</span>
@@ -209,6 +210,16 @@ curl -X 'DELETE' \
 
 ```bash
 curl -X 'GET' 'http://localhost:8080/predio/1' -H 'accept: */*'
+```
+<div style="display: flex; align-items: center; background-color: #f0f8ff; padding: 5px; border-radius: 5px; border: 2px solid #007bff;">
+  <button style="background-color: #007bff; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">GET</button>
+  <span style="margin-left: 5px; color: #000000;">/predio/nome/{nome}</span>
+</div>
+
+```bash
+curl -X 'GET' \
+  'http://localhost:8080/predio/nome/PREDIO%204%20HOTEL%204' \
+  -H 'accept: */*'
 ```
 <div style="display: flex; align-items: center; background-color: #fff3e0; padding: 5px; border-radius: 5px; border: 2px solid #ff9800;">
   <button style="background-color: #ff9800; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">PUT</button>
@@ -224,79 +235,10 @@ curl -X 'PUT' \
   "nome": "FIAP HOTEL 1"
 }'
 ```
-<div style="display: flex; align-items: center; background-color: #f0f8ff; padding: 5px; border-radius: 5px; border: 2px solid #007bff;">
-  <button style="background-color: #007bff; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">GET</button>
-  <span style="margin-left: 5px; color: #000000;">/predio</span>
-</div>
-
-```bash
-curl -X 'GET' \
-  'http://localhost:8080/predio' \
-  -H 'accept: */*'
-```
-<div style="display: flex; align-items: center; background-color: #f0f8ff; padding: 5px; border-radius: 5px; border: 2px solid #007bff;">
-  <button style="background-color: #007bff; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">GET</button>
-  <span style="margin-left: 5px; color: #000000;">/predio/nome/{nome}</span>
-</div>
-
-
-```bash
-curl -X 'GET' \
-  'http://localhost:8080/predio/nome/PREDIO%204%20HOTEL%204' \
-  -H 'accept: */*'
-```
 ---
 
 ## Quarto API
 
-
-<div style="display: flex; align-items: center; background-color: #f0f8ff; padding: 5px; border-radius: 5px; border: 2px solid #007bff;">
-  <button style="background-color: #007bff; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">GET</button>
-  <span style="margin-left: 5px; color: #000000;">/quartos/{id}</span>
-</div>
-
-```bash
-curl -X 'GET' \
-  'http://localhost:8080/quartos/1' \
-  -H 'accept: */*'
-```
-
-<div style="display: flex; align-items: center; background-color: #fff3e0; padding: 5px; border-radius: 5px; border: 2px solid #ff9800;">
-  <button style="background-color: #ff9800; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">PUT</button>
-  <span style="margin-left: 5px; color: #000000;">/quartos/{id}</span>
-</div>
-
-```bash
-curl -X 'PUT' \
-  'http://localhost:8080/quartos/1' \
-  -H 'accept: */*' \
-  -H 'Content-Type: application/json' \
-  -d '{
-  "idPredio": 1,
-  "idTipoQuarto": 1,
-  "status": 0,
-  "valorDiaria": 100.00
-}'
-```
-<div style="display: flex; align-items: center; background-color: #ffe6e6; padding: 5px; border-radius: 5px; border: 2px solid #ff0000;">
-  <button style="background-color: #ff0000; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">DELETE</button>
-  <span style="margin-left: 5px; color: #000000;">/quartos/{id}</span></div>
-
-```bash
-curl -X 'DELETE' \
-  'http://localhost:8080/quartos/1' \
-  -H 'accept: */*'
-```
-<div style="display: flex; align-items: center; background-color: #fff3e0; padding: 5px; border-radius: 5px; border: 2px solid #ff9800;">
-  <button style="background-color: #ff9800; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">PUT</button>
-  <span style="margin-left: 5px; color: #000000;">/quartos/{id}</span>
-</div>
-
-```bash
-curl -X 'PUT' \
-  'http://localhost:8080/quartos/indisponibilizar/1' \
-  -H 'accept: */*'
-```
 <div style="display: flex; align-items: center; background-color: #f0f8ff; padding: 5px; border-radius: 5px; border: 2px solid #007bff;">
   <button style="background-color: #007bff; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">GET</button>
   <span style="margin-left: 5px; color: #000000;">/quartos</span>
@@ -307,6 +249,37 @@ curl -X 'GET' \
   'http://localhost:8080/quartos' \
   -H 'accept: */*'
 ```
+<div style="display: flex; align-items: center; background-color: #f0f8ff; padding: 5px; border-radius: 5px; border: 2px solid #007bff;">
+  <button style="background-color: #007bff; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">GET</button>
+  <span style="margin-left: 5px; color: #000000;">/quartos/{id}</span>
+</div>
+
+```bash
+curl -X 'GET' \
+  'http://localhost:8080/quartos/1' \
+  -H 'accept: */*'
+```
+<div style="display: flex; align-items: center; background-color: #f0f8ff; padding: 5px; border-radius: 5px; border: 2px solid #007bff;">
+  <button style="background-color: #007bff; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">GET</button>
+  <span style="margin-left: 5px; color: #000000;">/quartos/tipo/{idTipoQuarto}</span>
+</div>
+
+```bash
+curl -X 'GET' \
+  'http://localhost:8080/quartos/tipo/1' \
+  -H 'accept: */*'
+```
+  <div style="display: flex; align-items: center; background-color: #f0f8ff; padding: 5px; border-radius: 5px; border: 2px solid #007bff;">
+  <button style="background-color: #007bff; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">GET</button>
+  <span style="margin-left: 5px; color: #000000;">/quartos/quantidadeHospedes/{quantidadeHospedes}</span>
+</div>
+
+```bash
+curl -X 'GET' \
+  'http://localhost:8080/quartos/quantidadeHospedes/2' \
+  -H 'accept: */*'
+```
+
 <div style="display: flex; align-items: center; background-color: #e5f5e5; padding: 5px; border-radius: 5px; border: 2px solid #339933;">
   <button style="background-color: #339933; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">POST</button>
   <span style="margin-left: 5px; color: #000000;">/quartos</span></div>
@@ -320,7 +293,7 @@ curl -X 'POST' \
   -d '{
   "idPredio": 1,
   "idTipoQuarto": 1,
-  "status": "string",
+  "status": "DISPONIVEL",
   "valorDiaria": 1
 }'
   ```
@@ -342,24 +315,41 @@ curl -X 'POST' \
   "numeroSugestoes": 3
 }'
   ```
-<div style="display: flex; align-items: center; background-color: #f0f8ff; padding: 5px; border-radius: 5px; border: 2px solid #007bff;">
-  <button style="background-color: #007bff; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">GET</button>
-  <span style="margin-left: 5px; color: #000000;">/quartos/tipo/{idTipoQuarto}</span>
+
+<div style="display: flex; align-items: center; background-color: #fff3e0; padding: 5px; border-radius: 5px; border: 2px solid #ff9800;">
+  <button style="background-color: #ff9800; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">PUT</button>
+  <span style="margin-left: 5px; color: #000000;">/quartos/{id}</span>
 </div>
 
 ```bash
-curl -X 'GET' \
-  'http://localhost:8080/quartos/tipo/1' \
-  -H 'accept: */*'
+curl -X 'PUT' \
+  'http://localhost:8080/quartos/1' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "idPredio": 1,
+  "idTipoQuarto": 1,
+  "status": "DISPONIVEL",
+  "valorDiaria": 214
+}'
 ```
 
-  <div style="display: flex; align-items: center; background-color: #f0f8ff; padding: 5px; border-radius: 5px; border: 2px solid #007bff;">
-  <button style="background-color: #007bff; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">GET</button>
-  <span style="margin-left: 5px; color: #000000;">/quartos/quantidadeHospedes/{quantidadeHospedes}</span>
+<div style="display: flex; align-items: center; background-color: #fff3e0; padding: 5px; border-radius: 5px; border: 2px solid #ff9800;">
+  <button style="background-color: #ff9800; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">PUT</button>
+  <span style="margin-left: 5px; color: #000000;">/quartos/indisponibilizar/{id}</span>
 </div>
 
 ```bash
-curl -X 'GET' \
-  'http://localhost:8080/quartos/quantidadeHospedes/2' \
+curl -X 'PUT' \
+  'http://localhost:8080/quartos/indisponibilizar/1' \
+  -H 'accept: */*'
+```
+<div style="display: flex; align-items: center; background-color: #ffe6e6; padding: 5px; border-radius: 5px; border: 2px solid #ff0000;">
+  <button style="background-color: #ff0000; color: #ffffff; border: none; padding: 5px 10px; border-radius: 5px;">DELETE</button>
+  <span style="margin-left: 5px; color: #000000;">/quartos/{id}</span></div>
+
+```bash
+curl -X 'DELETE' \
+  'http://localhost:8080/quartos/1' \
   -H 'accept: */*'
 ```

@@ -23,7 +23,7 @@ o módulo de Gestão de Quartos, faz a gestão (Inclusão, Atualização, Deleç
 responsável por gerir cada característica dos quartos, prédios e localidades
 
 ### API Gestão de Quartos
-[Gestao Quartos API](/doc/gestaoQuartosAPI.md)
+[Gestao Quartos API](https://github.com/Felipe-3191/HackatonFIAP/blob/main/doc/gestaoQuartosAPI.md)
 
 
 ---
@@ -36,7 +36,7 @@ Atualização, Deleção, Consulta) todos os serviços extras que o Hotel oferec
 Estes opcionais são itens ou serviços que podem ser adicionados à reserva, cada um tem seu valor
 único podendo ser por pessoa e/ou quarto.
 ### API Gestão de Serviços e Opcionais
-[Gestao Servicos e Opcionais API](/doc/gestaoServicosEOpcionaisAPI.md)
+[Gestao Servicos e Opcionais API](https://github.com/Felipe-3191/HackatonFIAP/blob/main/doc/gestaoServicosEOpcionaisAPI.md)
 
 ---
 
@@ -55,7 +55,7 @@ Consulta) de dados de clientes, neste módulos teremos os seguintes dados que se
 
 
 ### API Gestão de Clientes
-[Gestao Clientes API](/doc/gestaoDeClientesAPI.md)
+[Gestao Clientes API](https://github.com/Felipe-3191/HackatonFIAP/blob/main/doc/gestaoDeClientesAPI.md)
 
 ## Gestão de Reservas
 
@@ -69,7 +69,7 @@ administrador)
 ● Envio de E-mails de confirmação
 
 ### API Gestão de Reservas
-[Gestao de Reservas API](/doc/gestaoDeReservasAPI.md)
+[Gestao de Reservas API](https://github.com/Felipe-3191/HackatonFIAP/blob/main/doc/gestaoDeReservasAPI.md)
 
 
 
@@ -83,22 +83,23 @@ https://github.com/Felipe-3191/HackatonFIAP
 a. Arquitetura adotada
 b. Demonstração da Solução (demonstrar os casos de uso e os endpoints)
 c. Fazer o upload no Youtube em um canal não listado, e colocar o link da documentação
+[Link do Vídeo Youtube](https://www.youtube.com/watch?v=xqR5UUradx0)
 
 3. Documentação em PDF contendo:
 a. Diagrama mostrando a Arquitetura do Sistema
-[Arquitetura do Sistema](./doc/arquitetura.md)
+[Arquitetura do Sistema](https://github.com/Felipe-3191/HackatonFIAP/blob/main/doc/arquitetura.md)
 
 b. Documentação dos casos de Teste, e seus resultados, bem como exemplos para que os Mentores e Mentoras possam replicar.
-[Documentação Casos de Testes](./doc/documentacaoCasosTestes.md)
+[Documentação Casos de Testes](https://github.com/Felipe-3191/HackatonFIAP/blob/main/doc/documentacaoCasosTestes.md)
 
 c. Documentação do(s) bancos de dados utilizados, mostrando os diagramas e estruturas utilizadas.
-  [Documentação BD](./doc/documentacaoBD.md)
+  [Documentação BD](https://github.com/Felipe-3191/HackatonFIAP/blob/main/doc/documentacaoBD.md)
 
 d. Link para o Github do Projeto
 [Hackaton Github](https://github.com/Felipe-3191/HackatonFIAP)
 e. Link para o Vídeo do Projeto
 
-4. Pontos obrigatórios do Projeto:
+1. Pontos obrigatórios do Projeto:
 a. Todo o projeto deverá ser entregue dockerizado, ou seja, vocês devem entregar o os arquivos de configuração do Docker e a imagem. Os professores devem ser capazes de simplesmente executar o docker-compose up e o Container da aplicação subir com a aplicação pronta para uso.
 b. Utilização de Swagger para as documentação das APIs
 c. Criar todo o código utilizando as melhores práticas de Qualidade de Software e Clean Architecture.

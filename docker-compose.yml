@@ -11,6 +11,6 @@ services:
       POSTGRES_DB: hackaton  
         
   hackaton: 
-    image: hackaton-fiap-grupo50:latest
+    image: elessarfs/hackaton-fiap-grupo50:latest
     ports:
       - 8080:8080  

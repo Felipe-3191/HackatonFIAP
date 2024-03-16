@@ -36,7 +36,7 @@ Atualização, Deleção, Consulta) todos os serviços extras que o Hotel oferec
 Estes opcionais são itens ou serviços que podem ser adicionados à reserva, cada um tem seu valor
 único podendo ser por pessoa e/ou quarto.
 ### API Gestão de Serviços e Opcionais
-[Gestao Quartos API](/doc/gestaoQuartosAPI.md)
+[Gestao Servicos e Opcionais API](/doc/gestaoServicosEOpcionaisAPI.md)
 
 ---
 
@@ -55,7 +55,7 @@ Consulta) de dados de clientes, neste módulos teremos os seguintes dados que se
 
 
 ### API Gestão de Clientes
-[Gestao Quartos API](/doc/gestaoQuartosAPI.md)
+[Gestao Clientes API](/doc/gestaoDeClientesAPI.md)
 
 ## Gestão de Reservas
 
@@ -69,7 +69,7 @@ administrador)
 ● Envio de E-mails de confirmação
 
 ### API Gestão de Reservas
-[Gestao Quartos API](/doc/gestaoQuartosAPI.md)
+[Gestao de Reservas API](/doc/gestaoDeReservasAPI.md)
 
 
 

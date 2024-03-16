@@ -8,7 +8,6 @@ import com.fiap.Hackaton.infraestructure.tipoquarto.entityschema.TipoQuartoEntit
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -46,7 +45,7 @@ public class QuartoEntity {
 
     public QuartoEntity(Quarto quarto) {
         this.id = quarto.getId();
-        this.predio =  quarto.getPredio() != null ? new PredioEntity(quarto.getPredio()) : null;
+        this.predio = quarto.getPredio() != null ? new PredioEntity(quarto.getPredio()) : null;
         this.idHotel = quarto.getIdHotel() != null ? quarto.getIdHotel() : null;
         this.valorDiaria = quarto.getValorDiaria();
         this.status = quarto.getStatus();
@@ -61,6 +60,7 @@ public class QuartoEntity {
         this.predio = predio;
     }
 
+    // TODO VERIFICAR SE É NECESSÁRIO O toEntityWithMoveis
     public Quarto toEntity() {
         return new Quarto(
                 this.id,
@@ -72,7 +72,7 @@ public class QuartoEntity {
         );
     }
 
-    public Quarto toEntityToPredio(){
+    public Quarto toEntityToPredio() {
         return new Quarto(
                 this.id,
                 this.valorDiaria,

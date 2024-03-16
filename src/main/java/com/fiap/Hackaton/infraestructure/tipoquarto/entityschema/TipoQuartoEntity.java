@@ -24,8 +24,8 @@ public class TipoQuartoEntity {
     @ManyToMany
     @JoinTable(
             name = "tipo_quarto_movel",
-            joinColumns = @JoinColumn(name = "movel_id"),
-            inverseJoinColumns = @JoinColumn(name = "tipo_quarto_id"))
+            joinColumns = @JoinColumn(name = "tipo_quarto_id"),
+            inverseJoinColumns = @JoinColumn(name = "movel_id"))
     private List<MovelEntity> movelEntities;
 
     @OneToMany

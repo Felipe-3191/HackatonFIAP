@@ -71,10 +71,13 @@ administrador)
 ### API Gestão de Reservas
 [Gestao Quartos API](/doc/gestaoQuartosAPI.md)
 
+
+
 ---
 
 ## Entregáveis:
 1. Repositório público no Github que contenha todo o código da solução.
+https://github.com/Felipe-3191/HackatonFIAP
 
 2. Vídeo de 4 minutos com uma apresentação do Sistema, contendo:
 a. Arquitetura adotada
@@ -83,9 +86,16 @@ c. Fazer o upload no Youtube em um canal não listado, e colocar o link da docum
 
 3. Documentação em PDF contendo:
 a. Diagrama mostrando a Arquitetura do Sistema
+[Arquitetura do Sistema](./doc/arquitetura.md)
+
 b. Documentação dos casos de Teste, e seus resultados, bem como exemplos para que os Mentores e Mentoras possam replicar.
+[Documentação Casos de Testes](./doc/documentacaoCasosTestes.md)
+
 c. Documentação do(s) bancos de dados utilizados, mostrando os diagramas e estruturas utilizadas.
+  [Documentação BD](./doc/documentacaoBD.md)
+
 d. Link para o Github do Projeto
+[Hackaton Github](https://github.com/Felipe-3191/HackatonFIAP)
 e. Link para o Vídeo do Projeto
 
 4. Pontos obrigatórios do Projeto:

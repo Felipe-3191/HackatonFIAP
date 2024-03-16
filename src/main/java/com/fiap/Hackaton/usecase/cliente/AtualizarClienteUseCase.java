@@ -2,6 +2,7 @@ package com.fiap.Hackaton.usecase.cliente;
 
 import com.fiap.Hackaton.domain.cliente.entity.Cliente;
 import com.fiap.Hackaton.domain.cliente.exception.CpfObrigatorioException;
+import com.fiap.Hackaton.domain.cliente.exception.PassaporteObrigatorioException;
 import com.fiap.Hackaton.domain.cliente.gateway.ClienteGateway;
 import com.fiap.Hackaton.usecase.cliente.dto.IClienteRequestData;
 
@@ -23,7 +24,7 @@ public class AtualizarClienteUseCase {
             throw new CpfObrigatorioException();
 
         if (!eBrasileiro(dados.paisOrigem()) && passaporteNaoInformado(dados.passaporte()))
-            throw new CpfObrigatorioException();
+            throw new PassaporteObrigatorioException();
 
         Cliente clienteAtualizado = this.atualizarCliente(cliente, dados);
 

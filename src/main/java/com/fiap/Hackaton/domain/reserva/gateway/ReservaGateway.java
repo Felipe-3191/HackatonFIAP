@@ -1,5 +1,6 @@
 package com.fiap.Hackaton.domain.reserva.gateway;
 
+import com.fiap.Hackaton.domain.cliente.entity.Cliente;
 import com.fiap.Hackaton.domain.reserva.entity.Reserva;
 import com.fiap.Hackaton.infraestructure.quarto.entitySchema.QuartoEntity;
 
@@ -19,4 +20,6 @@ public interface ReservaGateway {
     Optional<Reserva> buscarPorId(Long id);
 
     void removerQuartoDeReservas(QuartoEntity quarto);
+
+    void removerClienteDeReserva(Cliente cliente);
 }

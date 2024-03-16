@@ -7,6 +7,7 @@ import com.fiap.Hackaton.domain.quarto.entity.Quarto;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Reserva {
@@ -18,9 +19,9 @@ public class Reserva {
     private BigDecimal valorTotal;
     private Integer quantidadePessoas;
     private Cliente responsavelReserva;
-    private List<Quarto> quartosReservados;
-    private List<Item> itensConsumidos;
-    private List<Servico> servicosConsumidos;
+    private List<Quarto> quartosReservados = new ArrayList<>();
+    private List<Item> itensConsumidos = new ArrayList<>();
+    private List<Servico> servicosConsumidos = new ArrayList<>();
 
 
     public Reserva() {
@@ -82,14 +83,23 @@ public class Reserva {
     }
 
     public List<Quarto> getQuartosReservados() {
+        if(quartosReservados == null) {
+            quartosReservados = new ArrayList<>();
+        }
         return quartosReservados;
     }
 
     public List<Item> getItensConsumidos() {
+        if(itensConsumidos == null) {
+            itensConsumidos = new ArrayList<>();
+        }
         return itensConsumidos;
     }
 
     public List<Servico> getServicosConsumidos() {
+        if(servicosConsumidos == null) {
+            servicosConsumidos = new ArrayList<>();
+        }
         return servicosConsumidos;
     }
 }

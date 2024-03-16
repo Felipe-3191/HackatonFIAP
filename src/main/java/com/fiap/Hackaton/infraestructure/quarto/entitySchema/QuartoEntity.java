@@ -64,14 +64,12 @@ public class QuartoEntity {
     public Quarto toEntity() {
         return new Quarto(
                 this.id,
-                this.getPredio().toEntity(),
+                this.getPredio() != null ? this.getPredio().toEntity() : null,
                 this.idHotel,
                 this.valorDiaria,
                 this.status,
                 this.tipoQuarto.toEntity()
         );
-
-
     }
 
     public Quarto toEntityToPredio(){

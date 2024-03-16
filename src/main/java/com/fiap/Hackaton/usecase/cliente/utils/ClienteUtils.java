@@ -3,11 +3,11 @@ package com.fiap.Hackaton.usecase.cliente.utils;
 public class ClienteUtils {
 
     public static boolean passaporteNaoInformado(String passaporte) {
-        return passaporte == null || passaporte.isBlank();
+        return passaporte == null || passaporte.isBlank() || passaporte.isEmpty();
     }
 
     public static boolean cpfNaoInformado(String cpf) {
-        return cpf == null || cpf.isBlank();
+        return cpf == null || cpf.isBlank() || cpf.isEmpty();
     }
 
     public static boolean eBrasileiro(String pais) {

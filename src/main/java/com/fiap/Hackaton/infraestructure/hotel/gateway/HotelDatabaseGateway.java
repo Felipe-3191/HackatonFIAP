@@ -2,6 +2,8 @@ package com.fiap.Hackaton.infraestructure.hotel.gateway;
 
 import com.fiap.Hackaton.domain.hotel.entity.Hotel;
 import com.fiap.Hackaton.domain.hotel.gateway.HotelGateway;
+import com.fiap.Hackaton.domain.hotel.item.entity.Item;
+import com.fiap.Hackaton.domain.hotel.servico.entity.Servico;
 import com.fiap.Hackaton.infraestructure.hotel.entityschema.HotelEntity;
 import com.fiap.Hackaton.infraestructure.hotel.item.entityschema.ItemEntity;
 import com.fiap.Hackaton.infraestructure.hotel.repository.HotelRepository;
@@ -144,5 +146,19 @@ public class HotelDatabaseGateway implements HotelGateway {
         } catch (Exception e) {
             return null;
         }
+    }
+
+    @Override
+    public void removerRelacionamentoItem(Item item){
+        List<HotelEntity> hoteis = repository.findAll();
+        hoteis.forEach(hotel -> hotel.getItens().removeIf(itemEntity -> itemEntity.getId().equals(item.getId())));
+        repository.saveAll(hoteis);
+    }
+
+    @Override
+    public void removerRelacionamentoServico(Servico servico){
+        List<HotelEntity> hoteis = repository.findAll();
+        hoteis.forEach(hotel -> hotel.getServicos().removeIf(ServicoEntity -> ServicoEntity.getId().equals(servico.getId())));
+        repository.saveAll(hoteis);
     }
 }

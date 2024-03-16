@@ -1,5 +1,6 @@
 package com.fiap.Hackaton.infraestructure.predio.gateway;
 
+import com.fiap.Hackaton.domain.hotel.entity.Hotel;
 import com.fiap.Hackaton.domain.predio.entity.Predio;
 import com.fiap.Hackaton.domain.predio.gateway.PredioGateway;
 import com.fiap.Hackaton.infraestructure.predio.entityschema.PredioEntity;
@@ -56,5 +57,16 @@ public class PredioDatabaseGateway implements PredioGateway {
         PredioEntity predioEntity = new PredioEntity(predio);
         this.repository.delete(predioEntity);
 
+    }
+
+    @Override
+    public void removerReferenciaHotel(Hotel hotel){
+        List<PredioEntity> predios = this.repository.findAll();
+        predios.forEach(predioEntity -> {
+            if(predioEntity.getHotel().getId().equals(hotel.getId())){
+                predioEntity.setHotel(null);
+                this.repository.save(predioEntity);
+            }
+        });
     }
 }

@@ -68,9 +68,10 @@ public class MvcConfig {
     }
 
     @Bean
-    public DeletarClienteUseCase deletarClienteUseCase(ClienteRepository repository) {
+    public DeletarClienteUseCase deletarClienteUseCase(ClienteRepository repository, ReservaRepository reservaRepository) {
         ClienteGateway clienteGateway = new ClienteDatabaseGateway(repository);
-        return new DeletarClienteUseCase(clienteGateway);
+        ReservaGateway reservaGateway = new ReservaDatabaseGateway(reservaRepository);
+        return new DeletarClienteUseCase(clienteGateway, reservaGateway);
     }
 
     @Bean
@@ -117,9 +118,10 @@ public class MvcConfig {
     }
 
     @Bean
-    public DeletarHotelUseCase deletarHotelUseCase(HotelRepository repository) {
+    public DeletarHotelUseCase deletarHotelUseCase(HotelRepository repository, PredioRepository predioRepository) {
         HotelGateway hotelGateway = new HotelDatabaseGateway(repository);
-        return new DeletarHotelUseCase(hotelGateway);
+        PredioGateway predioGateway = new PredioDatabaseGateway(predioRepository);
+        return new DeletarHotelUseCase(hotelGateway, predioGateway);
     }
 
 
@@ -256,15 +258,17 @@ public class MvcConfig {
     }
 
     @Bean
-    public DeletarServicoUseCase deletarServicoUseCase(ServicoRepository repository) {
+    public DeletarServicoUseCase deletarServicoUseCase(ServicoRepository repository, HotelRepository hotelRepository) {
         ServicoGateway servicoGateway = new ServicoDatabaseGateway(repository);
-        return new DeletarServicoUseCase(servicoGateway);
+        HotelGateway hotelGateway = new HotelDatabaseGateway(hotelRepository);
+        return new DeletarServicoUseCase(servicoGateway, hotelGateway);
     }
 
     @Bean
-    public DeletarItemUseCase deletarItemUseCase(ItemRepository repository) {
+    public DeletarItemUseCase deletarItemUseCase(ItemRepository repository, HotelRepository hotelRepository) {
         ItemGateway itemGateway = new ItemDatabaseGateway(repository);
-        return new DeletarItemUseCase(itemGateway);
+        HotelGateway hotelGateway = new HotelDatabaseGateway(hotelRepository);
+        return new DeletarItemUseCase(itemGateway, hotelGateway);
     }
 
     @Bean

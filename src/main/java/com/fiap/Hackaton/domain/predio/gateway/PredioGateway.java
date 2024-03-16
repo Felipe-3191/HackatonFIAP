@@ -1,5 +1,6 @@
 package com.fiap.Hackaton.domain.predio.gateway;
 
+import com.fiap.Hackaton.domain.hotel.entity.Hotel;
 import com.fiap.Hackaton.domain.predio.entity.Predio;
 
 import java.util.List;
@@ -18,6 +19,8 @@ public interface PredioGateway {
     Optional<List<Predio>> buscarPorNome(String nome);
 
     void deletar(Predio predio);
+
+    void removerReferenciaHotel(Hotel hotel);
 
 
     //TODO avaliar se vale a pena incluir buscarPorNomeHotel

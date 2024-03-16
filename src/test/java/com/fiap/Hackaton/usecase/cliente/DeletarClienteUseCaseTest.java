@@ -2,8 +2,10 @@ package com.fiap.Hackaton.usecase.cliente;
 
 import com.fiap.Hackaton.domain.cliente.entity.Cliente;
 import com.fiap.Hackaton.domain.cliente.gateway.ClienteGateway;
+import com.fiap.Hackaton.domain.reserva.gateway.ReservaGateway;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import java.util.NoSuchElementException;
@@ -15,12 +17,15 @@ import static org.mockito.Mockito.*;
 public class DeletarClienteUseCaseTest {
 
     private ClienteGateway clienteGateway;
+
+    @Mock
+    private ReservaGateway reservaGateway;
     private DeletarClienteUseCase deletarClienteUseCase;
 
     @BeforeEach
     public void setUp() {
         clienteGateway = Mockito.mock(ClienteGateway.class);
-        deletarClienteUseCase = new DeletarClienteUseCase(clienteGateway);
+        deletarClienteUseCase = new DeletarClienteUseCase(clienteGateway, reservaGateway);
     }
 
     @Test

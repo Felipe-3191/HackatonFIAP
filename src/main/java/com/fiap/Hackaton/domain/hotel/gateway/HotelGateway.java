@@ -1,6 +1,8 @@
 package com.fiap.Hackaton.domain.hotel.gateway;
 
 import com.fiap.Hackaton.domain.hotel.entity.Hotel;
+import com.fiap.Hackaton.domain.hotel.item.entity.Item;
+import com.fiap.Hackaton.domain.hotel.servico.entity.Servico;
 
 import java.util.List;
 import java.util.Optional;
@@ -35,4 +37,8 @@ public interface HotelGateway {
     Hotel removerServico(Hotel hotel);
 
     Hotel removerItem(Hotel hotel);
+
+    void removerRelacionamentoItem(Item item);
+
+    void removerRelacionamentoServico(Servico servico);
 }

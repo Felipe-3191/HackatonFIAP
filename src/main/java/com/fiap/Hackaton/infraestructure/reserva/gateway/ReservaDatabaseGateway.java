@@ -1,5 +1,6 @@
 package com.fiap.Hackaton.infraestructure.reserva.gateway;
 
+import com.fiap.Hackaton.domain.cliente.entity.Cliente;
 import com.fiap.Hackaton.domain.reserva.entity.Reserva;
 import com.fiap.Hackaton.domain.reserva.gateway.ReservaGateway;
 import com.fiap.Hackaton.infraestructure.quarto.entitySchema.QuartoEntity;
@@ -15,7 +16,7 @@ public class ReservaDatabaseGateway implements ReservaGateway {
 
     private final ReservaRepository repository;
 
-    public ReservaDatabaseGateway(ReservaRepository repository) {
+    public ReservaDatabaseGateway(ReservaRepository repository){
         this.repository = repository;
     }
 
@@ -59,6 +60,23 @@ public class ReservaDatabaseGateway implements ReservaGateway {
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("ID inválido");
         }
+    }
+
+    @Override
+    public void removerQuartoDeReservas(QuartoEntity quarto){
+        List<ReservaEntity> reservaEntities = repository.findAll();
+        reservaEntities.forEach(reservaEntity -> {
+            reservaEntity.getQuartoEntity().removeIf(quartoEntity -> quartoEntity.getId().equals(quarto.getId()));
+            repository.save(reservaEntity);
+        });
+    }
+
+
+    @Override
+    public void removerClienteDeReserva(Cliente cliente){
+        repository.findAll().stream()
+                .filter(reservaEntity -> reservaEntity.getCliente().getId().equals(cliente.getId()))
+                .forEach(repository::delete);
     }
     @Override
     public Reserva reservar(Reserva reserva) {

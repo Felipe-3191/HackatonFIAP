@@ -29,10 +29,7 @@ import com.fiap.Hackaton.usecase.hotel.*;
 import com.fiap.Hackaton.usecase.item.*;
 import com.fiap.Hackaton.usecase.predio.*;
 import com.fiap.Hackaton.usecase.quarto.usecases.*;
-import com.fiap.Hackaton.usecase.reserva.ListarReservasDeUmClienteUseCase;
-import com.fiap.Hackaton.usecase.reserva.ListarReservasDeUmHotelUseCase;
-import com.fiap.Hackaton.usecase.reserva.ListarReservasDeUmPeriodoUseCase;
-import com.fiap.Hackaton.usecase.reserva.ReservarReservaUseCase;
+import com.fiap.Hackaton.usecase.reserva.*;
 import com.fiap.Hackaton.usecase.servico.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -348,14 +345,50 @@ public class MvcConfig {
     }
 
     @Bean
+    public DeletarReservaPorIdUseCase deletarReservaPorIdUseCase(ReservaRepository repository) {
+        ReservaGateway reservaGateway = new ReservaDatabaseGateway(repository);
+        return new DeletarReservaPorIdUseCase(reservaGateway);
+    }
+
+    @Bean
     public ListarReservasDeUmPeriodoUseCase listarReservasDeUmPeriodoUseCase(ReservaRepository repository) {
         ReservaGateway reservaGateway = new ReservaDatabaseGateway(repository);
         return new ListarReservasDeUmPeriodoUseCase(reservaGateway);
     }
+    @Bean
+    public ListarQuartosPorPeriodoDisponibilidadeUseCase listarQuartosPorPeriodoDisponibilidadeUseCase(QuartoRepository repository){
+        QuartoGateway quartoGateway = new QuartoDatabaseGateway(repository);
+        return new ListarQuartosPorPeriodoDisponibilidadeUseCase(quartoGateway);
+    }
 
     @Bean
-    public ReservarReservaUseCase reservarReservaUseCase(ReservaRepository repository) {
+    public ExibirPossibilidadesDeQuartosDisponiveisParaAtenderReserva exibirPossibilidadesDeQuartosDisponiveisParaAtenderReserva(ListarQuartosPorPeriodoDisponibilidadeUseCase listarQuartosPorPeriodoDisponibilidadeUseCase){
+        return new ExibirPossibilidadesDeQuartosDisponiveisParaAtenderReserva(listarQuartosPorPeriodoDisponibilidadeUseCase);
+    }
+
+
+    @Bean
+    public BuscarReservaPorIdUseCase buscarReservaPorIdUseCase(ReservaRepository repository) {
         ReservaGateway reservaGateway = new ReservaDatabaseGateway(repository);
-        return new ReservarReservaUseCase(reservaGateway);
+        return new BuscarReservaPorIdUseCase(reservaGateway);
+    }
+
+    @Bean
+    public IndisponibilizarQuartoUseCase indisponibilizarQuartoUseCase(QuartoRepository repository){
+        QuartoGateway quartoGateway = new QuartoDatabaseGateway(repository);
+        return new IndisponibilizarQuartoUseCase(quartoGateway);
+    }
+
+    @Bean ReservarReservaUseCase reservarReservaUseCase(ReservaRepository repository, ClienteRepository clienteRepository,
+                                                        QuartoRepository quartoRepository, ServicoRepository servicoRepository,
+                                                        ItemRepository itemRepository){
+        ReservaGateway reservaGateway = new ReservaDatabaseGateway(repository);
+        ClienteGateway clienteGateway = new ClienteDatabaseGateway(clienteRepository);
+        QuartoGateway quartoGateway = new QuartoDatabaseGateway(quartoRepository);
+        ServicoGateway servicoGateway = new ServicoDatabaseGateway(servicoRepository);
+        ItemGateway itemGateway = new ItemDatabaseGateway(itemRepository);
+
+        return new ReservarReservaUseCase(reservaGateway, new BuscarClienteUseCase(clienteGateway), new BuscarQuartoPorIdUseCase(quartoGateway),
+                                         new BuscarServicoUseCase(servicoGateway), new BuscarItemUseCase(itemGateway));
     }
 }

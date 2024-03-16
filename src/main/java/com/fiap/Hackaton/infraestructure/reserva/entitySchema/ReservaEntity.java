@@ -28,16 +28,18 @@ public class ReservaEntity {
     private BigDecimal valorReserva;
     private BigDecimal valorTotal;
     private Integer quantidadePessoas;
-    @OneToMany(mappedBy = "reserva")
+    @OneToMany(mappedBy = "reserva", cascade = CascadeType.PERSIST)
     private List<ReservaServicoEntity> reservaServicoEntities;
-    @OneToMany(mappedBy = "reserva")
+    @OneToMany(mappedBy = "reserva" , cascade = CascadeType.PERSIST)
     private List<ReservaItemEntity> reservaItemEntities;
+
     @ManyToMany
     @JoinTable(
             name = "reserva_quarto",
-            joinColumns = @JoinColumn(name = "quarto_id"),
-            inverseJoinColumns = @JoinColumn(name = "reserva_id"))
+            joinColumns = @JoinColumn(name = "reserva_id"),
+            inverseJoinColumns = @JoinColumn(name = "quarto_id"))
     private List<QuartoEntity> quartoEntities;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cliente_id")
     private ClienteEntity cliente;
@@ -70,9 +72,12 @@ public class ReservaEntity {
     }
 
     public ReservaEntity(Cliente cliente, LocalDate dataInicial, LocalDate dataFinal, Integer quantidadePessoas,
+                         BigDecimal valorReserva, BigDecimal valorTotal,
                          List<Quarto> quartos, List<ReservaServico> servicos, List<ReservaItem> itens) {
         this.dataInicial = dataInicial;
         this.dataFinal = dataFinal;
+        this.valorReserva = valorReserva;
+        this.valorTotal = valorTotal;
         this.quantidadePessoas = quantidadePessoas;
         this.cliente = new ClienteEntity(cliente);
         this.quartoEntities = quartos.stream().map(QuartoEntity::new).toList();
@@ -188,5 +193,20 @@ public class ReservaEntity {
         );
     }
 
+    public Reserva toEntityReservar(){
+        return new Reserva(
+                this.id,
+                this.dataInicial,
+                this.dataFinal,
+                this.valorReserva,
+                this.valorTotal,
+                this.quantidadePessoas,
+                this.cliente.toEntity(),
+                this.quartoEntities.stream().map(QuartoEntity::toEntity).toList(),
+                this.reservaItemEntities.stream().map(ReservaItemEntity::toEntity).toList(),
+                this.reservaServicoEntities.stream().map(ReservaServicoEntity::toEntity).toList()
+
+        );
+    }
     //@TODO criar um toEntity com a lista dos itens e dos servicos
 }

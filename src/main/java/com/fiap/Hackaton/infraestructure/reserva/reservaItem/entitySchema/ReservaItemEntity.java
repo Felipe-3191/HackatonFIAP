@@ -38,7 +38,18 @@ public class ReservaItemEntity {
         if(reservaItem.getItem() != null)
             this.item = new ItemEntity(reservaItem.getItem());
     }
-
+    public ReservaItemEntity(Long id, Integer quantidade, ItemEntity item) {
+        this.id = id;
+        this.quantidade = quantidade;
+        this.item = item;
+    }
+    public ReservaItem toEntity(){
+        return new ReservaItem(
+                this.id,
+                this.quantidade,
+                this.item
+        );
+    }
     public ReservaItemEntity(Item item){
         this.item = new ItemEntity(item);
     }

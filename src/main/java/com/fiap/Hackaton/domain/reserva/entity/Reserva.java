@@ -56,18 +56,19 @@ public class Reserva {
         this.responsavelReserva = entity;
         this.quartosReservados = list;
     }
-    public Reserva(Long idCLiente, List<Long> idQuartos, LocalDate dataInicio, LocalDate dataFim,
-                   List<ReservaServicoRequestData> reservaServicos, List<ReservaItemRequestData> reservaItens,
-                   Integer quantidadePessoas){
+    public Reserva(Cliente cliente, List<Quarto> quartos, LocalDate dataInicio, LocalDate dataFim,
+                   BigDecimal valorReserva, BigDecimal valorTotal,
+                   List<ReservaServico> servicos, List<ReservaItem> items, Integer quantidadePessoas){
 
         this.dataInicial = dataInicio;
         this.dataFinal = dataFim;
+        this.valorReserva = valorReserva;
+        this.valorTotal = valorTotal;
         this.quantidadePessoas = quantidadePessoas;
-        this.responsavelReserva = new Cliente(idCLiente);
-        this.quartosReservados = idQuartos.stream().map(Quarto::new).toList();
-        this.servicosConsumidos = reservaServicos.stream().map(ReservaServico::new).toList();
-        this.itensConsumidos = reservaItens.stream().map(ReservaItem::new).toList();
-
+        this.responsavelReserva = cliente;
+        this.quartosReservados = quartos;
+        this.servicosConsumidos = servicos;
+        this.itensConsumidos = items;
     }
 
 

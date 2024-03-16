@@ -6,6 +6,7 @@ import com.fiap.Hackaton.infraestructure.quarto.dto.QuartoPublicData;
 import com.fiap.Hackaton.infraestructure.quarto.dto.QuartoRequestData;
 import com.fiap.Hackaton.infraestructure.reserva.dto.ReservaPublicData;
 import com.fiap.Hackaton.infraestructure.reserva.dto.ReservaRequestData;
+import com.fiap.Hackaton.infraestructure.reserva.dto.ReservaReservarData;
 import com.fiap.Hackaton.infraestructure.reserva.reservaServico.dto.ReservaServicoRequestData;
 import com.fiap.Hackaton.usecase.quarto.usecases.CriarQuartoUseCase;
 import com.fiap.Hackaton.usecase.reserva.ReservarReservaUseCase;
@@ -29,8 +30,8 @@ public class ReservaReservarController {
 
     @PostMapping("/reservas")
     @Operation(summary = "Reservar")
-    public ResponseEntity<ReservaPublicData> reservar(@Valid @RequestBody ReservaRequestData dados) {
+    public ResponseEntity<ReservaReservarData> reservar(@Valid @RequestBody ReservaRequestData dados) {
         Reserva reserva = reservarReservaUseCase.executar(dados);
-        return ResponseEntity.ok(new ReservaPublicData(reserva));
+        return ResponseEntity.ok(new ReservaReservarData(reserva));
     }
 }

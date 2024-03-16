@@ -40,6 +40,18 @@ public class ReservaServicoEntity {
             this.servico = new ServicoEntity(reservaServico.getServico());
 
     }
+    public ReservaServicoEntity(Long id, Integer quantidade, ServicoEntity servico) {
+        this.id = id;
+        this.quantidade = quantidade;
+        this.servico = servico;
+    }
+    public ReservaServico toEntity(){
+        return new ReservaServico(
+                this.id,
+                this.quantidade,
+                this.servico
+        );
+    }
     public ReservaServicoEntity(Servico servico){
         this.servico = new ServicoEntity(servico);
     }

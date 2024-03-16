@@ -2,6 +2,7 @@ package com.fiap.Hackaton.domain.reserva.reservaItem.entity;
 
 import com.fiap.Hackaton.domain.hotel.item.entity.Item;
 import com.fiap.Hackaton.domain.reserva.entity.Reserva;
+import com.fiap.Hackaton.infraestructure.hotel.item.entityschema.ItemEntity;
 import com.fiap.Hackaton.infraestructure.reserva.reservaItem.dto.ReservaItemRequestData;
 import com.fiap.Hackaton.infraestructure.reserva.reservaServico.dto.ReservaServicoRequestData;
 
@@ -24,6 +25,13 @@ public class ReservaItem {
         this.quantidade = reservaItemRequestData.quantidade();
         this.item = new Item(reservaItemRequestData.idItem());
     }
+
+    public ReservaItem(Long id, Integer quantidade, ItemEntity item) {
+        this.id = id;
+        this.quantidade = quantidade;
+        this.item = item.toEntity();
+    }
+
 
     public Long getId() {
         return id;
